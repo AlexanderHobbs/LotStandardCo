@@ -1,5 +1,4 @@
 <script setup lang="ts">
-// TODO: MOCK CONTENT - replace these with the real testimonials.
 // Add, remove or reorder entries freely; the grid adapts to the count.
 const testimonials = [
   {
@@ -14,20 +13,6 @@ const testimonials = [
     name: "Priya R.",
     location: "Fort Smith, Ar",
   },
-  // {
-  //   quote:
-  //     "Fast, professional and easy to schedule. They re-striped and sealcoated our whole lot in a weekend.",
-  //   name: "Alex Johnson",
-  //   role: "Owner",
-  //   company: "Sample Restaurant Group",
-  // },
-  // {
-  //   quote:
-  //     "Responsive from the first call to the final walkthrough. We now use them for every property we manage.",
-  //   name: "Sam Taylor",
-  //   role: "Operations Manager",
-  //   company: "Sample Apartment Communities",
-  // },
 ];
 </script>
 <template>

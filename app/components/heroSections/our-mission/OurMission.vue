@@ -15,6 +15,8 @@
           src="/images/mission.jpg"
           width="800"
           height="1000"
+          format="webp"
+          fit="outside"
           loading="lazy"
           class="aspect-[4/5] rounded-3xl w-full object-cover"
           alt="Aerial view of a freshly sealcoated and striped commercial parking lot with crisp white stall lines"

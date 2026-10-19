@@ -6,13 +6,8 @@
   import { classNames } from '@/utils'
   import { colors } from '@/utils/colors'
   import { NuxtLink } from '#components'
-  // import { useAppConfig } from '#imports'
-  // TODO: Remove
   // @ts-expect-error
   import appConfig from '#build/app.config'
-
-  // TODO: Remove
-  // const appConfig = useAppConfig()
 
   const props = defineProps({
     type: {

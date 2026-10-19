@@ -1,14 +1,9 @@
 <script setup lang="ts">
 // Shown on the home page and all 12 town pages.
 const google = {
-  // MOCK: placeholder rating, not from the Google Business Profile. Replace
-  // with the real rating, or hide the rating block below until there are
-  // reviews. The template always draws 5 full stars, whatever this value is.
   rating: 5.0,
 };
 
-// CONFIRM: these are real offers only if every one is in your contracts
-// (same claims as "What Sets Us Apart" on the About page).
 const USP = [
   { name: "Annual Lot Care Plan" },
   { name: "Multi-property coverage and single invoice" },

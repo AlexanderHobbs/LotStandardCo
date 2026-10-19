@@ -51,7 +51,6 @@
 
 <template>
   <div>
-    <!-- <div class="container mx-auto"> -->
     <div
       class="min-h-screen flex flex-col pb-20 lg:pb-0 bg-background dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50"
     >
@@ -68,7 +67,6 @@
       <TheFooter />
       <StickyQuoteBar v-if="showStickyBar" />
     </div>
-    <!-- </div> -->
   </div>
 </template>
 

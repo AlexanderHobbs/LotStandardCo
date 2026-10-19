@@ -1,14 +1,10 @@
 <script setup lang="ts">
   definePageMeta({
-    // layout: 'default',
-    // name: 'blog',
-    // alias: 'blog',
     title: "Parking Lot Maintenance Tips & Guides",
     description: "Parking lot maintenance tips and guides from Lot Standard Co: striping, sealcoating, ADA compliance and floor marking for Arkansas businesses.",
     navOrder: 5,
     type: 'secondary',
     icon: 'i-mdi-post-outline',
-    // ogImage: 'images/ogImage.png', // url or local images inside public folder, for eg, ~/public/images/ogImage.png
   })
 </script>
 <template>

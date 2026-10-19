@@ -99,7 +99,6 @@ const values = [
       </div>
     </section>
 
-    <!-- TODO: MOCK CONTENT - replace this copy with the owners' real names and story. -->
     <section class="container mx-auto px-4 py-12">
       <div class="-mx-4 flex flex-wrap items-center">
         <div class="p-4 w-full lg:order-last lg:w-5/12">
@@ -107,6 +106,8 @@ const values = [
             :src="ownersImage"
             width="800"
             height="1000"
+            format="webp"
+            fit="outside"
             loading="lazy"
             class="aspect-[4/5] w-full rounded-3xl object-cover object-[50%_30%] shadow-xl"
             alt="The owners of Lot Standard Co standing together outdoors"
@@ -160,6 +161,8 @@ const values = [
             :src="equipmentImage"
             width="800"
             height="1000"
+            format="webp"
+            fit="outside"
             loading="lazy"
             class="aspect-[4/5] w-full rounded-3xl object-cover shadow-xl"
             alt="Lot Standard Co line striping machine and sealcoating equipment"

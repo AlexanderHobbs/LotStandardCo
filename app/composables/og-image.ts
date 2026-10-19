@@ -10,11 +10,9 @@ export const useOgImage = () => {
   const ogImageOptions = {
     component: 'OgCard',
     title,
-    // description: '', // use page description instead
     summary: description,
     fromBg,
     toBg,
-    // image: '~/assets/images/hero1.jpg',
     logo,
     author,
     twitter,
@@ -29,15 +27,12 @@ export const useOgImage = () => {
     cover: true,
     ...optimizeImage(
       ogImage.value,
-      /* options */
       {
         modifiers: {
           width: 1200,
           height: 600,
           fit: 'fill', // can be cover, contain, fill, inside, outside
         },
-
-        // placeholder: false, // placeholder image before the actual image is fully loaded.
       },
     ),
   }

@@ -73,6 +73,8 @@
           :alt="`${service.name} for a commercial parking lot in Arkansas`"
           width="800"
           height="600"
+          format="webp"
+          fit="outside"
           loading="eager"
           fetchpriority="high"
           class="aspect-[4/3] w-full rounded-3xl object-cover shadow-xl"

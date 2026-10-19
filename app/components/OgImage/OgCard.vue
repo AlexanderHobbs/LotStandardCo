@@ -75,7 +75,6 @@
             {{ title }}
           </span>
         </div>
-        <!-- <h1 class="p-4 text-6xl text-white">{{ title }}</h1> -->
         <h5 class="mt-8 p-4 text-white text-4xl" style="white-space: normal">
           <span>{{ description }}</span>
         </h5>

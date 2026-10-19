@@ -1,5 +1,4 @@
-// since `.js, .ts` files are not included by default,
-// the following comment tells UnoCSS to force scan this file (to pick the logo icon).
+// Makes UnoCSS scan this file for the nav and social icon classes:
 // @unocss-include
 
 export default {
@@ -11,7 +10,7 @@ export default {
   url: "https://lotstandard.com",
   github: "",
   generator: "",
-  defaultLocale: "en", // default
+  defaultLocale: "en",
   // Business details used for schema.org LocalBusiness markup and the visible
   // contact info (footer + contact page). Keep these identical everywhere
   // (name, address, phone) - consistency is a local SEO ranking signal.
@@ -55,7 +54,6 @@ export default {
       "Benton County, AR",
     ] as string[],
   },
-  // TODO (before launch): replace these placeholder profile URLs with the real ones.
   socials: [
     { name: "Instagram", icon: "i-mdi-instagram", color: "#E4405F", url: "https://instagram.com/lotstandardco" },
     { name: "Twitter", icon: "i-mdi-twitter", color: "#1DA1F2", url: "https://twitter.com/lotstandardco" },
@@ -63,8 +61,8 @@ export default {
     { name: "LinkedIn", icon: "i-mdi-linkedin", color: "#0A66C2", url: "https://linkedin.com/company/lotstandardco" },
   ],
   twitter: "", // handle without the @, e.g. 'lotstandardco'
-  trailingSlash: false, // default
-  titleSeparator: "|", // default
+  trailingSlash: false,
+  titleSeparator: "|",
 
   navs: {
     primary: [

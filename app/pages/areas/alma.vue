@@ -100,8 +100,10 @@ useSchemaOrg([
         <NuxtImg
           src="/images/services/line-striping.jpg"
           :alt="`Fresh parking lot striping in ${town.name}, Arkansas`"
-          width="640"
-          height="520"
+          width="960"
+          height="780"
+          format="webp"
+          fit="outside"
           loading="lazy"
           class="h-full min-h-[18rem] w-full rounded-2xl object-cover"
         />

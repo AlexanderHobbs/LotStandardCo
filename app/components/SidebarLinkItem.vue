@@ -7,9 +7,6 @@
     table?: boolean
   }>()
 
-  // const config = useRuntimeConfig()
-  // const { baseURL: base } = config.app
-
   const link = computed(() => {
     const hash = props.item.link && joinUrl(`#`, props.item.link)
     return {

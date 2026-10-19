@@ -10,7 +10,7 @@ const { title } = siteMeta;
     to="/"
     :aria-label="`${title} home`"
   >
-    <!-- Logo mark: the white "Logo Icon" PNG used as a mask so it takes the text color -->
+    <!-- Logo mark: a white PNG used as a CSS mask so it takes the text color -->
     <span
       class="logo-mark block h-10 w-10 shrink-0 bg-secondary-500 sm:h-12 sm:w-12"
       role="img"

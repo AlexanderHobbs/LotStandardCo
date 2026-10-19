@@ -10,9 +10,6 @@ import TestimonialsSection from "@/components/heroSections/testimonials/Testimon
 import FaqSection from "@/components/heroSections/faq/FaqSection.vue";
 
 definePageMeta({
-  // layout: 'default',
-  // name: 'index',
-  // alias: 'index',
   title: "Premium Parking Lot Maintenance in Western Arkansas",
   description:
     "Professional parking lot line striping, sealcoating, ADA-compliant marking, and pavement maintenance for commercial properties in Fort Smith and surrounding areas.",
@@ -26,7 +23,6 @@ definePageMeta({
     "ADA compliant parking lot marking",
     "pavement maintenance",
   ],
-  // ogImage: 'images/ogImage.png', // url or local images inside public folder, for eg, ~/public/images/ogImage.png
 });
 </script>
 <template>

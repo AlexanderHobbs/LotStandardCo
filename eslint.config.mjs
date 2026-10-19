@@ -1,9 +1,7 @@
 import withNuxt from './.nuxt/eslint.config.mjs'
 
 export default withNuxt(
-  // your custom flat configs go here, for example:
   {
-    // .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts
     files: [
       '**/*.vue',
       '**/*.js',
@@ -29,7 +27,4 @@ export default withNuxt(
   {
     ignores: ['**/public/'],
   },
-  // {
-  //   ...
-  // }
 )

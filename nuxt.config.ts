@@ -18,21 +18,10 @@ export default defineNuxtConfig({
     "./app-nuxt-tailwindcss-layer", // NavBar and Footer components
   ],
 
-  // ssr: false,
-  // devtools: { enabled: false }, // enabled by default, disable when using standalone Vue devtools when using standalone Vue devtools
-
-  // Preparation for Nuxt 4 migration
+  // Opt in to the Nuxt 4 directory layout (app/, server/)
   future: {
     compatibilityVersion: 4,
   },
-
-  // Before Nuxt 4 migration
-  // srcDir: 'app',
-  // serverDir: fileURLToPath(new URL('server', import.meta.url)),
-  // dir: {
-  //   public: fileURLToPath(new URL('public', import.meta.url)),
-  //   modules: fileURLToPath(new URL('modules', import.meta.url)),
-  // },
 
   experimental: {
     componentIslands: false,
@@ -72,14 +61,13 @@ export default defineNuxtConfig({
   },
 
   app: {
-    baseURL: "/", // defaulted by nuxt
+    baseURL: "/",
     // Brief fade between pages: the old page fades out, then the new one mounts
     // and fades in, which gives its components and styles a moment to settle.
     // The timings live in app/assets/css/tailwind.css (.page-*).
     pageTransition: { name: "page", mode: "out-in" },
-    // Look into HeadAndMeta.vue for the rest
     head: {
-      meta: [{ charset: "utf-8" }], // defaulted by nuxt
+      meta: [{ charset: "utf-8" }],
     },
   },
 
@@ -88,43 +76,22 @@ export default defineNuxtConfig({
     "@nuxt/content",
     "@vueuse/nuxt",
     "@pinia/nuxt",
-    // '@nuxtjs/html-validator',
     "@nuxt/image",
     "@vee-validate/nuxt",
     "@nuxtjs/seo",
-    // '@nuxtjs/fontaine', // blocked by https://github.com/nuxt-modules/fontaine/issues/342
     "@nuxtjs/critters",
-    // '@nuxt/icon', // Enable once nuxt-icon is removed
-    "nuxt-icon", // To be replaced with @nuxt-icon (above), once NuxtSEO drops using this/becomes stable..
+    "nuxt-icon", // @nuxtjs/seo still depends on this; switch to @nuxt/icon once it doesn't
     "@nuxt/eslint",
   ],
 
-  // https://dev.to/jacobandrewsky/improving-performance-of-nuxt-with-fontaine-5dim
-  // blocked by https://github.com/nuxt-modules/fontaine/issues/342
-  // fontMetrics: {
-  //   fonts: ['Inter', 'Kalam'],
-  // },
-
-  // https://dev.to/jacobandrewsky/optimizing-css-performance-in-nuxt-with-critters-4k8i
   critters: {
-    // Options passed directly to critters: https://github.com/GoogleChromeLabs/critters#critters-2
     config: {
-      // Default: 'media'
       preload: "swap",
     },
   },
 
-  /* Enable once nuxt-icon is removed */
-  // icon: {
-  //   componentName: 'NuxtIcon', // Instead of NuxtIcon, prefer using BaseIcon that uses unocss-icons which is more efficient
-  //   serverBundle: {
-  //     collections: ['vscode-icons', 'logos'],
-  //   },
-  // },
-
   css: [
     "@/assets/css/tailwind.css",
-    // 'lite-youtube-embed/src/lite-yt-embed.css',
   ],
 
   postcss: {
@@ -147,25 +114,11 @@ export default defineNuxtConfig({
   },
 
   image: {
-    // dir: 'assets/images', // doesn't always work, for eg, with vercel etc, https://github.com/nuxt/image/issues/1006. Therefore, we are storing the images in public folder, to have them not processed by vite, but rather by nuxt-image module on-demand
-    // sizes: 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw', // Global sizes not yet supported, has to be specified in NuxtImg or NuxtPicture tags - https://github.com/nuxt/image/issues/216
-    // densities: [1,2], // default
-    // quality: 80, // can be overridden as NuxtImg prop
-    format: ["webp", "png", "jpg"], // default is ['webp']
-    // The screen sizes predefined by `@nuxt/image`:
-    // screens: {
-    //   xs: 320,
-    //   sm: 640,
-    //   md: 768,
-    //   lg: 1024,
-    //   xl: 1280,
-    //   xxl: 1536,
-    //   '2xl': 1536,
-    // },
-
-    // TODO: Currently image optimization is paused until some bugs in Nuxt Image modules are fixed
-    // provider: 'ipx',
-    provider: "none",
+    format: ["webp", "png", "jpg"],
+    // Images are resized and converted at build time (nuxt generate writes them
+    // to dist/_ipx/), so the static site serves the small versions.
+    provider: "ipx",
+    quality: 75,
 
     presets: {
       avatar: {
@@ -176,16 +129,12 @@ export default defineNuxtConfig({
         },
       },
     },
-    // netlify: {
-    //   baseURL: url,
-    // },
     domains: ["placehold.co"],
   },
 
   veeValidate: {
-    // disable or enable auto imports
     autoImports: true,
-    // Use different names for components
+    // Prefixed so they don't clash with native <form>/<input> names
     componentNames: {
       Form: "VeeForm",
       Field: "VeeField",
@@ -195,7 +144,7 @@ export default defineNuxtConfig({
   },
 
   content: {
-    // Before Nuxt 4 migration
+    // Content lives in app/content (Nuxt 4 layout)
     sources: {
       content: {
         driver: "fs",
@@ -226,10 +175,6 @@ export default defineNuxtConfig({
     storesDirs: ["./stores/**"],
   },
 
-  imports: {
-    // dirs: ['my-components'],
-  },
-
   vue: {
     compilerOptions: {
       isCustomElement: (tag) => tag === "lite-youtube",
@@ -246,7 +191,6 @@ export default defineNuxtConfig({
   },
 
   // Used by all modules in the @nuxtjs/seo collection
-  // https://nuxtseo.com/docs/nuxt-seo/guides/using-the-modules
   site: {
     url,
     name: title,
@@ -258,7 +202,6 @@ export default defineNuxtConfig({
   },
 
   robots: {
-    // https://nuxtseo.com/docs/robots/api/config#blocknonseobots-boolean
     blockNonSeoBots: true,
   },
 
@@ -289,8 +232,6 @@ export default defineNuxtConfig({
       { loc: "/areas/rogers", priority: 0.7, changefreq: "monthly" },
       { loc: "/areas/bentonville", priority: 0.7, changefreq: "monthly" },
     ],
-    // https://nuxtseo.com/docs/sitemap/getting-started/troubleshooting
-    // Open {{site.url}}/sitemap.xml
     xslColumns: [
       { label: "URL", width: "50%" },
       { label: "Last Modified", select: "sitemap:lastmod", width: "12.5%" },
@@ -302,9 +243,6 @@ export default defineNuxtConfig({
       },
       { label: "Hreflangs", select: "count(xhtml:link)", width: "12.5%" },
     ],
-    // To turn off xls file when viewing sitemap.xml
-    // xsl: false,
-    // Remove strictNuxtContentPaths if using nuxt-content in documentDriven mode
     strictNuxtContentPaths: true,
   },
 
@@ -312,13 +250,7 @@ export default defineNuxtConfig({
     defaults: {
       extension: "jpeg",
     },
-    // OG images and nuxtseo features can be previewed with nuxt-devtools during development. OG images can also be viewed using URL in this form - `/__og-image__/image/<path>/og.<extension>`.
-    // fonts: ['Inter:400', 'Inter:700'],
-    //
-    // defaults: { width: 1200, height: 600, emojis: 'noto', renderer: 'satori', component: 'NuxtSeo', cacheMaxAgeSeconds: 60 * 60 * 24 * 3 },
-    //
-    // disable at a global level
-    // runtimeCacheStorage: false,
+    // Preview a page's image at /__og-image__/image/<path>/og.jpeg
   },
 
   linkChecker: {
@@ -333,7 +265,7 @@ export default defineNuxtConfig({
     presets: [
       // Cast to any to avoid type conflicts between different @unocss/core instances
       presetIcons({
-        prefix: "i-", // default prefix, do not change
+        prefix: "i-",
         // Load the icon sets explicitly. The preset's automatic loader switches
         // itself off when it detects VS Code (e.g. `npm run dev` in its
         // terminal), which left every icon on the site blank. Add a line here
@@ -352,20 +284,7 @@ export default defineNuxtConfig({
     ],
   },
 
-  eslint: {
-    // config: {
-    //   stylistic: {
-    //     // All are default values
-    //     semi: false,
-    //     quotes: 'single',
-    //     blockSpacing: true,
-    //     indent: 2,
-    //     commaDangle: 'always-multiline',
-    //     // ...
-    //   },
-    // },
-    // ...
-  },
+  eslint: {},
 
   compatibilityDate: "2025-01-14",
   devServer: {

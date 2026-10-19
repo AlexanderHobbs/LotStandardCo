@@ -153,7 +153,7 @@ const colors = {
     950: "#4a2500",
     DEFAULT: "#fcc419",
   },
-  // Charcoal — supporting neutral for icons/contrast alongside navy & cream
+  // Charcoal — supporting neutral for icons and contrast.
   tertiary: {
     50: "#f6f6f7",
     100: "#e7e7e8",

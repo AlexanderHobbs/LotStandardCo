@@ -92,28 +92,9 @@ const safelistByComponent: Record<
       variants: ['focus-visible'],
     },
   ],
-  // input: (colorsAsRegex) => [
-  //   {
-  //     pattern: RegExp(`^text-(${colorsAsRegex})-400$`),
-  //     variants: ['dark'],
-  //   },
-  //   {
-  //     pattern: RegExp(`^text-(${colorsAsRegex})-500$`),
-  //   },
-  //   {
-  //     pattern: RegExp(`^ring-(${colorsAsRegex})-400$`),
-  //     variants: ['dark', 'dark:focus'],
-  //   },
-  //   {
-  //     pattern: RegExp(`^ring-(${colorsAsRegex})-500$`),
-  //     variants: ['focus'],
-  //   },
-  // ],
 }
 
 const safelistComponentAliasesMap = {
-  // USelect: 'UInput',
-  // //...
 }
 
 const colorsAsRegex = (colors: string[]): string => colors.join('|')
@@ -136,26 +117,15 @@ const globalColors: ColorConfig = {
 const allColors = excludeColors(globalColors)
 
 export const generateSafelist = (
-  colors: string[] /*, globalColors: string[]*/,
+  colors: string[],
 ) => {
   const baseSafelist = Object.keys(safelistByComponent).flatMap((component) =>
     safelistByComponent[component](colorsAsRegex(colors)),
   )
 
-  // Ensure `red` color is safelisted for form elements so that `error` prop of `UFormGroup` always works
-  // const formsSafelist = [
-  //   'input',
-  //   // ...
-  // ].flatMap((component) =>
-  //   safelistByComponent[component](colorsAsRegex(['red'])),
-  // )
-
   return [
     ...baseSafelist,
-    // ...formsSafelist,
-    // Ensure all global colors are safelisted for the Notification (toast.add)
-    // ...safelistByComponent['notification'](colorsAsRegex(allColors)),
-    // Gray safelist for Avatar & Notification
+    // Gray utilities built from variables at runtime, so Tailwind can't see them
     'bg-gray-500',
     'dark:bg-gray-400',
     'text-gray-500',

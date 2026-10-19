@@ -27,20 +27,6 @@ export const useHeadAndMeta = (pageMeta: ComputedRef) => {
     { rel: "icon", type: "image/png", sizes: "32x32", href: "/favicon-32x32.png" },
     { rel: "icon", type: "image/png", sizes: "16x16", href: "/favicon-16x16.png" },
     { rel: "apple-touch-icon", sizes: "180x180", href: "/apple-touch-icon.png" },
-    // ...[
-    //   '/fonts/barlow-7cHpv4kjgoGqM7E_Ass52Hs.woff2',
-    //   '/fonts/firacode-uU9eCBsR6Z2vfE9aq3bL0fxyUs4tcw4W_D1sJVD7Ng.woff2',
-    //   '/fonts/barlow-7cHpv4kjgoGqM7E_DMs5.woff2',
-    // ].map(
-    //   (href) =>
-    //     ({
-    //       rel: 'preload',
-    //       as: 'font',
-    //       type: 'font/woff2',
-    //       crossorigin: '',
-    //       href,
-    //     } as const),
-    // ),
   ];
   const noscript: any = [];
 
@@ -88,13 +74,11 @@ export const useHeadAndMeta = (pageMeta: ComputedRef) => {
       : siteTitle,
   );
 
-  // Manage head with useHead
   useHead({
-    title: pageTitle, // defined statically using definePageMeta in pages. Dynamic routes (e.g., [slug]) override it via usePageSeo.
+    title: pageTitle, // from definePageMeta; dynamic routes override it via usePageSeo
     titleTemplate: (t?: string) =>
       t && t !== siteTitle ? `${t} ${titleSeparator} ${siteTitle}` : siteTitle,
 
-    // useScript can also be used to load scripts
     script: [{ innerHTML: checkDarkTheme, once: true } as TurboScript],
     link,
     noscript,
@@ -108,26 +92,21 @@ export const useHeadAndMeta = (pageMeta: ComputedRef) => {
   );
   const keywords = computed(() => pageMeta.value.tags?.toString());
 
-  // Manage head meta with useSeoMeta
   useServerSeoMeta({
     description,
     author,
-    charset: "utf-8", // defaulted by nuxt
-    viewport: "width=device-width, initial-scale=1", // defaulted by nuxt
+    charset: "utf-8",
+    viewport: "width=device-width, initial-scale=1",
     keywords,
 
-    // // Open Graph / Facebook / LinkedIn / Discord
-    ogTitle: title, // set by @nuxtjs/seo's nuxt-seo-utils
-    ogDescription: description, // set by @nuxtjs/seo's nuxt-seo-utils
+    ogTitle: title,
+    ogDescription: description,
     ogType: pageMeta.value.ogType || "website",
-    ogImageAlt: title, // set by @nuxtjs/seo's nuxt-og-image
-    // // Other values - og:image:width, og:image:height, og:image:alt, og:image:type, og:image:secure_url
+    ogImageAlt: title,
     ogUrl: canonicalHref,
     ogSiteName: siteTitle,
-    // // Other values - og: locale, og: type
 
-    // // Twitter (X)
-    twitterCard: "summary_large_image", // set by @nuxtjs/seo & nuxt-og-image
+    twitterCard: "summary_large_image",
     twitterTitle: title,
     twitterDescription: description,
     twitterImageAlt: title,
@@ -136,9 +115,6 @@ export const useHeadAndMeta = (pageMeta: ComputedRef) => {
       : {}),
   });
 
-  // Manage schema-org with useSchemaOrg
-  // https://unhead.unjs.io/schema-org/getting-started/setup#_3-add-site-schemaorg
-  // https://nuxtseo.com/learn/mastering-meta/schema-org#reactivity-with-useschemaorg
   useSchemaOrg([
     defineWebSite({
       name: siteTitle,

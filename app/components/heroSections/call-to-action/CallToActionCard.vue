@@ -21,11 +21,9 @@
       cover: true,
       ...optimizeImage(
         img,
-        /* options */
         {
-          // placeholder: false, // placeholder image before the actual image is fully loaded.
         },
-        true /* return bgStyles */,
+        true, // also return CSS background styles
       ),
     }
   })

@@ -2,7 +2,7 @@
   const props = defineProps({
     error: {
       type: Object,
-      default(/*rawProps*/) {
+      default() {
         return {
           url: '-',
           statusCode: 404,

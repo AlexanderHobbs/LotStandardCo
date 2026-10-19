@@ -8,10 +8,9 @@ export const useOptimizeImage = () => {
     optionsWithSizes: ImageOptions = {},
     bgStyles = false,
   ): ImageOptimized => {
-    const {
-      sizes = 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw',
-      ...optionsWithPlaceholder
-    } = optionsWithSizes
+    // `sizes` is opt-in: building a srcset generates a file per screen size,
+    // which background images and OG images never use.
+    const { sizes, ...optionsWithPlaceholder } = optionsWithSizes
 
     const {
       placeholder = {
@@ -35,18 +34,16 @@ export const useOptimizeImage = () => {
         placeholder,
       })
 
-    const imageSizes = img.getSizes(src, {
-      ...options,
+    const imageSizes = sizes ? img.getSizes(src, { ...options, sizes }) : {}
 
-      sizes,
-    })
-
+    // `src` is set last: getSizes() returns its own src (the largest variant),
+    // which must not replace the image that was actually requested.
     const imageOptimized: ImageOptimized = Object.assign(
       {},
       {
+        ...imageSizes,
         src: resolvedImage.url,
         lazySrc: placeholderImage?.url,
-        ...imageSizes,
       },
     )
 

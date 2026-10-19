@@ -1,7 +1,6 @@
 export default defineAppConfig({
   ui: {
     button: {
-      // Inspired by https://ui.nuxt.com/elements/button#preset
       base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 transition-[background-color,color,filter,box-shadow] duration-300 ease-in-out enabled:hover:brightness-125',
       font: 'font-medium',
       rounded: 'rounded-full',

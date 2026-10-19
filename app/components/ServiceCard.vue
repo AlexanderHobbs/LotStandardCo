@@ -16,6 +16,8 @@
         :src="image"
         width="800"
         height="600"
+        format="webp"
+        fit="outside"
         loading="lazy"
       />
       <BaseIcon

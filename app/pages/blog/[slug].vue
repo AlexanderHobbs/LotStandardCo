@@ -2,16 +2,12 @@
   import siteMeta from '@/site'
 
   definePageMeta({
-    // layout: 'default',
-    // name: 'slug',
-    // alias: 'slug',
     title: 'Blog',
     description: 'Read, Learn, Enjoy: Your Blog Destination!',
     hidden: true,
     navOrder: 5,
     type: 'secondary',
     icon: 'i-mdi-home',
-    // ogImage: 'images/ogImage.png', // url or local images inside public folder, for eg, ~/public/images/ogImage.png
   })
 
   const slug =
@@ -19,13 +15,6 @@
     useRoute().name.toString().replace(/,/g, '/')
 
   const post = await getPost('blog', slug)
-
-  // const currentIndex = computed(() =>
-  //   posts.value.findIndex((p) => p.href === page.value.href),
-  // )
-  // const post = computed(() => posts.value[currentIndex.value])
-  // const nextPost = computed(() => posts.value[currentIndex.value - 1])
-  // const prevPost = computed(() => posts.value[currentIndex.value + 1])
 
   const author = computed(() => {
     const { twitter, avatar, gravatar, author } = post.value
@@ -119,22 +108,6 @@
               <footer
                 class="dark:divide-gray-700 divide-gray-200 divide-y font-medium leading-5 text-sm xl:col-start-1 xl:row-start-2"
               >
-                <!-- <div v-if="nextPost" class="py-8">
-                  <span class="text-primary-600 dark:text-primary-200 text-xs tracking-wide uppercase"
-                    >Next Article</span
-                  >
-                  <div class="link">
-                    <a :href="nextPost.href">{{ nextPost.title }}</a>
-                  </div>
-                </div>
-                <div v-if="prevPost" class="py-8">
-                  <span class="text-primary-600 dark:text-primary-200 text-xs tracking-wide uppercase"
-                    >Previous Article</span
-                  >
-                  <div class="link">
-                    <a :href="prevPost.href">{{ prevPost.title }}</a>
-                  </div>
-                </div> -->
                 <NuxtLink class="block pt-8" to="/blog"
                   >Back to the blog
                 </NuxtLink>

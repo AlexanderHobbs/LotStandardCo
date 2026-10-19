@@ -13,7 +13,7 @@ const fractionOfTheServicesArray = (services: Services, fraction: number): Servi
     .slice(0, Math.floor(services.length * fraction))
 }
 
-export default defineEventHandler(async (/*event*/) => {
+export default defineEventHandler(async () => {
   const someServices: Services = fractionOfTheServicesArray(allServices, 0.5)
 
   return {

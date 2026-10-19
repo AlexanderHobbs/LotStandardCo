@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  import { heroImageUrl } from '@/utils/hero'
+  import { heroImageUrl, heroImageModifiers } from '@/utils/hero'
 
   const props = defineProps({
     imageUrl: {
@@ -18,6 +18,10 @@
       type: [Boolean, String],
       default: false,
     },
+    modifiers: {
+      type: Object,
+      default: () => heroImageModifiers,
+    },
   })
 
   const { optimizeImage } = useOptimizeImage()
@@ -26,16 +30,14 @@
     cover: props.cover,
     ...optimizeImage(
       props.imageUrl,
-      /* options */
       {
-        // placeholder: false, // placeholder image before the actual image is fully loaded.
-        placeholder: props.placeholder, // placeholder image before the actual image is fully loaded.
+        modifiers: props.modifiers,
+        placeholder: props.placeholder,
       },
-      true /* return bgStyles */,
+      true, // also return CSS background styles
     ),
   }
 
-  // const heroImage = imageOptimized.src
   const bgStyles = imageOptimized.bgStyles
 </script>
 <template>
@@ -46,9 +48,6 @@
       :alt="imageOptimized.alt"
       class="sr-only"
     >
-    <!-- <div
-      class="bg-center bg-cover bg-no-repeat blur-none z-0 bg-design-image lg:bg-design-image-large"
-    > -->
     <slot />
   </div>
 </template>

@@ -31,8 +31,6 @@
   ]
 </script>
 <template>
-  <!-- TODO: MOCK CONTENT - confirm these principles and offers match how the
-       business actually works before launch. -->
   <section class="container mx-auto px-4 py-12">
     <div class="mx-auto mb-10 text-center lg:w-8/12">
       <p

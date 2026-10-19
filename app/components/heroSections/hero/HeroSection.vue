@@ -1,14 +1,15 @@
 <script setup lang="ts">
-import { heroImageUrl } from "@/utils/hero";
+import { heroImageUrl, heroImageModifiers } from "@/utils/hero";
 import siteMeta from "@/site";
 
 const { phone, phoneDisplay } = siteMeta.business;
 
 // The hero is the largest contentful paint element, so ask the browser to fetch
 // it right away instead of waiting for the CSS background to be discovered.
+const heroImageSrc = useImage()(heroImageUrl, heroImageModifiers);
 useHead({
   link: [
-    { rel: "preload", as: "image", href: heroImageUrl, fetchpriority: "high" },
+    { rel: "preload", as: "image", href: heroImageSrc, fetchpriority: "high" },
   ],
 });
 </script>
@@ -34,14 +35,6 @@ useHead({
               <h1 class="capitalize leading-tight mb-10 !text-3xl md:!text-4xl lg:!text-5xl text-white">
                 Professional Parking Lot Striping & Pavement Maintenance
               </h1>
-              <!--
-              <p class="font-thin mb-6 text-gray-300">
-                Premier parking lot professionals serving Western and 
-                North Western Arkansas. Protect your property value with 
-                fresh striping, sealcoating,and pavement repair. We work 
-                around your schedule and keep you informed every step of the way.
-              </p>
-              -->
               <div class="flex flex-wrap items-center justify-center gap-4">
                 <BaseButton
                   size="xl"
@@ -53,7 +46,6 @@ useHead({
                   <div class="inline-block ml-1 p-1.5 text-lg">
                     Request a Quote
                   </div>
-                  <!-- <BaseIcon name="i-mdi-road-variant" height="28px" /> -->
                 </BaseButton>
                 <NuxtLink
                   :to="`tel:${phone}`"
