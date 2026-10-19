@@ -1,8 +1,8 @@
-<script setup>
+<script setup lang="ts">
   definePageMeta({
-    title: 'Services',
+    title: "Parking Lot Striping Services in Arkansas",
     description:
-      'Professional line striping, sealcoating, ADA-compliant marking, pothole repair, lot cleaning, and signage for commercial parking lots.',
+      'Professional line striping, sealcoating, ADA-compliant marking, warehouse floor marking, safety markings, and signage for commercial parking lots.',
     navOrder: 2,
     type: 'primary',
     icon: 'i-mdi-road-variant',
@@ -10,25 +10,26 @@
       'line striping',
       'sealcoating',
       'ADA compliance marking',
-      'pothole repair',
-      'parking lot cleaning',
+      'warehouse floor marking',
+      'safety markings',
       'signage installation',
     ],
   })
 </script>
+
 <template>
   <div
-    class="py-12 bg-primary-100 dark:bg-primary-700 text-primary-900 dark:text-primary-100"
+    class="bg-primary-100 py-12 text-primary-900 dark:bg-primary-700 dark:text-primary-100"
   >
     <div class="flex flex-col items-center">
-      <div class="px-4 text-center w-full lg:w-8/12">
-        <h6 class="uppercase">Our Services</h6>
-        <h1 class="capitalize text-2xl md:text-3xl lg:text-4xl">
+      <div class="w-full px-4 text-center lg:w-8/12">
+        <p class="mb-2 text-sm font-medium md:text-base lg:text-lg uppercase">Our Services</p>
+        <h1 class="text-2xl capitalize md:text-3xl lg:text-4xl">
           Professional Pavement Marking & Maintenance
         </h1>
         <p class="mb-4">
-          From fresh line striping to sealcoating, ADA compliance, and pothole
-          repair, we keep commercial parking lots safe, sharp, and
+          From fresh line striping to sealcoating, ADA compliance, and warehouse
+          floor marking, we keep commercial parking lots safe, sharp, and
           code-compliant. Every job is completed by licensed, insured crews
           using durable, fast-drying materials built to withstand daily traffic.
           Browse our full range of services below, or
@@ -37,13 +38,14 @@
           >
           for your property.
         </p>
-        <BaseButton size="xl" to="/contact" color="secondary">
-          Get a Free Quote
+        <BaseButton size="xl" to="/contact" color="cta">
+          Request a Quote
         </BaseButton>
       </div>
     </div>
-    <div class="-mt-4 mx-auto pt-8 px-4 relative">
-      <div class="-mx-4 flex flex-wrap items-center justify-center mb-4">
+
+    <div class="relative mx-auto px-4 pt-8">
+      <div class="-mx-4 mb-4 flex flex-wrap items-center justify-center">
         <ServiceList />
       </div>
     </div>

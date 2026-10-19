@@ -1,7 +1,10 @@
 ---
 title: What to Expect When You Hire a Striping Contractor
+seoTitle: "Hiring a Parking Lot Striping Contractor"
+description: "Hiring a parking lot striping contractor for the first time? What happens from site visit and quote to scheduling, surface prep, striping and walkthrough."
+category: Guides
 date: 2025-09-14
-author: ProStripe Team
+author: Lot Standard Co Team
 twitter: prostripepls
 ---
 

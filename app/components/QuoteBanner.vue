@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import siteMeta from '@/site'
 
-  // Reusable "Get a Free Quote" call to action.
+  // Reusable "Request a Quote" call to action.
   //  band    - full-width strip (used above the footer)
   //  card    - rounded panel for the end of an article / content column
   //  compact - small card for sidebars
@@ -24,20 +24,20 @@
 <template>
   <section
     v-if="variant === 'band'"
-    class="bg-primary-600 px-4 py-14 text-center text-white"
+    class="bg-primary-600 px-4 py-14 text-center text-white dark:bg-primary-200 dark:text-primary-800"
   >
     <div class="container mx-auto lg:w-8/12">
-      <h2 class="mb-3 !text-2xl text-white md:!text-3xl lg:!text-4xl">
+      <h2 class="mb-3 !text-2xl text-white dark:text-primary-800 md:!text-3xl lg:!text-4xl">
         {{ title }}
       </h2>
-      <p class="mb-8 text-primary-100">{{ text }}</p>
+      <p class="mb-8 text-primary-100 dark:text-primary-700">{{ text }}</p>
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <BaseButton size="xl" color="white" to="/contact">
-          Get a Free Quote
+        <BaseButton size="xl" color="cta" to="/contact">
+          Request a Quote
         </BaseButton>
         <NuxtLink
           :to="`tel:${phone}`"
-          class="inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium ring-2 ring-inset ring-white/70 transition-colors hover:bg-white/10"
+          class="inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium ring-2 ring-inset ring-white/70 transition-colors duration-300 ease-in-out hover:bg-white/10 dark:ring-primary-800/70 dark:hover:bg-primary-800/10"
         >
           <BaseIcon name="i-mdi-phone-outline" height="20px" />
           Call {{ phoneDisplay }}
@@ -48,17 +48,17 @@
 
   <div
     v-else-if="variant === 'card'"
-    class="my-10 rounded-3xl bg-primary-600 p-8 text-center text-white"
+    class="my-10 rounded-3xl bg-primary-600 p-8 text-center text-white dark:bg-primary-200 dark:text-primary-800"
   >
-    <h3 class="mb-2 !text-xl text-white md:!text-2xl">{{ title }}</h3>
-    <p class="mb-6 text-primary-100">{{ text }}</p>
+    <h2 class="mb-2 !text-xl text-white dark:text-primary-800 md:!text-2xl">{{ title }}</h2>
+    <p class="mb-6 text-primary-100 dark:text-primary-700">{{ text }}</p>
     <div class="flex flex-wrap items-center justify-center gap-3">
-      <BaseButton size="lg" color="white" to="/contact">
-        Get a Free Quote
+      <BaseButton size="lg" color="cta" to="/contact">
+        Request a Quote
       </BaseButton>
       <NuxtLink
         :to="`tel:${phone}`"
-        class="inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium ring-2 ring-inset ring-white/70 transition-colors hover:bg-white/10"
+        class="inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium ring-2 ring-inset ring-white/70 transition-colors duration-300 ease-in-out hover:bg-white/10 dark:ring-primary-800/70 dark:hover:bg-primary-800/10"
       >
         <BaseIcon name="i-mdi-phone-outline" height="18px" />
         {{ phoneDisplay }}
@@ -66,10 +66,10 @@
     </div>
   </div>
 
-  <div v-else class="rounded-2xl bg-primary-600 p-5 text-center text-white">
+  <div v-else class="rounded-2xl bg-primary-600 p-5 text-center text-white dark:bg-primary-200 dark:text-primary-800">
     <p class="mb-3 font-bold">{{ title }}</p>
-    <BaseButton size="md" color="white" to="/contact" block>
-      Get a Free Quote
+    <BaseButton size="md" color="cta" to="/contact" block>
+      Request a Quote
     </BaseButton>
   </div>
 </template>

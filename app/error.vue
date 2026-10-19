@@ -43,7 +43,7 @@
       <div style="font-size: 1.875rem; line-height: 2.25rem">
         {{ is404 ? 'This page could not be found' : 'An error occurred' }}
       </div>
-      <div style="font-size: 1.25rem; line-height: 1.75rem opacity: 0.5;">
+      <div style="font-size: 1.25rem; line-height: 1.75rem; opacity: 0.5;">
         Looks like you've followed a broken link or entered a URL that doesn't
         exist on this site.
       </div>

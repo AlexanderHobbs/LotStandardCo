@@ -8,7 +8,7 @@
     },
     alt: {
       type: String,
-      default: 'hero',
+      default: '',
     },
     cover: {
       type: Boolean,
@@ -40,6 +40,12 @@
 </script>
 <template>
   <div class="bg-center bg-cover bg-no-repeat blur-none z-0" :style="bgStyles">
+    <img
+      v-if="imageOptimized.alt"
+      :src="imageOptimized.src"
+      :alt="imageOptimized.alt"
+      class="sr-only"
+    >
     <!-- <div
       class="bg-center bg-cover bg-no-repeat blur-none z-0 bg-design-image lg:bg-design-image-large"
     > -->

@@ -19,6 +19,32 @@
   )
   const showStickyBar = computed(() => route.path !== '/contact')
 
+  // At the top of a page the navbar is solid and takes the colour of the page's
+  // own background (white on the home page, the grey-blue on the pages with a
+  // grey backdrop), with no divider. Once the page scrolls it fades to the
+  // translucent, blurred bar and the divider line appears. Keep GREY_SECTIONS in step with the pages
+  // that have a grey backdrop.
+  const GREY_SECTIONS = ['/services', '/areas', '/about']
+  const hasGreyBackdrop = computed(() =>
+    GREY_SECTIONS.some(
+      (base) => route.path === base || route.path.startsWith(`${base}/`),
+    ),
+  )
+
+  const { y: scrollY } = useWindowScroll()
+  const atTop = computed(() => scrollY.value <= 8)
+  const navClass = computed(() =>
+    atTop.value
+      ? [
+          hasGreyBackdrop.value ? 'bg-primary-100' : 'bg-background',
+          'border-transparent',
+        ]
+      : [
+          'bg-background/70',
+          'border-neutral-200/60 dark:border-neutral-800/60',
+        ],
+  )
+
   useHeadAndMeta(pageMeta)
   useOgImage()
 </script>
@@ -27,12 +53,13 @@
   <div>
     <!-- <div class="container mx-auto"> -->
     <div
-      class="min-h-screen flex flex-col pb-20 lg:pb-0 bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50"
+      class="min-h-screen flex flex-col pb-20 lg:pb-0 bg-background dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50"
     >
       <NavBar
-        class="fixed z-20 bg-white/70 dark:bg-neutral-950/70 backdrop-blur-md border-b border-neutral-200/60 dark:border-neutral-800/60"
+        class="fixed z-20 border-b backdrop-blur-md transition-colors duration-300 ease-in-out"
+        :class="navClass"
       />
-      <div class="mt-24">
+      <div class="mt-20 xl:mt-24">
         <main class="shadow">
           <slot />
         </main>

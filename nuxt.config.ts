@@ -1,8 +1,8 @@
-import { resolve } from 'pathe'
-import presetIcons from '@unocss/preset-icons'
-import { bundledLanguages } from 'shiki'
+import { resolve } from "pathe";
+import presetIcons from "@unocss/preset-icons";
+import { bundledLanguages } from "shiki";
 
-import siteMeta from './app/site'
+import siteMeta from "./app/site";
 const {
   title,
   description,
@@ -11,11 +11,11 @@ const {
   twitter,
   trailingSlash,
   titleSeparator,
-} = siteMeta
+} = siteMeta;
 
 export default defineNuxtConfig({
   extends: [
-    './app-nuxt-tailwindcss-layer', // NavBar and Footer components
+    "./app-nuxt-tailwindcss-layer", // NavBar and Footer components
   ],
 
   // ssr: false,
@@ -35,39 +35,68 @@ export default defineNuxtConfig({
   // },
 
   experimental: {
-    componentIslands: true,
+    componentIslands: false,
+    payloadExtraction: false,
   },
 
   nitro: {
-    preset: 'netlify-static',
+    preset: "netlify-static",
+    prerender: {
+      crawlLinks: true,
+      routes: [
+        "/services",
+        "/services/line-striping",
+        "/services/sealcoating",
+        "/services/ada-compliance-marking",
+        "/services/warehouse-floor-marking",
+        "/services/safety-markings",
+        "/services/signage-installation",
+        "/areas/booneville",
+        "/areas/paris",
+        "/areas/charleston",
+        "/areas/ozark",
+        "/areas/greenwood",
+        "/areas/fort-smith",
+        "/areas/van-buren",
+        "/areas/alma",
+        "/areas/fayetteville",
+        "/areas/springdale",
+        "/areas/rogers",
+        "/areas/bentonville",
+      ],
+    },
   },
 
   build: {
-    transpile: ['shiki'], // Workaround as per https://github.com/nuxt/nuxt/issues/28127
+    transpile: ["shiki"], // Workaround as per https://github.com/nuxt/nuxt/issues/28127
   },
 
   app: {
-    baseURL: '/', // defaulted by nuxt
+    baseURL: "/", // defaulted by nuxt
+    // Brief fade between pages: the old page fades out, then the new one mounts
+    // and fades in, which gives its components and styles a moment to settle.
+    // The timings live in app/assets/css/tailwind.css (.page-*).
+    pageTransition: { name: "page", mode: "out-in" },
     // Look into HeadAndMeta.vue for the rest
     head: {
-      meta: [{ charset: 'utf-8' }], // defaulted by nuxt
+      meta: [{ charset: "utf-8" }], // defaulted by nuxt
     },
   },
 
   modules: [
-    '@unocss/nuxt',
-    '@nuxt/content',
-    '@vueuse/nuxt',
-    '@pinia/nuxt',
+    "@unocss/nuxt",
+    "@nuxt/content",
+    "@vueuse/nuxt",
+    "@pinia/nuxt",
     // '@nuxtjs/html-validator',
-    '@nuxt/image',
-    '@vee-validate/nuxt',
-    '@nuxtjs/seo',
+    "@nuxt/image",
+    "@vee-validate/nuxt",
+    "@nuxtjs/seo",
     // '@nuxtjs/fontaine', // blocked by https://github.com/nuxt-modules/fontaine/issues/342
-    '@nuxtjs/critters',
+    "@nuxtjs/critters",
     // '@nuxt/icon', // Enable once nuxt-icon is removed
-    'nuxt-icon', // To be replaced with @nuxt-icon (above), once NuxtSEO drops using this/becomes stable..
-    '@nuxt/eslint',
+    "nuxt-icon", // To be replaced with @nuxt-icon (above), once NuxtSEO drops using this/becomes stable..
+    "@nuxt/eslint",
   ],
 
   // https://dev.to/jacobandrewsky/improving-performance-of-nuxt-with-fontaine-5dim
@@ -81,7 +110,7 @@ export default defineNuxtConfig({
     // Options passed directly to critters: https://github.com/GoogleChromeLabs/critters#critters-2
     config: {
       // Default: 'media'
-      preload: 'swap',
+      preload: "swap",
     },
   },
 
@@ -94,13 +123,13 @@ export default defineNuxtConfig({
   // },
 
   css: [
-    '@/assets/css/tailwind.css',
+    "@/assets/css/tailwind.css",
     // 'lite-youtube-embed/src/lite-yt-embed.css',
   ],
 
   postcss: {
     plugins: {
-      'tailwindcss/nesting': {},
+      "tailwindcss/nesting": {},
       tailwindcss: {},
       autoprefixer: {},
     },
@@ -110,8 +139,8 @@ export default defineNuxtConfig({
     vue: {
       template: {
         transformAssetUrls: {
-          NuxtImg: ['src'],
-          OgImage: ['image'],
+          NuxtImg: ["src"],
+          OgImage: ["image"],
         },
       },
     },
@@ -122,7 +151,7 @@ export default defineNuxtConfig({
     // sizes: 'xs:100vw sm:100vw md:100vw lg:100vw xl:100vw', // Global sizes not yet supported, has to be specified in NuxtImg or NuxtPicture tags - https://github.com/nuxt/image/issues/216
     // densities: [1,2], // default
     // quality: 80, // can be overridden as NuxtImg prop
-    format: ['webp', 'png', 'jpg'], // default is ['webp']
+    format: ["webp", "png", "jpg"], // default is ['webp']
     // The screen sizes predefined by `@nuxt/image`:
     // screens: {
     //   xs: 320,
@@ -136,12 +165,12 @@ export default defineNuxtConfig({
 
     // TODO: Currently image optimization is paused until some bugs in Nuxt Image modules are fixed
     // provider: 'ipx',
-    provider: 'none',
+    provider: "none",
 
     presets: {
       avatar: {
         modifiers: {
-          format: 'webp',
+          format: "webp",
           width: 80,
           height: 80,
         },
@@ -150,7 +179,7 @@ export default defineNuxtConfig({
     // netlify: {
     //   baseURL: url,
     // },
-    domains: ['placehold.co'],
+    domains: ["placehold.co"],
   },
 
   veeValidate: {
@@ -158,10 +187,10 @@ export default defineNuxtConfig({
     autoImports: true,
     // Use different names for components
     componentNames: {
-      Form: 'VeeForm',
-      Field: 'VeeField',
-      FieldArray: 'VeeFieldArray',
-      ErrorMessage: 'VeeErrorMessage',
+      Form: "VeeForm",
+      Field: "VeeField",
+      FieldArray: "VeeFieldArray",
+      ErrorMessage: "VeeErrorMessage",
     },
   },
 
@@ -169,18 +198,18 @@ export default defineNuxtConfig({
     // Before Nuxt 4 migration
     sources: {
       content: {
-        driver: 'fs',
-        base: resolve(__dirname, 'app/content'),
+        driver: "fs",
+        base: resolve(__dirname, "app/content"),
       },
     },
     markdown: {
       anchorLinks: false,
       rehypePlugins: [
         [
-          'rehype-external-links',
+          "rehype-external-links",
           {
-            target: '_blank',
-            rel: ['noopener'],
+            target: "_blank",
+            rel: ["noopener"],
             test: (node: any) => /^https?:\/\//.test(node.properties.href),
           },
         ],
@@ -189,12 +218,12 @@ export default defineNuxtConfig({
     highlight: {
       //@ts-ignore
       langs: Object.keys(bundledLanguages),
-      theme: 'dracula-soft',
+      theme: "dracula-soft",
     },
   },
 
   pinia: {
-    storesDirs: ['./stores/**'],
+    storesDirs: ["./stores/**"],
   },
 
   imports: {
@@ -203,7 +232,7 @@ export default defineNuxtConfig({
 
   vue: {
     compilerOptions: {
-      isCustomElement: (tag) => tag === 'lite-youtube',
+      isCustomElement: (tag) => tag === "lite-youtube",
     },
   },
 
@@ -213,7 +242,7 @@ export default defineNuxtConfig({
   },
 
   routeRules: {
-    '/hidden': { robots: false },
+    "/hidden": { robots: false },
   },
 
   // Used by all modules in the @nuxtjs/seo collection
@@ -237,22 +266,41 @@ export default defineNuxtConfig({
     // Give crawlers freshness/priority hints (build time = last deploy).
     defaults: {
       lastmod: new Date().toISOString(),
-      changefreq: 'monthly',
+      changefreq: "monthly",
       priority: 0.7,
     },
-    urls: [{ loc: '/', priority: 1, changefreq: 'weekly' }],
+    urls: [
+      { loc: "/", priority: 1, changefreq: "weekly" },
+      { loc: "/services", priority: 0.9, changefreq: "weekly" },
+      { loc: "/areas", priority: 0.9, changefreq: "weekly" },
+      { loc: "/contact", priority: 0.8, changefreq: "monthly" },
+      { loc: "/about", priority: 0.8, changefreq: "monthly" },
+      { loc: "/blog", priority: 0.8, changefreq: "weekly" },
+      { loc: "/areas/booneville", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/paris", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/charleston", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/ozark", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/greenwood", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/fort-smith", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/van-buren", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/alma", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/fayetteville", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/springdale", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/rogers", priority: 0.7, changefreq: "monthly" },
+      { loc: "/areas/bentonville", priority: 0.7, changefreq: "monthly" },
+    ],
     // https://nuxtseo.com/docs/sitemap/getting-started/troubleshooting
     // Open {{site.url}}/sitemap.xml
     xslColumns: [
-      { label: 'URL', width: '50%' },
-      { label: 'Last Modified', select: 'sitemap:lastmod', width: '12.5%' },
-      { label: 'Priority', select: 'sitemap:priority', width: '12.5%' },
+      { label: "URL", width: "50%" },
+      { label: "Last Modified", select: "sitemap:lastmod", width: "12.5%" },
+      { label: "Priority", select: "sitemap:priority", width: "12.5%" },
       {
-        label: 'Change Frequency',
-        select: 'sitemap:changefreq',
-        width: '12.5%',
+        label: "Change Frequency",
+        select: "sitemap:changefreq",
+        width: "12.5%",
       },
-      { label: 'Hreflangs', select: 'count(xhtml:link)', width: '12.5%' },
+      { label: "Hreflangs", select: "count(xhtml:link)", width: "12.5%" },
     ],
     // To turn off xls file when viewing sitemap.xml
     // xsl: false,
@@ -262,7 +310,7 @@ export default defineNuxtConfig({
 
   ogImage: {
     defaults: {
-      extension: 'jpeg',
+      extension: "jpeg",
     },
     // OG images and nuxtseo features can be previewed with nuxt-devtools during development. OG images can also be viewed using URL in this form - `/__og-image__/image/<path>/og.<extension>`.
     // fonts: ['Inter:400', 'Inter:700'],
@@ -285,7 +333,21 @@ export default defineNuxtConfig({
     presets: [
       // Cast to any to avoid type conflicts between different @unocss/core instances
       presetIcons({
-        prefix: 'i-', // default prefix, do not change
+        prefix: "i-", // default prefix, do not change
+        // Load the icon sets explicitly. The preset's automatic loader switches
+        // itself off when it detects VS Code (e.g. `npm run dev` in its
+        // terminal), which left every icon on the site blank. Add a line here
+        // when using an icon from a new set.
+        collections: {
+          mdi: () =>
+            import("@iconify/json/json/mdi.json").then((i) => i.default as any),
+          "line-md": () =>
+            import("@iconify/json/json/line-md.json").then((i) => i.default as any),
+          "material-symbols": () =>
+            import("@iconify/json/json/material-symbols.json").then(
+              (i) => i.default as any,
+            ),
+        },
       }) as any,
     ],
   },
@@ -305,5 +367,8 @@ export default defineNuxtConfig({
     // ...
   },
 
-  compatibilityDate: '2025-01-14',
-})
+  compatibilityDate: "2025-01-14",
+  devServer: {
+    port: 3001
+  },
+});

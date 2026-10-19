@@ -1,0 +1,102 @@
+{
+  "services": [
+    {
+      "id": 1,
+      "slug": "line-striping",
+      "name": "Line Striping",
+      "shortDescription": "Fresh, high-visibility layouts that keep traffic flowing safely.",
+      "description": "We lay out and paint crisp, code-compliant parking stalls, fire lanes, and directional arrows using fast-drying traffic paint built to withstand heavy wear. Whether you're re-striping a faded lot or laying out a brand-new one, we get it done with minimal disruption to your business.",
+      "image": "/images/services/line-striping.jpg",
+      "imageAlt": "Lot Standard Co crew member in a safety vest line striping a commercial parking lot in Arkansas",
+      "icon": "i-mdi-road-variant",
+      "features": [
+        "Fresh, high-visibility layouts",
+        "Fast-drying traffic paint",
+        "Stall re-numbering & re-striping",
+        "Fire lane & directional markings"
+      ],
+      "priceNote": "Starting at $0.12 per linear foot"
+    },
+    {
+      "id": 2,
+      "slug": "sealcoating",
+      "name": "Sealcoating",
+      "shortDescription": "Protective coating that extends the life of your pavement.",
+      "description": "Sealcoating shields asphalt from sun, water, and chemical damage while giving your lot a fresh, uniform black finish. Regular sealcoating slows down cracking and potholes, saving you money on costly repaving down the road.",
+      "image": "/images/services/sealcoating.jpg",
+      "imageAlt": "Crew striping crisp white lines on a freshly sealcoated black asphalt parking lot",
+      "icon": "i-mdi-format-paint",
+      "features": [
+        "UV & weather protection",
+        "Fills minor surface cracks",
+        "Uniform, freshly-paved look",
+        "Recommended every 2-3 years"
+      ],
+      "priceNote": "Starting at $0.18 per sq ft"
+    },
+    {
+      "id": 3,
+      "slug": "ada-compliance-marking",
+      "name": "ADA Compliance Marking",
+      "shortDescription": "Accessible parking layouts that meet federal & state requirements.",
+      "description": "We design and paint ADA-compliant accessible parking spaces, access aisles, and signage placements, helping property owners stay compliant and avoid costly fines while serving all customers safely.",
+      "image": "/images/services/ada-compliance-marking.jpg",
+      "imageAlt": "Close-up of a line striping machine painting a crisp white line on fresh asphalt for code-compliant parking markings",
+      "icon": "i-mdi-wheelchair-accessibility",
+      "features": [
+        "Federal & state code compliance",
+        "Accessible stall & access aisle layout",
+        "Van-accessible space marking",
+        "Signage placement guidance"
+      ]
+    },
+    {
+      "id": 4,
+      "slug": "warehouse-floor-marking",
+      "name": "Warehouse Floor Marking",
+      "shortDescription": "Clear, durable markings that keep warehouse floors safe and organized.",
+      "description": "Well-marked floors reduce accidents and keep operations moving. We lay out and apply aisle lines, pedestrian walkways, forklift lanes, and safety zones on warehouse and industrial floors, using durable coatings and tape built for heavy traffic.",
+      "image": "/images/services/warehouse-floor-marking.jpg",
+      "imageAlt": "Marked warehouse floor with aisle lines and safety zones for forklift and pedestrian traffic",
+      "icon": "i-mdi-warehouse",
+      "features": [
+        "Aisle & lane striping",
+        "Pedestrian & forklift zones",
+        "Safety symbols & labels",
+        "Off-hours scheduling available"
+      ]
+    },
+    {
+      "id": 5,
+      "slug": "safety-markings",
+      "name": "Safety Markings",
+      "shortDescription": "High-visibility markings that keep drivers and pedestrians safe.",
+      "description": "Clear safety markings protect everyone on your property. We apply crosswalks, fire lanes, stop bars, directional arrows, and hazard zones in durable, high-visibility paint to reduce incidents and meet local code.",
+      "image": "/images/services/safety-markings.jpg",
+      "imageAlt": "Freshly painted crosswalk and stop bar on a commercial parking lot for pedestrian and driver safety",
+      "icon": "i-mdi-shield-alert-outline",
+      "features": [
+        "Crosswalks & pedestrian paths",
+        "Fire lanes & hazard zones",
+        "Stop bars & directional arrows",
+        "Off-hours scheduling available"
+      ]
+    },
+    {
+      "id": 6,
+      "slug": "signage-installation",
+      "name": "Signage Installation",
+      "shortDescription": "Durable signage for parking, safety, and wayfinding.",
+      "description": "From reserved and accessible parking signs to stop signs and custom wayfinding, we install durable, code-compliant signage that keeps your property organized and your visitors safe.",
+      "image": "/images/services/signage-installation.jpg",
+      "imageAlt": "Lot Standard Co technician at work on a commercial parking lot with fresh striping",
+      "icon": "i-mdi-sign-caution",
+      "features": [
+        "Reserved & accessible parking signs",
+        "Stop & directional signage",
+        "Custom wayfinding options",
+        "Post & mounting hardware included"
+      ]
+    }
+  ]
+}

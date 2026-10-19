@@ -19,11 +19,11 @@
     },
     fromBg: {
       type: String,
-      default: '#7a1212',
+      default: '#c8d1d9',
     },
     toBg: {
       type: String,
-      default: '#b91c1c',
+      default: '#6c7e82',
     },
     image: {
       type: String,
@@ -35,7 +35,7 @@
     },
     author: {
       type: String,
-      default: 'ProStripe Parking Lot Services',
+      default: 'Lot Standard Co',
     },
     twitter: {
       type: String,
@@ -66,9 +66,9 @@
             fill="none"
           >
             <rect x="1" y="8" width="22" height="8" rx="1" fill="#ffffff" />
-            <rect x="3" y="11" width="4" height="2" fill="#b91c1c" />
-            <rect x="10" y="11" width="4" height="2" fill="#b91c1c" />
-            <rect x="17" y="11" width="4" height="2" fill="#b91c1c" />
+            <rect x="3" y="11" width="4" height="2" fill="#566568" />
+            <rect x="10" y="11" width="4" height="2" fill="#566568" />
+            <rect x="17" y="11" width="4" height="2" fill="#566568" />
           </svg>
 
           <span class="text-white font-extrabold ml-2 mt-4 p-4 text-6xl">
@@ -94,6 +94,7 @@
       <div class="-my-6 w-1/2">
         <img
           cover
+          :alt="title || 'Lot Standard Co parking lot striping and pavement maintenance'"
           :src="image"
           height="630"
           width="630"

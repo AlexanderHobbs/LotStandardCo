@@ -20,7 +20,9 @@
             v-if="gravatar"
             preset="avatar"
             class="w-10 h-10 rounded-3xl"
-            alt="author image"
+            width="40"
+            height="40"
+            alt="Author profile photo"
             :src="'https://gravatar.com/avatar/' + gravatar"
           />
 
@@ -28,7 +30,9 @@
             v-else-if="avatar"
             preset="avatar"
             class="w-10 h-10 rounded-3xl"
-            alt="author image"
+            width="40"
+            height="40"
+            alt="Author profile photo"
             :src="avatar"
           />
           <dl class="text-sm font-medium leading-5 whitespace-nowrap">

@@ -1,8 +1,8 @@
 {
-  "name": "prostripe-parking-lot-services",
+  "name": "lot-standard-co",
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://prostripe-parking-lot-services.netlify.app",
+  "homepage": "https://lotstandard.com",
   "repository": {
     "type": "git",
     "url": "https://github.com/AlexanderHobbs/prostripe-parking-lot-services.git"
@@ -10,7 +10,7 @@
   "scripts": {
     "dev": "nuxt dev",
     "now": "npm run build && npm run preview",
-    "lighthouse": "npx unlighthouse --no-cache --site https://prostripe-parking-lot-services.netlify.app",
+    "lighthouse": "npx unlighthouse --no-cache --site https://lotstandard.com",
     "build": "nuxt build",
     "generate": "nuxt generate",
     "preview": "nuxt preview",

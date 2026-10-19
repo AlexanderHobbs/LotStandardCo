@@ -1,13 +1,18 @@
 ---
 title: 5 Signs Your Parking Lot Needs Re-Striping
+seoTitle: "5 Signs It's Time to Restripe Your Lot"
+description: "Faded lines create real safety and liability risk. Here are 5 signs your parking lot needs restriping, from hard-to-see ADA stalls to fresh sealcoat."
+category: Striping
 date: 2025-12-18
-author: ProStripe Team
+author: Lot Standard Co Team
 twitter: prostripepls
 ---
 
 Faded lines don't just look bad — they create real safety and liability risk. Here's how to tell when it's time.
 
 <!--more-->
+
+## 5 signs it's time to restripe
 
 1. **You can't tell where one stall ends and the next begins.** If drivers are parking crooked or "eyeballing it," your lines have faded past the point of usefulness.
 2. **Accessible markings are hard to spot.** Faded ADA signage or striping is both a safety issue and a compliance risk.

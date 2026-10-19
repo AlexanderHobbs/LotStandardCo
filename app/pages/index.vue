@@ -1,43 +1,40 @@
 <script setup lang="ts">
-  import HeroSection from '@/components/sections/hero/HeroSection.vue'
-  import TrustBar from '@/components/sections/trust/TrustBar.vue'
-  import ServiceListLite from '@/components/sections/services/ServiceListLite.vue'
-  import MiniDivider from '@/components/sections/divider/MiniDivider.vue'
-  import OurMission from '@/components/sections/our-mission/OurMission.vue'
-  import CallToAction from '@/components/sections/call-to-action/CallToAction.vue'
-  import ProcessSection from '@/components/sections/process/ProcessSection.vue'
-  import StatsSection from '@/components/sections/stats/StatsSection.vue'
-  import TestimonialsSection from '@/components/sections/testimonials/TestimonialsSection.vue'
-  import FaqSection from '@/components/sections/faq/FaqSection.vue'
+import HeroSection from "@/components/heroSections/hero/HeroSection.vue";
+import TrustBar from "@/components/heroSections/trust/TrustBar.vue";
+import ServiceListLite from "@/components/heroSections/services/ServiceListLite.vue";
+import OurMission from "@/components/heroSections/our-mission/OurMission.vue";
+import ProcessSection from "@/components/heroSections/process/ProcessSection.vue";
+import WhatSetsUsApart from "@/components/heroSections/about/WhatSetsUsApart.vue";
+import StatsSection from "@/components/heroSections/stats/StatsSection.vue";
+import TestimonialsSection from "@/components/heroSections/testimonials/TestimonialsSection.vue";
+import FaqSection from "@/components/heroSections/faq/FaqSection.vue";
 
-  definePageMeta({
-    // layout: 'default',
-    // name: 'index',
-    // alias: 'index',
-    title: 'Parking Lot Striping & Sealcoating',
-    description:
-      'Professional parking lot line striping, sealcoating, ADA-compliant marking, and pavement maintenance for commercial properties.',
-    navOrder: 1,
-    type: 'primary',
-    icon: 'i-mdi-home',
-    tags: [
-      'parking lot striping',
-      'line striping contractor',
-      'sealcoating',
-      'ADA compliant parking lot marking',
-      'pavement maintenance',
-    ],
-    // ogImage: 'images/ogImage.png', // url or local images inside public folder, for eg, ~/public/images/ogImage.png
-  })
+definePageMeta({
+  // layout: 'default',
+  // name: 'index',
+  // alias: 'index',
+  title: "Premium Parking Lot Maintenance in Western Arkansas",
+  description:
+    "Professional parking lot line striping, sealcoating, ADA-compliant marking, and pavement maintenance for commercial properties in Fort Smith and surrounding areas.",
+  navOrder: 1,
+  type: "primary",
+  icon: "i-mdi-home",
+  tags: [
+    "parking lot striping",
+    "line striping contractor",
+    "sealcoating",
+    "ADA compliant parking lot marking",
+    "pavement maintenance",
+  ],
+  // ogImage: 'images/ogImage.png', // url or local images inside public folder, for eg, ~/public/images/ogImage.png
+});
 </script>
 <template>
   <div>
     <HeroSection />
     <TrustBar />
-    <ServiceListLite />
     <OurMission />
-    <MiniDivider />
-    <CallToAction />
+    <ServiceListLite />
     <ProcessSection />
     <StatsSection />
     <TestimonialsSection />

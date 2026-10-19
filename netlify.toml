@@ -5,6 +5,14 @@ publish = "dist"
 [build.environment]
 NODE_VERSION = "20.14.0"
 
+# Send the old Netlify subdomain to the real domain so search engines only
+# index one copy of the site.
+[[redirects]]
+  from = "https://prostripe-parking-lot-services.netlify.app/*"
+  to = "https://lotstandard.com/:splat"
+  status = 301
+  force = true
+
 # Old URL -> new URL, so existing links/rankings aren't lost
 [[redirects]]
   from = "/gallery"

@@ -1,7 +1,10 @@
 ---
 title: How Often Should You Sealcoat Your Parking Lot?
+seoTitle: "How Often to Sealcoat a Parking Lot"
+description: "Most commercial parking lots need sealcoating every 2-3 years. Learn what affects the timing, the signs your lot is due, and why it beats repaving."
+category: Sealcoating
 date: 2026-02-10
-author: ProStripe Team
+author: Lot Standard Co Team
 twitter: prostripepls
 ---
 

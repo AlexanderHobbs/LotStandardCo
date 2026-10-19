@@ -1,6 +1,9 @@
 <script setup lang="ts">
   import type { Service } from '~~/types/services'
-  const { slug, name, shortDescription, image, icon } = defineProps<Service>()
+  // headingTag: h3 where the cards sit under a section h2 (home, town pages),
+  // h2 on the services page where they sit directly under the h1.
+  const { slug, name, shortDescription, image, imageAlt, icon, headingTag = 'h3' } =
+    defineProps<Service & { headingTag?: 'h2' | 'h3' }>()
 </script>
 <template>
   <NuxtLink class="flex w-full md:w-6/12 lg:w-4/12" :to="`/services/${slug}`">
@@ -9,8 +12,11 @@
     >
       <NuxtImg
         class="aspect-[4/3] mb-4 mx-auto object-cover rounded-xl w-full sm:w-9/12"
-        :alt="name"
+        :alt="imageAlt || `${name} for commercial parking lots in Arkansas`"
         :src="image"
+        width="800"
+        height="600"
+        loading="lazy"
       />
       <BaseIcon
         v-if="icon"
@@ -18,7 +24,7 @@
         height="32px"
         class="mb-2 mx-auto !text-secondary-600"
       />
-      <h5 class="font-bold mb-2">{{ name }}</h5>
+      <component :is="headingTag" class="font-bold mb-2 !text-base md:!text-lg lg:!text-xl">{{ name }}</component>
       <p class="mb-6 text-secondary-600 dark:text-secondary-200 text-sm">
         {{ shortDescription }}
       </p>
@@ -27,7 +33,7 @@
         <BaseIcon
           name="i-mdi-arrow-right"
           height="20px"
-          class="!text-tertiary-600 md:ml-1.5"
+          class="!text-white md:ml-1.5"
         />
       </BaseButton>
     </div>

@@ -2,9 +2,9 @@
   import siteMeta from '@/site'
 
   definePageMeta({
-    title: 'Contact',
+    title: "Contact Us for a Free Striping Quote",
     description:
-      'Request a free quote for parking lot striping, sealcoating, or pavement maintenance.',
+      "Request a free quote for parking lot striping, sealcoating or ADA marking in Fort Smith and western Arkansas. Call or send us your lot details.",
     navOrder: 6,
     type: 'secondary',
     icon: 'i-mdi-email-outline',
@@ -13,7 +13,7 @@
 
   const { phone, phoneDisplay, email } = siteMeta.business
 
-  const { allServices: services } = await useServices()
+  const { allServices: services } = useServices()
 
   const isRequired = (value: string) =>
     value && String(value).trim().length > 0 ? true : 'This field is required.'
@@ -25,7 +25,46 @@
       : 'Please enter a valid email address.'
   }
 
+  const isAtLeastOneService = (value: string[]) =>
+    Array.isArray(value) && value.length > 0
+      ? true
+      : 'Please select at least one service.'
+
+  const referralSources = [
+    'Google search',
+    'Google Maps / Business Profile',
+    'Facebook',
+    'Instagram',
+    'LinkedIn',
+    'Nextdoor',
+    'Yelp',
+    'Online ad',
+    'Referral from a friend or colleague',
+    'Referral from a current customer',
+    'Property manager or HOA',
+    'Saw our truck or crew on the job',
+    'Yard sign or job-site signage',
+    'Flyer, mailer or door hanger',
+    'Local newspaper or radio',
+    'Chamber of commerce or networking event',
+    'Email or newsletter',
+    'Previous customer',
+    'Other',
+  ]
+
   const submitted = ref(false)
+
+  // Arriving from a service page (/contact?service=<slug>) preselects that
+  // service in the "Services Interested In" checkboxes.
+  const route = useRoute()
+  const formRef = ref<{ setFieldValue: (field: string, value: unknown) => void } | null>(null)
+  const preselectService = () => {
+    const slug = String(route.query.service ?? '')
+    const match = services.find((service) => service.slug === slug)
+    if (match) formRef.value?.setFieldValue('service', [match.name])
+  }
+  onMounted(preselectService)
+  watch(() => route.query.service, preselectService)
 
   const onSubmit = (values: Record<string, string>, { resetForm }) => {
     // Netlify Forms processes the POST to "/" server-side on deploy; this handler
@@ -33,7 +72,13 @@
     const formData = new FormData()
     formData.append('form-name', 'contact')
     Object.entries(values).forEach(([key, value]) => {
-      formData.append(key, value as string)
+      if (Array.isArray(value)) {
+        // Netlify Forms reads repeated checkbox entries under the same
+        // name as a single multi-value field.
+        value.forEach((item) => formData.append(key, item as string))
+      } else {
+        formData.append(key, value as string)
+      }
     })
 
     $fetch('/', {
@@ -53,9 +98,9 @@
 <template>
   <div class="container mx-auto px-4 py-12">
     <div class="mx-auto text-center w-full lg:w-7/12">
-      <h6 class="text-primary-600 dark:text-primary-200 uppercase">
+      <p class="mb-2 text-sm font-medium md:text-base lg:text-lg text-primary-600 dark:text-primary-200 uppercase">
         Contact Us
-      </h6>
+      </p>
       <h1 class="capitalize mt-3 text-2xl md:text-3xl lg:text-4xl">
         Get A Free Quote
       </h1>
@@ -67,7 +112,7 @@
 
     <div class="-mx-4 flex flex-wrap mt-12">
       <div class="p-4 w-full lg:w-5/12">
-        <h5 class="font-bold mb-4">Get In Touch</h5>
+        <h2 class="font-bold mb-4 !text-base md:!text-lg lg:!text-xl">Get In Touch</h2>
         <ul class="space-y-4">
           <li class="flex items-center">
             <BaseIcon name="i-mdi-phone-outline" height="24px" class="mr-3" />
@@ -98,6 +143,7 @@
         </div>
         <VeeForm
           v-else
+          ref="formRef"
           name="contact"
           method="POST"
           data-netlify="true"
@@ -105,11 +151,11 @@
           class="space-y-4"
           @submit="onSubmit"
         >
-          <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="form-name" value="contact" >
           <p class="hidden">
             <label
               >Don't fill this out if you're human: <input name="bot-field"
-            /></label>
+            ></label>
           </p>
 
           <div>
@@ -162,27 +208,48 @@
             <VeeErrorMessage name="address" class="text-error-600 text-sm" />
           </div>
 
+          <fieldset>
+            <legend class="font-medium mb-1">Services Interested In</legend>
+            <div class="grid gap-2 sm:grid-cols-2">
+              <label
+                v-for="service in services"
+                :key="service.id"
+                class="flex items-center gap-2 font-normal"
+              >
+                <VeeField
+                  name="service"
+                  type="checkbox"
+                  :value="service.name"
+                  :rules="isAtLeastOneService"
+                  class="h-4 w-4 rounded border dark:bg-neutral-900"
+                />
+                {{ service.name }}
+              </label>
+            </div>
+            <VeeErrorMessage name="service" class="text-error-600 text-sm" />
+          </fieldset>
+
           <div>
-            <label for="service" class="block font-medium mb-1"
-              >Service Interested In</label
+            <label for="referral" class="block font-medium mb-1"
+              >Where did you hear about us?</label
             >
             <VeeField
-              id="service"
-              name="service"
+              id="referral"
+              name="referral"
               as="select"
               :rules="isRequired"
               class="border rounded-lg px-4 py-2 w-full dark:bg-neutral-900"
             >
-              <option value="">Select a service</option>
+              <option value="">Select an option</option>
               <option
-                v-for="service in services"
-                :key="service.slug"
-                :value="service.name"
+                v-for="source in referralSources"
+                :key="source"
+                :value="source"
               >
-                {{ service.name }}
+                {{ source }}
               </option>
             </VeeField>
-            <VeeErrorMessage name="service" class="text-error-600 text-sm" />
+            <VeeErrorMessage name="referral" class="text-error-600 text-sm" />
           </div>
 
           <div>
@@ -198,7 +265,7 @@
             <VeeErrorMessage name="message" class="text-error-600 text-sm" />
           </div>
 
-          <BaseButton type="submit" size="xl">Send Request</BaseButton>
+          <BaseButton type="submit" size="xl" color="cta">Send Request</BaseButton>
         </VeeForm>
       </div>
     </div>

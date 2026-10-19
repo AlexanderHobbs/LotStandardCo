@@ -17,7 +17,7 @@
   >
     <div
       v-if="visible"
-      class="fixed inset-x-0 bottom-0 z-20 flex gap-3 border-t border-neutral-200 bg-white/95 p-3 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95 lg:hidden"
+      class="fixed inset-x-0 bottom-0 z-20 flex gap-3 border-t border-neutral-200 bg-background/95 p-3 backdrop-blur dark:border-neutral-800 dark:bg-neutral-950/95 lg:hidden"
     >
       <BaseButton
         size="xl"
@@ -29,8 +29,8 @@
         <BaseIcon name="i-mdi-phone-outline" height="20px" />
         Call
       </BaseButton>
-      <BaseButton size="xl" to="/contact" class="flex-[2] justify-center">
-        Get a Free Quote
+      <BaseButton size="xl" color="cta" to="/contact" class="flex-[2] justify-center">
+        Request a Quote
       </BaseButton>
     </div>
   </Transition>

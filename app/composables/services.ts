@@ -1,14 +1,8 @@
-export const useServices = async () => {
-  const { data, error } = await useFetch('/api/services')
+import type { Services } from '../../types/services'
+import { services } from '../data/services.json'
 
-  if (error.value) {
-    throw createError({
-      ...error.value,
-      statusMessage: `Couldn't fetch services.`,
-    })
-  }
+export const useServices = () => {
+  const allServices: Services = services
 
-  const { allServices, someServices } = data.value
-
-  return { allServices, someServices }
+  return { allServices }
 }

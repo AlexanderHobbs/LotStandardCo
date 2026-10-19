@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import siteMeta from '@/site'
 
-  const { phone, phoneDisplay, email } = siteMeta.business
+  const { phone, phoneDisplay, email, addressDisplay, hoursDisplay } =
+    siteMeta.business
 
   // The Areas page shows the map in its body, so skip the footer copy there.
   const route = useRoute()
@@ -24,14 +25,14 @@
                 fill="none"
                 class="mr-2"
               >
-                <rect x="1" y="8" width="22" height="8" rx="1" fill="#b91c1c" />
+                <rect x="1" y="8" width="22" height="8" rx="1" fill="#6c7e82" />
                 <rect x="3" y="11" width="4" height="2" fill="#ffffff" />
                 <rect x="10" y="11" width="4" height="2" fill="#ffffff" />
                 <rect x="17" y="11" width="4" height="2" fill="#ffffff" />
               </svg>
-              <h6 class="font-serif inline-flex items-center text-3xl">
-                ProStripe
-              </h6>
+              <p class="font-serif inline-flex items-center text-3xl">
+                Lot Standard Co
+              </p>
             </div>
           </NuxtLink>
           <p class="mt-2 text-center w-full lg:text-left">
@@ -42,14 +43,18 @@
             <NuxtLink :to="`tel:${phone}`">{{ phoneDisplay }}</NuxtLink>
             <br />
             <NuxtLink :to="`mailto:${email}`">{{ email }}</NuxtLink>
+            <br />
+            <span>{{ addressDisplay }}</span>
+            <br />
+            <span>{{ hoursDisplay }}</span>
           </div>
         </div>
         <div
           class="flex flex-col items-center p-4 w-full sm:w-1/2 md:flex-1 md:w-1/3 lg:items-start"
         >
-          <h2 class="font-bold text-primary-600 dark:text-primary-200 text-xl">
+          <p class="font-bold text-primary-600 dark:text-primary-200 text-xl">
             Company
-          </h2>
+          </p>
           <ul class="text-center lg:mt-2 lg:text-left">
             <li class="mb-4">
               <NuxtLink
@@ -67,13 +72,6 @@
             </li>
             <li class="mb-4">
               <NuxtLink
-                to="/our-work"
-                class="hover:text-primary-600 dark:text-primary-200"
-                >Our Work</NuxtLink
-              >
-            </li>
-            <li class="mb-4">
-              <NuxtLink
                 to="/about"
                 class="hover:text-primary-600 dark:text-primary-200"
                 >About</NuxtLink
@@ -84,9 +82,9 @@
         <div
           class="flex flex-col items-center p-4 w-full sm:w-1/2 md:flex-1 md:w-1/3 lg:items-start"
         >
-          <h2 class="font-bold text-primary-600 dark:text-primary-200 text-xl">
+          <p class="font-bold text-primary-600 dark:text-primary-200 text-xl">
             Resources
-          </h2>
+          </p>
           <ul class="text-center lg:mt-2 lg:text-left">
             <li class="mb-4">
               <NuxtLink
@@ -121,9 +119,9 @@
         <div
           class="flex flex-col items-center p-4 w-full sm:w-1/2 md:flex-1 md:w-1/3 lg:items-start"
         >
-          <h2 class="font-bold text-primary-600 dark:text-primary-200 text-xl">
+          <p class="font-bold text-primary-600 dark:text-primary-200 text-xl">
             Service Area
-          </h2>
+          </p>
           <p class="text-center lg:mt-2 lg:text-left">
             Proudly serving commercial and residential properties in Logan,
             Franklin, Sebastian, Crawford, Washington and Benton counties,
@@ -134,7 +132,7 @@
           <hr class="mb-4 opacity-25" />
           <p class="py-1 text-sm sm:text-center">
             &copy; {{ new Date().getFullYear() }}. All Rights Reserved -
-            ProStripe Parking Lot Services
+            Lot Standard Co
           </p>
         </div>
       </div>

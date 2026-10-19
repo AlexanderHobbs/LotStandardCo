@@ -33,7 +33,9 @@
   })
 
   usePageSeo({
-    title: () => post.value?.title,
+    // `seoTitle` (front matter) is a shorter version for search results; the
+    // full `title` stays as the on-page headline.
+    title: () => post.value?.seoTitle || post.value?.title,
     description: () => post.value?.description || post.value?.title,
     ogType: 'article',
   })

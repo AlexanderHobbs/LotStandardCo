@@ -1,5 +1,5 @@
 import type { Services } from '~~/types/services'
-import { services } from '~~/services.json'
+import { services } from '~~/app/data/services.json'
 
 const allServices: Services = services
 

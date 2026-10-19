@@ -35,3 +35,26 @@
     @apply text-black;
   }
 }
+
+/* Page transition: quick fade, old page out then new page in. */
+.page-enter-active {
+  transition: opacity 200ms ease-out;
+}
+.page-leave-active {
+  transition: opacity 120ms ease-in;
+}
+.page-enter-from,
+.page-leave-to {
+  opacity: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .page-enter-active,
+  .page-leave-active {
+    transition: none;
+  }
+}
+
+/* CTA buttons: bold static yellow border (no shadow, no animation). */
+.cta-border {
+  box-shadow: inset 0 0 0 3px rgba(252, 196, 25, 1);
+}

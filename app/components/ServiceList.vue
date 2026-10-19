@@ -1,5 +1,6 @@
 <script setup lang="ts">
-  const { allServices: services } = await useServices()
+  // Service data lives in one place: app/data/services.json (via useServices).
+  const { allServices: services } = useServices()
 </script>
 <template>
   <div>
@@ -9,7 +10,7 @@
           v-for="(service, index) in services"
           v-bind="service"
           :key="index"
-          class
+          heading-tag="h2"
         />
       </div>
     </div>

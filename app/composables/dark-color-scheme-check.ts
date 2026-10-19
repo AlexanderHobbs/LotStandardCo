@@ -2,9 +2,8 @@
 /* prettier-ignore */
 // @ts-nocheck
 
+// The site uses a white background only — always stay in light mode,
+// regardless of the visitor's system color scheme.
 ;(() => {
-  const prefersDark = matchMedia('(prefers-color-scheme: dark)').matches
-  const setting = localStorage.getItem('vueuse-color-scheme') || 'auto'
-  if (setting === 'dark' || (prefersDark && setting !== 'light'))
-    document.documentElement.classList.toggle('dark', true)
+  document.documentElement.classList.remove('dark')
 })()

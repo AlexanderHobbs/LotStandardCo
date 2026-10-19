@@ -134,7 +134,10 @@
 
   const buttonProps = computed(() => {
     if (props.to) {
-      return { to: props.to, target: props.target }
+      return {
+        to: props.to,
+        ...(props.target ? { target: props.target } : {}),
+      }
     } else {
       return { disabled: props.disabled || props.loading, type: props.type }
     }

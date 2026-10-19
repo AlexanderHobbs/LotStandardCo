@@ -1,7 +1,9 @@
 ---
 title: Best Time of Year for Line Striping
+description: "When is the best time of year to stripe a parking lot? How weather affects paint, why late spring to early fall works best, and how to plan around it."
+category: Striping
 date: 2025-10-02
-author: ProStripe Team
+author: Lot Standard Co Team
 twitter: prostripepls
 ---
 

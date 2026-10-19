@@ -1,7 +1,10 @@
 ---
 title: A Property Manager's Guide to ADA-Compliant Parking Lot Markings
+seoTitle: "ADA Parking Lot Striping Requirements"
+description: "How many accessible parking spaces you need, what compliant ADA markings include, and a common mistake that leads to fines. A guide for property managers."
+category: Compliance
 date: 2026-01-22
-author: ProStripe Team
+author: Lot Standard Co Team
 twitter: prostripepls
 ---
 
