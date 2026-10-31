@@ -1,5 +1,10 @@
 <script setup lang="ts">
+  import NavContactButton from './NavContactButton.vue'
+
   const { allNavs, currentPath } = useNavMenu()
+
+  // 'white' while the bar sits on a grey page backdrop (set by the layout).
+  defineProps<{ quoteBackground?: 'default' | 'white' }>()
 
   // Phones and tablets, including iPads in landscape (below xl / 1280px), get
   // a hamburger menu. Desktop gets the inline links with hover dropdowns
@@ -37,14 +42,7 @@
             class="hidden xl:ml-auto xl:block"
           />
           <div class="hidden xl:block">
-            <BaseButton
-              to="/contact"
-              color="cta"
-              class="whitespace-nowrap"
-              label="Get in Contact"
-            >
-              Get in Contact
-            </BaseButton>
+            <NavContactButton :background="quoteBackground" />
           </div>
           <button
             type="button"

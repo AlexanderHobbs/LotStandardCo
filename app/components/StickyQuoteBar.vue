@@ -29,9 +29,7 @@
         <BaseIcon name="i-mdi-phone-outline" height="20px" />
         Call
       </BaseButton>
-      <BaseButton size="xl" color="cta" to="/contact" class="flex-[2] justify-center">
-        Request a Quote
-      </BaseButton>
+      <QuoteButton size="xl" class="flex-[2] justify-center" />
     </div>
   </Transition>
 </template>

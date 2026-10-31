@@ -1,3 +1,4 @@
+import { readdirSync, readFileSync } from "node:fs";
 import { resolve } from "pathe";
 import presetIcons from "@unocss/preset-icons";
 import { bundledLanguages } from "shiki";
@@ -12,6 +13,22 @@ const {
   trailingSlash,
   titleSeparator,
 } = siteMeta;
+
+// Blog posts get their real publish date as sitemap lastmod (from front matter).
+const blogSitemapUrls = readdirSync(resolve(__dirname, "app/content/blog"))
+  .filter((f) => f.endsWith(".md"))
+  .map((f) => {
+    const md = readFileSync(resolve(__dirname, "app/content/blog", f), "utf8");
+    // `updated:` (when a post is revised) wins over the original publish date.
+    const date =
+      md.match(/^updated:\s*(\S+)/m)?.[1] ?? md.match(/^date:\s*(\S+)/m)?.[1];
+    return {
+      loc: `/blog/${f.replace(/\.md$/, "")}`,
+      priority: 0.6 as const,
+      changefreq: "yearly" as const,
+      ...(date ? { lastmod: new Date(date).toISOString() } : {}),
+    };
+  });
 
 export default defineNuxtConfig({
   extends: [
@@ -75,13 +92,13 @@ export default defineNuxtConfig({
     "@unocss/nuxt",
     "@nuxt/content",
     "@vueuse/nuxt",
-    "@pinia/nuxt",
     "@nuxt/image",
     "@vee-validate/nuxt",
     "@nuxtjs/seo",
     "@nuxtjs/critters",
     "nuxt-icon", // @nuxtjs/seo still depends on this; switch to @nuxt/icon once it doesn't
     "@nuxt/eslint",
+    "@vueuse/motion/nuxt",
   ],
 
   critters: {
@@ -129,7 +146,6 @@ export default defineNuxtConfig({
         },
       },
     },
-    domains: ["placehold.co"],
   },
 
   veeValidate: {
@@ -171,16 +187,6 @@ export default defineNuxtConfig({
     },
   },
 
-  pinia: {
-    storesDirs: ["./stores/**"],
-  },
-
-  vue: {
-    compilerOptions: {
-      isCustomElement: (tag) => tag === "lite-youtube",
-    },
-  },
-
   sourcemap: {
     client: false,
     server: false,
@@ -206,6 +212,10 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
+    // Auto-discovery wrote an escaped, resized /_ipx URL (and empty entries);
+    // list the home page image explicitly instead.
+    discoverImages: false,
+    exclude: ["/franchise", "/franchise/"],
     // Give crawlers freshness/priority hints (build time = last deploy).
     defaults: {
       lastmod: new Date().toISOString(),
@@ -213,7 +223,12 @@ export default defineNuxtConfig({
       priority: 0.7,
     },
     urls: [
-      { loc: "/", priority: 1, changefreq: "weekly" },
+      {
+        loc: "/",
+        priority: 1,
+        changefreq: "weekly",
+        images: [{ loc: "/images/hero-parking-lot-striping.jpg" }],
+      },
       { loc: "/services", priority: 0.9, changefreq: "weekly" },
       { loc: "/areas", priority: 0.9, changefreq: "weekly" },
       { loc: "/contact", priority: 0.8, changefreq: "monthly" },
@@ -231,6 +246,7 @@ export default defineNuxtConfig({
       { loc: "/areas/springdale", priority: 0.7, changefreq: "monthly" },
       { loc: "/areas/rogers", priority: 0.7, changefreq: "monthly" },
       { loc: "/areas/bentonville", priority: 0.7, changefreq: "monthly" },
+      ...blogSitemapUrls,
     ],
     xslColumns: [
       { label: "URL", width: "50%" },

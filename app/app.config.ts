@@ -1,7 +1,7 @@
 export default defineAppConfig({
   ui: {
     button: {
-      base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 transition-[background-color,color,filter,box-shadow] duration-300 ease-in-out enabled:hover:brightness-125',
+      base: 'focus:outline-none focus-visible:outline-0 disabled:cursor-not-allowed disabled:opacity-75 flex-shrink-0 transition-[background-color,color,filter,box-shadow] duration-300 ease-in-out hover:brightness-125 disabled:hover:brightness-100',
       font: 'font-medium',
       rounded: 'rounded-full',
       size: {

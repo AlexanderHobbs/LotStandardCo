@@ -1,20 +1,22 @@
 <script setup lang="ts">
-  definePageMeta({
-    title: "Parking Lot Striping Services in Arkansas",
-    description:
-      'Professional line striping, sealcoating, ADA-compliant marking, warehouse floor marking, safety markings, and signage for commercial parking lots.',
-    navOrder: 2,
-    type: 'primary',
-    icon: 'i-mdi-road-variant',
-    tags: [
-      'line striping',
-      'sealcoating',
-      'ADA compliance marking',
-      'warehouse floor marking',
-      'safety markings',
-      'signage installation',
-    ],
-  })
+import ServiceListLite from "~/components/heroSections/services/ServiceListLite.vue";
+
+definePageMeta({
+  title: "Parking Lot Striping Services in Arkansas",
+  description:
+    "Professional line striping, sealcoating, ADA-compliant marking, warehouse floor marking, safety markings, and signage for commercial parking lots.",
+  navOrder: 2,
+  type: "primary",
+  icon: "i-mdi-road-variant",
+  tags: [
+    "line striping",
+    "sealcoating",
+    "ADA compliance marking",
+    "warehouse floor marking",
+    "safety markings",
+    "signage installation",
+  ],
+});
 </script>
 
 <template>
@@ -23,7 +25,9 @@
   >
     <div class="flex flex-col items-center">
       <div class="w-full px-4 text-center lg:w-8/12">
-        <p class="mb-2 text-sm font-medium md:text-base lg:text-lg uppercase">Our Services</p>
+        <p class="mb-2 text-sm font-medium md:text-base lg:text-lg uppercase">
+          Our Services
+        </p>
         <h1 class="text-2xl capitalize md:text-3xl lg:text-4xl">
           Professional Pavement Marking & Maintenance
         </h1>
@@ -38,16 +42,12 @@
           >
           for your property.
         </p>
-        <BaseButton size="xl" to="/contact" color="cta">
-          Request a Quote
-        </BaseButton>
+        <QuoteButton size="xl" background="white" />
       </div>
     </div>
 
-    <div class="relative mx-auto px-4 pt-8">
-      <div class="-mx-4 mb-4 flex flex-wrap items-center justify-center">
-        <ServiceList />
-      </div>
+    <div class="container mx-auto px-4 pt-8">
+      <ServiceListLite />
     </div>
   </div>
 </template>

@@ -41,7 +41,7 @@ const nearby = computed(() =>
 );
 </script>
 <template>
-  <section v-if="nearby.length" class="mt-12 text-center">
+  <section v-if="nearby.length" class="mt-20 text-center">
     <h2 class="mb-2 !text-2xl font-bold">View Other Service Areas</h2>
     <p class="mb-5">Also serving the surrounding cities:</p>
     <ul class="flex flex-wrap justify-center gap-3">

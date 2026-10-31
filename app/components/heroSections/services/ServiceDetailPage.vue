@@ -4,7 +4,14 @@
 
   const { service } = defineProps<{ service: ServicePage }>()
 
-  const pageUrl = `${siteMeta.url}/services/${service.slug}`
+  // Descriptive image alt text lives with the service data (services.json).
+  const { allServices } = useServices()
+  const imageAlt =
+    service.imageAlt ||
+    allServices.find((s) => s.slug === service.slug)?.imageAlt ||
+    `${service.name} for a commercial parking lot in Arkansas`
+
+  const pageUrl = `${siteMeta.url}/services/${service.slug}/`
 
   // The contact form preselects this service from the ?service= query.
   const contactLink = { path: '/contact', query: { service: service.slug } }
@@ -40,7 +47,7 @@
     defineBreadcrumb({
       itemListElement: [
         { name: 'Home', item: '/' },
-        { name: 'Services', item: '/services' },
+        { name: 'Services', item: '/services/' },
         { name: service.name },
       ],
     }),
@@ -67,10 +74,10 @@
         </h1>
       </header>
 
-      <div class="mt-14 grid gap-8 lg:grid-cols-2">
+      <div class="mt-20 grid gap-8 lg:grid-cols-2">
         <NuxtImg
           :src="service.image"
-          :alt="`${service.name} for a commercial parking lot in Arkansas`"
+          :alt="imageAlt"
           width="800"
           height="600"
           format="webp"
@@ -86,18 +93,11 @@
           <p v-if="service.priceNote" class="font-semibold">
             {{ service.priceNote }}
           </p>
-          <BaseButton
-            size="lg"
-            :to="contactLink"
-            color="cta"
-            class="mt-auto self-start"
-          >
-            Request a {{ service.name }} Quote
-          </BaseButton>
+          <QuoteButton size="lg" background="white" :to="contactLink" class="mt-auto self-start">Request a {{ service.name }} Quote</QuoteButton>
         </div>
       </div>
 
-      <section class="mt-20">
+      <section class="mt-28">
         <h2 class="mb-6 text-center text-2xl font-bold">
           Why Property Owners Choose Our {{ service.name }}
         </h2>
@@ -118,7 +118,7 @@
       </section>
 
       <section
-        class="mt-20 rounded-3xl bg-neutral-50 p-8 shadow-xl dark:bg-neutral-900"
+        class="mt-28 rounded-3xl bg-neutral-50 p-8 shadow-xl dark:bg-neutral-900"
       >
         <div class="grid gap-8 lg:grid-cols-[1fr_40%]">
           <div>
@@ -158,14 +158,12 @@
                 <span>{{ feature }}</span>
               </li>
             </ul>
-            <BaseButton size="lg" :to="contactLink" color="cta">
-              Request a Quote
-            </BaseButton>
+            <QuoteButton size="lg" :to="contactLink" />
           </div>
         </div>
       </section>
 
-      <section class="mt-20 lg:mx-auto lg:w-8/12">
+      <section class="mt-28 lg:mx-auto lg:w-8/12">
         <h2 class="mb-6 text-center text-2xl font-bold">
           {{ service.name }} FAQs
         </h2>
@@ -181,7 +179,7 @@
         </div>
       </section>
 
-      <section class="mt-20 text-center">
+      <section class="mt-28 text-center">
         <h2 class="mb-2 text-2xl font-bold">Serving Western & Northwest Arkansas</h2>
         <p class="mx-auto mb-4 lg:w-8/12">
           We provide {{ service.name.toLowerCase() }} across
@@ -190,7 +188,7 @@
         <BaseButton to="/areas">View All Service Areas</BaseButton>
       </section>
 
-      <section class="mt-20 text-center">
+      <section class="mt-28 text-center">
         <h2 class="mb-4 text-2xl font-bold">Related Services</h2>
         <div class="flex flex-wrap justify-center gap-3">
           <BaseButton

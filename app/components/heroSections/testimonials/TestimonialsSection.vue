@@ -5,13 +5,13 @@ const testimonials = [
     quote:
       "This was our second project with them, and we already have a third on the calendar. They show up when they say they will, and the work holds up.",
     name: "Marcus D.",
-    location: "Rogers, Ar",
+    location: "Rogers, AR",
   },
   {
     quote:
       "We got a few bids and went with them on price, but we would hire them again even if they cost more. They are easy to work with, and we never had to chase anyone for an update.",
     name: "Priya R.",
-    location: "Fort Smith, Ar",
+    location: "Fort Smith, AR",
   },
 ];
 </script>
@@ -55,9 +55,7 @@ const testimonials = [
     </div>
     <div class="mt-14 text-center">
       <p class="mb-6">Join the property owners who trust us with their lots.</p>
-      <BaseButton size="xl" color="cta" to="/contact"
-        >Request a Quote</BaseButton
-      >
+      <QuoteButton size="xl" />
     </div>
   </section>
 </template>

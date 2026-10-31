@@ -21,12 +21,11 @@
     "format": "prettier --write \"**/*.{html,vue,svelte,astro,js,jsx,cjs,mjs,ts,tsx,cts,mts,css,md,mdx,json}\" !public --ignore-path .gitignore"
   },
   "dependencies": {
-    "@pinia/nuxt": "^0.5.4",
     "@vee-validate/nuxt": "^4.13.2",
     "@vueuse/core": "^11.0.3",
+    "@vueuse/motion": "^3.0.3",
     "leaflet": "^1.9.4",
-    "lite-youtube-embed": "^0.3.3",
-    "pinia": "^2.2.2"
+    "lenis": "^1.3.27"
   },
   "devDependencies": {
     "@iconify/json": "^2.2.295",
@@ -35,8 +34,6 @@
     "@nuxt/icon": "^1.10.3",
     "@nuxt/image": "^1.9.0",
     "@nuxtjs/critters": "^0.8.0",
-    "@nuxtjs/fontaine": "^0.4.4",
-    "@nuxtjs/html-validator": "^1.8.2",
     "@nuxtjs/seo": "^2.0.0-rc.19",
     "@resvg/resvg-js": "^2.5.0",
     "@tailwindcss/forms": "^0.5.10",
@@ -50,7 +47,6 @@
     "autoprefixer": "^10.4.20",
     "eslint": "^9.18.0",
     "eslint-config-prettier": "^10.0.1",
-    "npm-run-all": "^4.1.5",
     "nuxt": "^3.15.1",
     "nuxt-icon": "^0.6.10",
     "postcss": "^8.5.0",

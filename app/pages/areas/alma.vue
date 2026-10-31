@@ -3,20 +3,13 @@ import siteMeta from "@/site";
 import NearbyAreas from "~/components/heroSections/areas/NearbyAreas.vue";
 import AreaHero from "~/components/heroSections/hero/AreaHero.vue";
 import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
-import ServiceListLite from "~/components/heroSections/services/ServiceListLite.vue";
+import ServiceSection from "~/components/heroSections/services/ServiceSection.vue";
 import ProcessSection from "~/components/heroSections/process/ProcessSection.vue";
-import MiniDivider from "~/components/heroSections/divider/MiniDivider.vue";
 
 const town = {
-  slug: "alma",
   name: "Alma",
-  countySlug: "crawford",
   countyName: "Crawford County",
-  blurb:
-    "Heavy-duty striping and signage for Alma warehouses, distribution yards and commercial lots.",
-  focus: ["Warehouses", "Distribution yards", "Signage"],
 };
-const county = { name: town.countyName };
 
 usePageSeo({
   title: "Parking Lot Striping in Alma",
@@ -34,7 +27,7 @@ useSchemaOrg([
     '@type': 'Service',
     name: `Parking Lot Striping in ${town.name}, AR`,
     serviceType: 'Parking lot striping and pavement maintenance',
-    url: `${siteMeta.url}/areas/alma`,
+    url: `${siteMeta.url}/areas/alma/`,
     provider: { '@id': `${siteMeta.url}/#identity` },
     areaServed: {
       '@type': 'City',
@@ -48,7 +41,7 @@ useSchemaOrg([
   defineBreadcrumb({
     itemListElement: [
       { name: "Home", item: "/" },
-      { name: "Areas We Cover", item: "/areas" },
+      { name: "Areas We Cover", item: "/areas/" },
       { name: "Alma" },
     ],
   }),
@@ -65,12 +58,12 @@ useSchemaOrg([
         title="Professional Pavement Marking & Maintenance in Alma, AR"
       />
 
-      <div class="-mx-4">
+      <div class="-mx-4 mt-8">
         <TrustBar />
       </div>
 
       <div
-        class="grid items-center gap-8 py-12 lg:grid-cols-2 lg:gap-12"
+        class="grid items-center gap-8 pt-20 pb-0 lg:grid-cols-2 lg:gap-12"
       >
         <div>
           <p
@@ -93,22 +86,14 @@ useSchemaOrg([
           <p class="mb-8">
             Every Alma project starts with a lot assessment and a reply within one business day. We analyze the property, confirm truck routes, dock access and fire lanes, then give you a clear scope and price. Our crew completes the work on schedule and finishes with a walkthrough so you know exactly what was done.
           </p>
-          <BaseButton size="lg" to="/contact" color="cta"
-            >Request a Quote</BaseButton
-          >
+          <QuoteButton size="lg" background="white" />
         </div>
-        <NuxtImg
-          src="/images/services/line-striping.jpg"
-          :alt="`Fresh parking lot striping in ${town.name}, Arkansas`"
-          width="960"
-          height="780"
-          format="webp"
-          fit="outside"
-          loading="lazy"
-          class="h-full min-h-[18rem] w-full rounded-2xl object-cover"
+        <AreaPhoto
+          src="/area-photos/alma.png"
+          :alt="`Aerial view of a parking lot with fresh white stall lines, directional arrows and a light pole - parking lot striping in ${town.name}, Arkansas`"
         />
         <div
-          class="grid gap-4 border-t border-primary-200 pt-8 text-center dark:border-primary-600 sm:grid-cols-3 lg:col-span-2"
+          class="grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3 lg:col-span-2"
         >
           <div>
             <p class="text-lg font-bold">Precision</p>
@@ -126,8 +111,9 @@ useSchemaOrg([
       </div>
       <hr class="border-primary-300 dark:border-primary-500" />
       <div>
-        <ServiceListLite />
-        <ProcessSection />
+        <ServiceSection plain class="-mx-4 my-20" />
+        <hr class="border-primary-300 dark:border-primary-500" />
+        <ProcessSection background="white" />
       </div>
       <NearbyAreas slug="alma" />
     </div>

@@ -8,16 +8,10 @@ NODE_VERSION = "20.14.0"
 # Send the old Netlify subdomain to the real domain so search engines only
 # index one copy of the site.
 [[redirects]]
-  from = "https://prostripe-parking-lot-services.netlify.app/*"
+  from = "https://lot-standard-co.netlify.app/*"
   to = "https://lotstandard.com/:splat"
   status = 301
   force = true
-
-# Old URL -> new URL, so existing links/rankings aren't lost
-[[redirects]]
-  from = "/gallery"
-  to = "/our-work"
-  status = 301
 
 # Fingerprinted build assets never change - cache them for a year (Core Web Vitals)
 [[headers]]

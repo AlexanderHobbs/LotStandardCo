@@ -1,6 +1,6 @@
 <script setup lang="ts">
   defineProps<{
-    twitter: string
+    twitter?: string
     gravatar?: string
     avatar?: string
     author: string

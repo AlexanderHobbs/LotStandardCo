@@ -23,6 +23,7 @@ export type ServicePage = {
   name: string
   icon: string
   image: string
+  imageAlt?: string
   seoTitle: string
   metaDescription: string
   keywords: string

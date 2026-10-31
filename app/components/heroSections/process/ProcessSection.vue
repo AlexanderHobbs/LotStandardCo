@@ -25,9 +25,13 @@
         'We review the finished work with you to make sure everything meets your expectations before we call it done.',
     },
   ]
+
+  // 'white' for pages with a grey backdrop (the town pages): white cards and a
+  // white quote button instead of the default off-white / light grey.
+  defineProps<{ background?: 'default' | 'white' }>()
 </script>
 <template>
-  <section class="container mx-auto px-4 py-12">
+  <section class="container mx-auto px-4 py-20 md:py-28">
     <div class="mx-auto text-center w-full lg:w-7/12">
       <p class="text-sm md:text-base lg:text-lg font-medium mb-2 text-primary-600 dark:text-primary-200 uppercase">
         How It Works
@@ -38,10 +42,18 @@
       <div
         v-for="(step, index) in steps"
         :key="index"
+        v-motion
+        :initial="{ opacity: 0, y: 40 }"
+        :visible-once="{
+          opacity: 1,
+          y: 0,
+          transition: { duration: 600, delay: index * 200, ease: 'easeOut' },
+        }"
         class="p-4 w-full sm:w-1/2 lg:w-1/4"
       >
         <div
-          class="h-full p-6 rounded-3xl text-center bg-neutral-50 dark:bg-neutral-900"
+          class="h-full p-6 rounded-3xl text-center dark:bg-neutral-900"
+          :class="background === 'white' ? 'bg-white' : 'bg-neutral-50'"
         >
           <div
             class="mx-auto mb-3 h-12 w-12 rounded-full flex items-center justify-center bg-primary-600 text-white"
@@ -57,6 +69,9 @@
           <p class="text-sm">{{ step.description }}</p>
         </div>
       </div>
+    </div>
+    <div class="mt-12 text-center">
+      <QuoteButton size="xl" :background="background" />
     </div>
   </section>
 </template>

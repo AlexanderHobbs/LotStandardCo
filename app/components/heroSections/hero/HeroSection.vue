@@ -36,17 +36,7 @@ useHead({
                 Professional Parking Lot Striping & Pavement Maintenance
               </h1>
               <div class="flex flex-wrap items-center justify-center gap-4">
-                <BaseButton
-                  size="xl"
-                  color="cta"
-                  label="Request a Quote"
-                  to="/contact"
-                  class="h-16"
-                >
-                  <div class="inline-block ml-1 p-1.5 text-lg">
-                    Request a Quote
-                  </div>
-                </BaseButton>
+                <QuoteButton size="xl" class="![--h:4rem]" />
                 <NuxtLink
                   :to="`tel:${phone}`"
                   class="inline-flex items-center gap-2 h-16 rounded-full px-6 text-lg font-medium text-white ring-2 ring-inset ring-white/70 transition-colors hover:bg-white/10"

@@ -32,9 +32,7 @@
       </h2>
       <p class="mb-8 text-primary-100 dark:text-primary-700">{{ text }}</p>
       <div class="flex flex-wrap items-center justify-center gap-4">
-        <BaseButton size="xl" color="cta" to="/contact">
-          Request a Quote
-        </BaseButton>
+        <QuoteButton size="xl" />
         <NuxtLink
           :to="`tel:${phone}`"
           class="inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium ring-2 ring-inset ring-white/70 transition-colors duration-300 ease-in-out hover:bg-white/10 dark:ring-primary-800/70 dark:hover:bg-primary-800/10"
@@ -53,9 +51,7 @@
     <h2 class="mb-2 !text-xl text-white dark:text-primary-800 md:!text-2xl">{{ title }}</h2>
     <p class="mb-6 text-primary-100 dark:text-primary-700">{{ text }}</p>
     <div class="flex flex-wrap items-center justify-center gap-3">
-      <BaseButton size="lg" color="cta" to="/contact">
-        Request a Quote
-      </BaseButton>
+      <QuoteButton size="lg" />
       <NuxtLink
         :to="`tel:${phone}`"
         class="inline-flex items-center gap-2 rounded-full px-4 py-2 font-medium ring-2 ring-inset ring-white/70 transition-colors duration-300 ease-in-out hover:bg-white/10 dark:ring-primary-800/70 dark:hover:bg-primary-800/10"
@@ -68,8 +64,6 @@
 
   <div v-else class="rounded-2xl bg-primary-600 p-5 text-center text-white dark:bg-primary-200 dark:text-primary-800">
     <p class="mb-3 font-bold">{{ title }}</p>
-    <BaseButton size="md" color="cta" to="/contact" block>
-      Request a Quote
-    </BaseButton>
+    <QuoteButton size="md" block />
   </div>
 </template>

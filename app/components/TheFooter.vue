@@ -5,8 +5,6 @@ const { phone, phoneDisplay, email, addressDisplay, hoursDisplay } =
   siteMeta.business;
 const { socials } = siteMeta;
 
-// The Areas page shows the map in its body, so skip the footer copy there.
-const route = useRoute();
 </script>
 <template>
   <footer class="pt-12">

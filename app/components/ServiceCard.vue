@@ -6,38 +6,62 @@
     defineProps<Service & { headingTag?: 'h2' | 'h3' }>()
 </script>
 <template>
-  <NuxtLink class="flex w-full md:w-6/12 lg:w-4/12" :to="`/services/${slug}`">
+  <NuxtLink
+    class="group flex w-full md:w-6/12 lg:w-4/12 focus-visible:outline-none"
+    :to="`/services/${slug}`"
+  >
+    <!-- Image fills the whole card. Only the title shows until the card is
+         hovered or focused; the text stays in the DOM (opacity, not display)
+         so crawlers and screen readers still get it. Hover styles only apply
+         on devices that can really hover, so touch screens keep the base view
+         and a tap goes straight to the service page (no sticky-hover double tap). -->
     <div
-      class="m-3 flex w-full flex-col items-center text-neutral-900 dark:text-neutral-100 bg-neutral-50 dark:bg-neutral-900 px-6 py-12 rounded-3xl shadow-xl text-center"
+      class="relative m-3 aspect-[4/5] w-full overflow-hidden rounded-3xl bg-neutral-900 text-center text-white shadow-xl group-focus-visible:ring-4 group-focus-visible:ring-secondary-400"
     >
       <NuxtImg
-        class="aspect-[4/3] mb-4 mx-auto object-cover rounded-xl w-full sm:w-9/12"
+        class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 [@media(hover:hover)]:group-hover:scale-105"
         :alt="imageAlt || `${name} for commercial parking lots in Arkansas`"
         :src="image"
         width="800"
-        height="600"
+        height="1000"
         format="webp"
-        fit="outside"
+        fit="cover"
         loading="lazy"
       />
-      <BaseIcon
-        v-if="icon"
-        :name="icon"
-        height="32px"
-        class="mb-2 mx-auto !text-secondary-600"
+      <!-- Light gradient keeps the title readable; goes dark on hover -->
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent transition-colors duration-300 [@media(hover:hover)]:group-hover:bg-black/80 group-focus-visible:bg-black/80"
       />
-      <component :is="headingTag" class="font-bold mb-2 !text-base md:!text-lg lg:!text-xl">{{ name }}</component>
-      <p class="mb-6 text-secondary-600 dark:text-secondary-200 text-sm">
-        {{ shortDescription }}
-      </p>
-      <BaseButton size="lg" class="mt-auto"
-        ><span>Learn More</span>
+      <div class="absolute inset-0 flex flex-col items-center justify-end p-6">
         <BaseIcon
-          name="i-mdi-arrow-right"
-          height="20px"
-          class="!text-white md:ml-1.5"
+          v-if="icon"
+          :name="icon"
+          height="32px"
+          class="mb-2 mx-auto !text-white"
         />
-      </BaseButton>
+        <component
+          :is="headingTag"
+          class="font-bold !text-white !text-lg md:!text-xl lg:!text-2xl"
+          >{{ name }}</component
+        >
+        <div
+          class="grid grid-rows-[0fr] opacity-0 transition-all duration-300 [@media(hover:hover)]:group-hover:grid-rows-[1fr] [@media(hover:hover)]:group-hover:opacity-100 group-focus-visible:grid-rows-[1fr] group-focus-visible:opacity-100"
+        >
+          <div class="overflow-hidden">
+            <p class="mt-3 mb-5 text-sm text-neutral-100">
+              {{ shortDescription }}
+            </p>
+            <BaseButton size="lg"
+              ><span>Learn More</span>
+              <BaseIcon
+                name="i-mdi-arrow-right"
+                height="20px"
+                class="!text-white md:ml-1.5"
+              />
+            </BaseButton>
+          </div>
+        </div>
+      </div>
     </div>
   </NuxtLink>
 </template>

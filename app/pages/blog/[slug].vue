@@ -3,11 +3,7 @@
 
   definePageMeta({
     title: 'Blog',
-    description: 'Read, Learn, Enjoy: Your Blog Destination!',
     hidden: true,
-    navOrder: 5,
-    type: 'secondary',
-    icon: 'i-mdi-home',
   })
 
   const slug =
@@ -33,8 +29,16 @@
     post.value?.date ? new Date(post.value.date).toISOString() : undefined,
   )
 
+  // Falls back to the publish date until a post has an `updated:` front-matter date.
+  const modifiedAt = computed(() =>
+    post.value?.updated
+      ? new Date(post.value.updated).toISOString()
+      : publishedAt.value,
+  )
+
   useServerSeoMeta({
     articlePublishedTime: publishedAt,
+    articleModifiedTime: modifiedAt,
     articleAuthor: () => (post.value?.author ? [post.value.author] : undefined),
   })
 
@@ -44,7 +48,7 @@
       headline: post.value?.title,
       description: post.value?.description,
       datePublished: publishedAt.value,
-      dateModified: publishedAt.value,
+      dateModified: modifiedAt.value,
       author: {
         '@type': 'Organization',
         name: post.value?.author || siteMeta.business.name,
@@ -54,7 +58,7 @@
     defineBreadcrumb({
       itemListElement: [
         { name: 'Home', item: '/' },
-        { name: 'Blog', item: '/blog' },
+        { name: 'Blog', item: '/blog/' },
         { name: post.value?.title },
       ],
     }),
@@ -103,15 +107,6 @@
                 title="Need Help With Your Parking Lot?"
                 text="Get a free, no-obligation quote from our licensed & insured crew."
               />
-            </div>
-            <div class="hidden">
-              <footer
-                class="dark:divide-gray-700 divide-gray-200 divide-y font-medium leading-5 text-sm xl:col-start-1 xl:row-start-2"
-              >
-                <NuxtLink class="block pt-8" to="/blog"
-                  >Back to the blog
-                </NuxtLink>
-              </footer>
             </div>
           </div>
         </article>

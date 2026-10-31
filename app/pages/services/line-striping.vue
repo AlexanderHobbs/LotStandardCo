@@ -40,11 +40,11 @@ const service: ServicePage = {
   process: [
     {
       title: "Digital Walk & Free Quote",
-      text: "We measure your lot with digital survey software, review the existing layout, and send a clear written estimate. A clear written estimate follows. The approved price is the final price.",
+      text: "We measure your lot with digital survey software, review the existing layout, and send a clear written estimate. The approved price is the final price.",
     },
     {
       title: "Laser Layout Planning",
-      text: "Using a laser guided systeme we plan stall dimension, ADA spaces, fire lanes, and traffic flow before any paint goes down.",
+      text: "Using a laser-guided system, we plan stall dimensions, ADA spaces, fire lanes, and traffic flow before any paint goes down.",
     },
     {
       title: "Prep - Striping - Cure",
@@ -52,7 +52,7 @@ const service: ServicePage = {
     },
     {
       title: "Document and Appeal",
-      text: "We document the finished product, ensure you like it, and congradulate you on a new lot.",
+      text: "We document the finished product, make sure you're happy with the result, and hand you a lot you can be proud of.",
     },
   ],
   features: [

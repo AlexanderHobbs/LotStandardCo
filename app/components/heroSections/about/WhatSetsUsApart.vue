@@ -47,8 +47,49 @@
       </p>
     </div>
 
+    <!-- Mobile: swipeable cards, one point per screen -->
+    <ul
+      class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+      aria-label="What Lot Standard Co offers that others don't"
+    >
+      <li
+        v-for="item in features"
+        :key="item.title"
+        class="w-[85%] shrink-0 snap-center rounded-3xl p-5 dark:bg-neutral-900/40"
+        :class="onWhite ? 'bg-neutral-50/60' : 'bg-white/40'"
+      >
+        <BaseIcon
+          :name="item.icon"
+          height="32px"
+          class="mb-3 !text-primary-600"
+        />
+        <h3 class="!mb-2 !text-lg font-bold">{{ item.title }}</h3>
+        <p class="mb-4 text-sm">{{ item.description }}</p>
+        <div
+          class="flex gap-6 border-t border-neutral-500/15 pt-3 text-sm font-semibold"
+        >
+          <span class="flex items-center gap-1">
+            <BaseIcon
+              name="i-mdi-check-circle"
+              height="24px"
+              class="!text-green-600"
+            />
+            Lot Standard Co
+          </span>
+          <span class="flex items-center gap-1">
+            <BaseIcon
+              name="i-mdi-close-circle"
+              height="24px"
+              class="!text-red-500"
+            />
+            Others
+          </span>
+        </div>
+      </li>
+    </ul>
+
     <div
-      class="mx-auto overflow-hidden rounded-3xl dark:bg-neutral-900/40 lg:w-10/12"
+      class="mx-auto hidden overflow-hidden rounded-3xl dark:bg-neutral-900/40 md:block lg:w-10/12"
       :class="onWhite ? 'bg-neutral-50/60' : 'bg-white/40'"
     >
       <table class="w-full border-collapse text-left">

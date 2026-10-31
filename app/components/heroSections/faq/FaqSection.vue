@@ -28,7 +28,7 @@
     {
       question: 'What areas do you service?',
       answer:
-        'We proudly serve commercial and residential properties across the greater metro area and surrounding counties. Contact us to confirm coverage for your location.',
+        'We serve commercial properties across Fort Smith, Van Buren, Alma, Fayetteville, Springdale, Rogers, Bentonville and the surrounding counties of western and northwest Arkansas. Contact us to confirm coverage for your location.',
     },
   ]
 

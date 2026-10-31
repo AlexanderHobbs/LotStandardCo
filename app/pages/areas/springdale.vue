@@ -3,19 +3,13 @@
   import NearbyAreas from '~/components/heroSections/areas/NearbyAreas.vue'
   import AreaHero from '~/components/heroSections/hero/AreaHero.vue'
 import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
-  import ServiceListLite from '~/components/heroSections/services/ServiceListLite.vue'
+  import ServiceSection from '~/components/heroSections/services/ServiceSection.vue'
   import ProcessSection from '~/components/heroSections/process/ProcessSection.vue'
 
   const town = {
-    slug: 'springdale',
     name: 'Springdale',
-    countySlug: 'washington',
     countyName: 'Washington County',
-    blurb:
-      'ADA-compliant marking and full lot maintenance for Springdale business parks and industrial properties.',
-    focus: ['Business parks', 'Industrial', 'ADA marking'],
   }
-  const county = { name: town.countyName }
 
   usePageSeo({
     title: 'Parking Lot Striping in Springdale',
@@ -33,7 +27,7 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
       '@type': 'Service',
       name: `Parking Lot Striping in ${town.name}, AR`,
       serviceType: 'Parking lot striping and pavement maintenance',
-      url: `${siteMeta.url}/areas/springdale`,
+      url: `${siteMeta.url}/areas/springdale/`,
       provider: { '@id': `${siteMeta.url}/#identity` },
       areaServed: {
         '@type': 'City',
@@ -47,7 +41,7 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
     defineBreadcrumb({
       itemListElement: [
         { name: 'Home', item: '/' },
-        { name: 'Areas We Cover', item: '/areas' },
+        { name: 'Areas We Cover', item: '/areas/' },
         { name: 'Springdale' },
       ],
     }),
@@ -62,12 +56,12 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         title="Professional Pavement Marking & Maintenance in Springdale, AR"
       />
 
-      <div class="-mx-4">
+      <div class="-mx-4 mt-8">
         <TrustBar />
       </div>
 
       <div
-        class="grid items-center gap-8 py-12 lg:grid-cols-2 lg:gap-12"
+        class="grid items-center gap-8 pt-20 pb-0 lg:grid-cols-2 lg:gap-12"
       >
         <div>
           <p
@@ -90,22 +84,14 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
           <p class="mb-8">
             Every Springdale project starts with a lot assessment and a reply within one business day. We analyze truck, forklift and pedestrian flow across your site, then give you a clear scope and price. Our crew works around your operations and finishes with a walkthrough so you know exactly what was done.
           </p>
-          <BaseButton size="lg" to="/contact" color="cta"
-            >Request a Quote</BaseButton
-          >
+          <QuoteButton size="lg" background="white" />
         </div>
-        <NuxtImg
-          src="/images/services/line-striping.jpg"
-          :alt="`Fresh parking lot striping in ${town.name}, Arkansas`"
-          width="960"
-          height="780"
-          format="webp"
-          fit="outside"
-          loading="lazy"
-          class="h-full min-h-[18rem] w-full rounded-2xl object-cover"
+        <AreaPhoto
+          src="/area-photos/springdale.png"
+          :alt="`Large freshly sealcoated parking lot with crisp white stall lines and arrows under a clear sky - parking lot striping in ${town.name}, Arkansas`"
         />
         <div
-          class="grid gap-4 border-t border-primary-200 pt-8 text-center dark:border-primary-600 sm:grid-cols-3 lg:col-span-2"
+          class="grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3 lg:col-span-2"
         >
           <div>
             <p class="text-lg font-bold">Precision</p>
@@ -124,8 +110,9 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
       <hr class="border-primary-300 dark:border-primary-500" />
 
       <div>
-        <ServiceListLite />
-        <ProcessSection />
+        <ServiceSection plain class="-mx-4 my-20" />
+        <hr class="border-primary-300 dark:border-primary-500" />
+        <ProcessSection background="white" />
       </div>
       <NearbyAreas slug="springdale" />
     </div>

@@ -3,13 +3,11 @@
 
 export default {
   title: "Lot Standard Co",
-  description: "Professional parking lot line striping, sealcoating, ADA-compliant marking, and pavement maintenance for commercial properties in Fayetteville, Fort Smith, and surrounding areas.",
+  description: "Professional parking lot line striping, sealcoating, ADA-compliant marking, and pavement maintenance for commercial properties in Fort Smith and surrounding areas.",
   // Path from the public/ folder (public/logo.png), not a path on this computer.
   logo: "/logo.png",
   author: "Lot Standard Co",
   url: "https://lotstandard.com",
-  github: "",
-  generator: "",
   defaultLocale: "en",
   // Business details used for schema.org LocalBusiness markup and the visible
   // contact info (footer + contact page). Keep these identical everywhere
@@ -44,7 +42,10 @@ export default {
       closes: "19:00",
     },
     // Profile links (Google Business Profile, etc.) for schema.org `sameAs`.
-    sameAs: ["https://share.google/BHiVMEgkuF6DXLslt"] as string[],
+    sameAs: [
+      "https://share.google/BHiVMEgkuF6DXLslt",
+      "https://instagram.com/lotstandardco",
+    ] as string[],
     areaServed: [
       "Logan County, AR",
       "Franklin County, AR",
@@ -54,14 +55,14 @@ export default {
       "Benton County, AR",
     ] as string[],
   },
+  // Only list profiles that exist; add Facebook, LinkedIn, etc. back here when they do.
   socials: [
     { name: "Instagram", icon: "i-mdi-instagram", color: "#E4405F", url: "https://instagram.com/lotstandardco" },
-    { name: "Twitter", icon: "i-mdi-twitter", color: "#1DA1F2", url: "https://twitter.com/lotstandardco" },
-    { name: "Facebook", icon: "i-mdi-facebook", color: "#1877F2", url: "https://facebook.com/lotstandardco" },
-    { name: "LinkedIn", icon: "i-mdi-linkedin", color: "#0A66C2", url: "https://linkedin.com/company/lotstandardco" },
   ],
   twitter: "", // handle without the @, e.g. 'lotstandardco'
-  trailingSlash: false,
+  // Netlify serves every page at /page/ and 301s /page to it, so canonical
+  // URLs, og:url and the sitemap must use the trailing slash to match.
+  trailingSlash: true,
   titleSeparator: "|",
 
   navs: {
@@ -115,9 +116,6 @@ export default {
         title: "About",
         icon: "i-mdi-information-outline",
         to: "/about",
-        children: [
-          { title: "About", to: "/about" },
-        ],
       },
       {
         title: "Blog",

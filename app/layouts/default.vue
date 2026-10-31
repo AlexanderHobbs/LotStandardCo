@@ -7,7 +7,6 @@
       description: route.meta.description,
       ogImage: route.meta.ogImage,
       canonicalUrl: route.meta.canonicalUrl || route.fullPath,
-      generator: route.meta.generator,
       tags: route.meta.tags,
     }
   })
@@ -55,8 +54,12 @@
       class="min-h-screen flex flex-col pb-20 lg:pb-0 bg-background dark:bg-neutral-950 text-neutral-900 dark:text-neutral-50"
     >
       <NavBar
-        class="fixed z-20 border-b backdrop-blur-md transition-colors duration-300 ease-in-out"
+        v-motion
+        :initial="{ y: -100, opacity: 0 }"
+        :enter="{ y: 0, opacity: 1, transition: { delay: 100, duration: 600, ease: 'easeOut' } }"
+        class="fixed z-20 -translate-y-24 opacity-0 border-b backdrop-blur-md transition-colors duration-300 ease-in-out"
         :class="navClass"
+        :quote-background="hasGreyBackdrop && atTop ? 'white' : 'default'"
       />
       <div class="mt-20 xl:mt-24">
         <main class="shadow">

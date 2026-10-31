@@ -46,6 +46,11 @@ const values = [
       "Consistent results on every job, built to meet code requirements and partner satisfaction.",
   },
 ];
+
+withDefaults(defineProps<{ to?: string; background?: "default" | "white" }>(), {
+  to: "/contact",
+  background: "default",
+});
 </script>
 <template>
   <div
@@ -139,9 +144,12 @@ const values = [
             Thank you for trusting us with your property.
           </p>
           <div class="flex flex-wrap items-center gap-4">
-            <BaseButton size="xl" color="cta" to="/contact">
-              Talk To Us
-            </BaseButton>
+            <NuxtLink
+              to="/contact"
+              class="inline-flex h-12 select-none items-center whitespace-nowrap rounded-xl border-l-[6px] border-accent-400 bg-white pl-4 pr-5 text-sm font-bold text-tertiary-900 transition-[filter] duration-300 hover:brightness-95 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent-600"
+            >
+              <slot>Talk to Us</slot>
+            </NuxtLink>
             <NuxtLink
               :to="`tel:${phone}`"
               class="inline-flex items-center gap-2 rounded-full px-6 py-3 font-medium ring-2 ring-inset ring-primary-600/70 transition-colors duration-300 ease-in-out hover:bg-primary-600/10 dark:ring-primary-200/70 dark:hover:bg-primary-200/10"
@@ -191,9 +199,7 @@ const values = [
             AI-powered tools help us respond faster and plan smarter, so you get
             accurate results with fewer delays.
           </p>
-          <BaseButton size="xl" color="cta" to="/contact">
-            Request a Quote
-          </BaseButton>
+          <QuoteButton size="xl" background="white" />
         </div>
       </div>
     </section>

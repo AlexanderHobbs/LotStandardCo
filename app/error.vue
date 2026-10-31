@@ -21,6 +21,11 @@
   )
   const isDev = import.meta.dev
 
+  useSeoMeta({
+    title: () => (is404.value ? 'Page Not Found' : 'Something Went Wrong'),
+    robots: 'noindex, nofollow',
+  })
+
   function handleError() {
     return clearError({ redirect: '/' })
   }

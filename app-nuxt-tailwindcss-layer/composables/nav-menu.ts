@@ -9,7 +9,10 @@ export const useNavMenu = () => {
 
   const currentRoute = useRoute()
   const currentPath = computed(() => {
-    return currentRoute.path
+    // Nav links have no trailing slash, but the host serves pages at /page/,
+    // so drop it here and the active-link highlight works either way.
+    const path = currentRoute.path
+    return path.length > 1 ? path.replace(/\/+$/, '') : path
   })
 
   return {

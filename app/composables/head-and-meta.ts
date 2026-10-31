@@ -18,6 +18,7 @@ export const useHeadAndMeta = (pageMeta: ComputedRef) => {
     author,
     twitter,
     titleSeparator,
+    trailingSlash,
     business,
     logo,
   } = siteMeta;
@@ -34,11 +35,12 @@ export const useHeadAndMeta = (pageMeta: ComputedRef) => {
 
   // Absolute, normalised canonical URL for the current page (query strings and
   // hashes are dropped so filtered/tracked URLs don't split ranking signals).
+  // Uses the trailing-slash form because that is what the host serves.
   const canonicalHref = computed(() => {
     const path = pageMeta.value.canonicalUrl || route.path;
     const url = new URL(path, siteUrl);
     if (url.pathname !== "/") {
-      url.pathname = url.pathname.replace(/\/+$/, "");
+      url.pathname = url.pathname.replace(/\/+$/, "") + (trailingSlash ? "/" : "");
     }
     return url.origin + url.pathname;
   });
@@ -105,6 +107,7 @@ export const useHeadAndMeta = (pageMeta: ComputedRef) => {
     ogImageAlt: title,
     ogUrl: canonicalHref,
     ogSiteName: siteTitle,
+    ogLocale: "en_US",
 
     twitterCard: "summary_large_image",
     twitterTitle: title,

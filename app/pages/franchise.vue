@@ -4,6 +4,10 @@
     description:
       "Lot Standard Co franchise opportunities are coming soon. Check back for details on bringing our parking lot striping model to your market.",
   })
+
+  // "Coming soon" stub: keep it out of search results until it has real content.
+  // A page-level noindex (not a robots.txt block) so Google can still read the tag.
+  useRobotsRule('noindex, follow')
 </script>
 <template>
   <section

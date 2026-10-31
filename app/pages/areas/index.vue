@@ -243,15 +243,7 @@
               >
                 View {{ town.name }} Page
               </BaseButton>
-              <BaseButton
-                size="lg"
-                color="cta"
-                to="/contact"
-                block
-                class="relative z-10"
-              >
-                Request a Quote in {{ town.name }}
-              </BaseButton>
+              <QuoteButton size="lg" block class="relative z-10">Request a Quote in {{ town.name }}</QuoteButton>
             </div>
           </article>
         </div>

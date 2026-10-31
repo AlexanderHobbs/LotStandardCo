@@ -33,9 +33,7 @@ const { phone, phoneDisplay } = siteMeta.business;
           {{ title }}
         </h1>
         <div class="flex flex-wrap items-center justify-center gap-4">
-          <BaseButton size="lg" color="cta" to="/contact">
-            Request a Quote
-          </BaseButton>
+          <QuoteButton size="lg" />
           <NuxtLink
             :to="`tel:${phone}`"
             class="inline-flex items-center gap-2 rounded-full px-5 py-3 font-medium text-white ring-2 ring-inset ring-white/70 transition-colors hover:bg-white/10"
