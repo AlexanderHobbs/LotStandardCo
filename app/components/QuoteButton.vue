@@ -75,6 +75,12 @@
     padding-right: 1rem;
     border-radius: 0.65rem;
   }
+  /* Slightly tighter than the button's own radius so the 1.75rem tab reads as a
+     rounded square rather than a circle. */
+  .quote-btn--sm .qb-tab,
+  .quote-btn--md .qb-tab {
+    border-radius: 0.5rem;
+  }
   .quote-btn--md {
     --h: 2.75rem;
     --inset: 0.3rem;
