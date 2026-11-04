@@ -50,8 +50,7 @@ watch(before, (isBefore) => {
 
 const toggle = () => {
   before.value = !before.value;
-}
-
+};
 </script>
 <template>
   <div
@@ -75,13 +74,39 @@ const toggle = () => {
           One standard. Every lot. Every time.
         </h2>
         <p class="mb-6">
-          A proven process, dependable scheduling, and every project documented,
-          so your properties get the same quality no matter where they are. From
-          one location local businesses to multi-property franchises our team
-          environment and reliable framework enable us to provide ultimate
-          satisfaction on every job. Ensuring superb communication and quality work
-          done on time. Licensed and insured.<br><br>
-          We're here to give your property quality work you can count on. Cutting-edge technology keeps us efficient, and the Lot Standard Playbook turns our process into a repeatable system, so you get more value on every project.
+          At Lot Standard Co we deliver
+          <NuxtLink
+            to="/services"
+            class="font-semibold text-primary-600 underline hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-100"
+            >quality exterior maintenance</NuxtLink
+          >
+          through a proven process, dependable scheduling, and full
+          documentation on every project. Whether it's a
+          <NuxtLink
+            to="/services/line-striping"
+            class="font-semibold text-primary-600 underline hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-100"
+            >re-stripe</NuxtLink
+          >
+          or a fresh
+          <NuxtLink
+            to="/services/sealcoating"
+            class="font-semibold text-primary-600 underline hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-100"
+            >sealcoat</NuxtLink
+          >, your properties get the same high standard no matter where they
+          are. <br><br>
+          We serve everyone from single-location local businesses to
+          multi-property franchises. Our
+          <NuxtLink
+            to="/about"
+            class="font-semibold text-primary-600 underline hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-100"
+            >team-based approach</NuxtLink
+          >
+          and reliable
+          framework mean clear communication and quality work completed on time,
+          every time. We’re licensed and insured. <br><br>
+          Cutting-edge technology keeps us efficient, and the Lot Standard
+          Playbook turns our process into a repeatable system, so you get more
+          value on every project. It’s quality work you can count on.
         </p>
         <!-- Hovering a point highlights it and fades the others -->
         <ul

@@ -24,6 +24,34 @@
     return toc
   })
 
+  // Scroll-spy: the active heading is the last one whose top has passed the
+  // vertical center of the viewport, so it stays lit while its text is on screen.
+  const activeId = ref('')
+  let frame = 0
+  const updateActive = () => {
+    frame = 0
+    const center = window.innerHeight / 2
+    let current = ''
+    for (const heading of headings.value) {
+      const el = document.getElementById(heading.link)
+      if (el && el.getBoundingClientRect().top <= center) current = heading.link
+    }
+    activeId.value = current
+  }
+  const onScroll = () => {
+    if (!frame) frame = requestAnimationFrame(updateActive)
+  }
+  onMounted(() => {
+    updateActive()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
+  })
+  onBeforeUnmount(() => {
+    window.removeEventListener('scroll', onScroll)
+    window.removeEventListener('resize', onScroll)
+    if (frame) cancelAnimationFrame(frame)
+  })
+
   const scrollBehavior = () => {
     window.scrollTo(0, 0)
   }
@@ -43,6 +71,7 @@
         <SidebarLinkItem
           :item="child"
           :table="true"
+          :highlight="child.link === activeId"
           class="capitalize inline-block max-w-full truncate"
         />
       </li>

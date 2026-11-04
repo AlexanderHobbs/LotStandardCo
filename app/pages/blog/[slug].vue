@@ -73,11 +73,14 @@
             <div class="flex justify-center mb-4 lg:absolute lg:justify-start">
               <BaseButton to="/blog"><span>&lt;- Go Back</span> </BaseButton>
             </div>
-            <div>
-              <PostDate :date="post.date" />
-              <h1>
-                {{ post.title }}
-              </h1>
+            <!-- On xl the body is a 4-col grid (sidebar + 3-col text); mirror it so the heading centers over the text only -->
+            <div class="xl:grid xl:grid-cols-4 xl:gap-x-10">
+              <div class="xl:col-span-3 xl:col-start-2">
+                <PostDate :date="post.date" />
+                <h1 class="!text-3xl md:!text-4xl">
+                  {{ post.title }}
+                </h1>
+              </div>
             </div>
           </header>
           <div
