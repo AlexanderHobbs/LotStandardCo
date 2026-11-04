@@ -469,7 +469,7 @@ From [app/site.ts](app/site.ts). These must match the Google Business Profile ex
 |---|---|
 | Name | Lot Standard Co |
 | Phone | +14792767122 (displayed (479) 276-7122) |
-| Email | alex@lotstandard.com |
+| Email | contact@lotstandard.com |
 | Address | Fort Smith, AR, US (no street address; service-area business) |
 | Hours | Mon–Fri, 05:00–19:00 |
 | Area served | Logan, Franklin, Sebastian, Crawford, Washington and Benton counties, AR |

@@ -3,7 +3,8 @@
 
 export default {
   title: "Lot Standard Co",
-  description: "Professional parking lot line striping, sealcoating, ADA-compliant marking, and pavement maintenance for commercial properties in Fort Smith and surrounding areas.",
+  description:
+    "Professional parking lot line striping, sealcoating, ADA-compliant marking, and pavement maintenance for commercial properties in Fort Smith and surrounding areas.",
   // Path from the public/ folder (public/logo.png), not a path on this computer.
   logo: "/logo.png",
   author: "Lot Standard Co",
@@ -19,7 +20,7 @@ export default {
     name: "Lot Standard Co",
     phone: "+14792767122",
     phoneDisplay: "(479) 276-7122",
-    email: "alex@lotstandard.com",
+    email: "contact@lotstandard.com",
     address: {
       addressLocality: "Fort Smith",
       addressRegion: "AR",
@@ -45,6 +46,7 @@ export default {
     sameAs: [
       "https://share.google/BHiVMEgkuF6DXLslt",
       "https://instagram.com/lotstandardco",
+      "https://www.youtube.com/@LotStandardCo",  
     ] as string[],
     areaServed: [
       "Logan County, AR",
@@ -57,7 +59,18 @@ export default {
   },
   // Only list profiles that exist; add Facebook, LinkedIn, etc. back here when they do.
   socials: [
-    { name: "Instagram", icon: "i-mdi-instagram", color: "#E4405F", url: "https://instagram.com/lotstandardco" },
+    {
+      name: "Instagram",
+      icon: "i-mdi-instagram",
+      color: "#E4405F",
+      url: "https://instagram.com/lotstandardco",
+    },
+    {
+      name: "Youtube",
+      icon: "i-mdi-youtube",
+      color: "#CD201F",
+      url: "https://www.youtube.com/@LotStandardCo",
+    },
   ],
   twitter: "", // handle without the @, e.g. 'lotstandardco'
   // Netlify serves every page at /page/ and 301s /page to it, so canonical
@@ -79,7 +92,10 @@ export default {
             title: "ADA Compliance Marking",
             to: "/services/ada-compliance-marking",
           },
-          { title: "Warehouse Floor Marking", to: "/services/warehouse-floor-marking" },
+          {
+            title: "Warehouse Floor Marking",
+            to: "/services/warehouse-floor-marking",
+          },
           {
             title: "Safety Markings",
             to: "/services/safety-markings",

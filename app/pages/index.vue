@@ -9,7 +9,7 @@ import TestimonialsSection from "@/components/heroSections/testimonials/Testimon
 import FaqSection from "@/components/heroSections/faq/FaqSection.vue";
 
 definePageMeta({
-  title: "Western Arkansas Parking Lot Maintenance",
+  title: "#1 Parking Lot Maintenance in Arkansas",
   description:
     "Professional parking lot line striping, sealcoating, ADA-compliant marking and pavement maintenance for commercial properties in Fort Smith and nearby areas.",
   navOrder: 1,
