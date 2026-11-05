@@ -40,8 +40,8 @@ onMounted(() => {
 });
 
 // Seconds each element waits before animating in.
-const STEP = 0.25;
-const FIRST_USP = 1.1;
+const STEP = 0.12;
+const FIRST_USP = 0.6;
 </script>
 <template>
   <section
@@ -54,7 +54,7 @@ const FIRST_USP = 1.1;
       <!-- Google rating -->
       <div
         class="tb-item flex flex-wrap items-center justify-center gap-x-3 gap-y-2 text-lg md:text-xl"
-        style="--d: 0.5s"
+        style="--d: 0.3s"
       >
         <BaseIcon name="i-mdi-google" height="28px" />
         <div
@@ -77,7 +77,7 @@ const FIRST_USP = 1.1;
 
       <div
         class="tb-item my-8 h-px bg-gradient-to-r from-transparent via-neutral-300 to-transparent dark:via-neutral-700"
-        style="--d: 0.8s"
+        style="--d: 0.3s"
         aria-hidden="true"
       />
 

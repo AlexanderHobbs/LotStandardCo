@@ -39,7 +39,7 @@ useHead({
               <h1
                 class="capitalize leading-tight mb-10 !text-3xl md:!text-4xl lg:!text-5xl text-white"
               >
-              Parking Lot Striping & Pavement Maintenance In Western Arkansas
+              Premier Parking Lot Striping & Pavement Maintenance In Western Arkansas
               </h1>
               <div class="flex flex-wrap items-center justify-center gap-4">
                 <QuoteButton size="xl" class="![--h:4rem]" />
