@@ -25,15 +25,21 @@ useHead({
       <div
         class="absolute inset-0 bg-gradient-to-r from-tertiary-900/[.83] via-secondary-900/[.68] to-tertiary-900/[.83]"
       />
-      <div class="relative z-10 w-full">
+      <div class="relative z-10 w-full pb-12">
         <div class="lg:px-12 px-6 relative rounded-3xl">
-          <div class="-mx-4 flex flex-wrap items-center justify-center space-y-6 lg:space-y-0">
+          <div
+            class="-mx-4 flex flex-wrap items-center justify-center space-y-6 lg:space-y-0"
+          >
             <div class="mx-auto px-4 w-full text-center md:w-11/12 xl:w-9/12">
-              <p class="font-bold font-serif mb-1 !text-base md:!text-lg lg:!text-xl text-gray-300 uppercase">
+              <p
+                class="font-bold font-serif mb-1 !text-base md:!text-lg lg:!text-xl text-gray-300 uppercase"
+              >
                 Setting the standard for Arkansas
               </p>
-              <h1 class="capitalize leading-tight mb-10 !text-3xl md:!text-4xl lg:!text-5xl text-white">
-                Professional Parking Lot Striping & Pavement Maintenance
+              <h1
+                class="capitalize leading-tight mb-10 !text-3xl md:!text-4xl lg:!text-5xl text-white"
+              >
+              Parking Lot Striping & Pavement Maintenance In Western Arkansas
               </h1>
               <div class="flex flex-wrap items-center justify-center gap-4">
                 <QuoteButton size="xl" class="![--h:4rem]" />

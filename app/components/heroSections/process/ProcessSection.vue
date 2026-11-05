@@ -31,7 +31,7 @@
   defineProps<{ background?: 'default' | 'white' }>()
 </script>
 <template>
-  <section class="container mx-auto px-4 py-20 md:py-28">
+  <section class="container mx-auto px-4 pb-20 pt-8 md:pb-28 md:pt-12">
     <div class="mx-auto text-center w-full lg:w-7/12">
       <p class="text-sm md:text-base lg:text-lg font-medium mb-2 text-primary-600 dark:text-primary-200 uppercase">
         How It Works

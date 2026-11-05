@@ -56,7 +56,7 @@ const toggle = () => {
   <div
     id="mission_text"
     ref="root"
-    class="container mx-auto px-4 pt-12 pb-24 relative"
+    class="container mx-auto px-4 pt-12 pb-12 relative"
   >
     <div class="-mx-4 flex flex-wrap items-center">
       <div

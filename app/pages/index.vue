@@ -28,8 +28,8 @@ definePageMeta({
   <div>
     <HeroSection />
     <TrustBar />
-    <OurMission />
     <ServiceSection />
+    <OurMission />
     <ProcessSection />
     <StatsSection />
     <TestimonialsSection />

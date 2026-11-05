@@ -45,7 +45,7 @@ defineProps<{ plain?: boolean }>()
         class="absolute left-44 top-0 h-full w-2 -skew-x-12 bg-white/25 md:left-64"
       />
     </div>
-    <div class="pb-24 pt-12">
+    <div class="pb-24 pt-20">
       <div class="container mx-auto px-4 relative">
         <div
           class="-mx-4 flex flex-col flex-wrap items-center justify-center mb-4"
