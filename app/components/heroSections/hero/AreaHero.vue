@@ -23,7 +23,7 @@ const { phone, phoneDisplay } = siteMeta.business;
     <div class="relative z-10 w-full px-6 py-12 text-center lg:px-12">
       <div class="mx-auto md:w-10/12">
         <p
-          class="mb-1 font-serif !text-sm font-bold uppercase text-gray-300 md:!text-base lg:!text-lg"
+          class="mb-1 font-serif !text-sm font-bold uppercase text-gray-300 md:!text-base lg:!text-lg eyebrow-dash"
         >
           {{ eyebrow }}
         </p>

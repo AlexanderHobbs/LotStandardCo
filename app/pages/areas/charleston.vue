@@ -12,9 +12,9 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
   }
 
   usePageSeo({
-    title: 'Parking Lot Striping in Charleston',
+    title: 'Parking Lot Striping in Charleston, AR',
     description:
-      "Parking lot striping in Charleston, AR. ADA-compliant striping and sealcoating for Franklin County medical offices, schools and local businesses.",
+      "Parking lot striping in Charleston, AR. ADA-compliant striping, sealcoating and crack filling for Franklin County medical offices, schools and businesses.",
     keywords:
       "Charleston AR parking lot striping, Charleston Arkansas sealcoating, Franklin County line striping, medical office parking lot striping Charleston, school parking lot striping Franklin County, Charleston ADA parking",
   })
@@ -38,13 +38,6 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         },
       },
     },
-    defineBreadcrumb({
-      itemListElement: [
-        { name: 'Home', item: '/' },
-        { name: 'Areas We Cover', item: '/areas/' },
-        { name: 'Charleston' },
-      ],
-    }),
   ])
 </script>
 
@@ -60,12 +53,11 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         <TrustBar />
       </div>
 
-      <div
-        class="grid items-center gap-8 pt-20 pb-0 lg:grid-cols-2 lg:gap-12"
-      >
+      <!-- First half of the copy beside the quote form -->
+      <div class="grid items-start gap-8 pt-20 lg:grid-cols-2 lg:gap-12">
         <div>
           <p
-            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base"
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base eyebrow-dash"
           >
             Franklin County pavement solutions
           </p>
@@ -73,11 +65,30 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
             Your Trusted Pavement Expert in {{ town.name }}
           </h2>
           <p class="mb-6">
-            We serve Charleston and Franklin County medical offices, schools and local businesses with <NuxtLink to="/services/ada-compliance-marking" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">ADA-compliant parking</NuxtLink> done exactly right. We lay out accessible stalls, access aisles and loading zones to code, plus clear <NuxtLink to="/services/line-striping" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">line striping</NuxtLink> for busy drop-off times.
+            We serve Charleston and Franklin County medical offices, schools and local businesses with <NuxtLink to="/services/new-layout-ada-striping/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">ADA-compliant parking</NuxtLink> done exactly right. We lay out accessible stalls, access aisles and loading zones to code, plus clear <NuxtLink to="/services/restriping/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">restriping</NuxtLink> for busy drop-off times.
           </p>
-          <p class="mb-6">
-            We protect each lot with <NuxtLink to="/services/sealcoating" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">sealcoating</NuxtLink> and crack sealing, and finish with <NuxtLink to="/services/safety-markings" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">safety markings</NuxtLink> and <NuxtLink to="/services/signage-installation" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">signage</NuxtLink>.
+          <p class="mb-0">
+            We protect each lot with <NuxtLink to="/services/sealcoating/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">sealcoating</NuxtLink> and <NuxtLink to="/services/crack-filling/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">crack filling</NuxtLink>, and fix trouble spots with <NuxtLink to="/services/patching-potholes/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">patching and pothole repair</NuxtLink>, or bundle it all in a <NuxtLink to="/services/full-package/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">full repair-seal-stripe package</NuxtLink>.
           </p>
+        </div>
+        <QuoteForm />
+      </div>
+
+      <!-- Second half of the copy beside the photo -->
+      <div class="grid items-center gap-8 pt-20 lg:grid-cols-2 lg:gap-12">
+        <AreaPhoto
+          src="/area-photos/charleston.jpg"
+          :alt="`Freshly sealcoated parking lot with crisp white stall lines beside a residential neighborhood - parking lot striping in ${town.name}, Arkansas`"
+        />
+        <div>
+          <p
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base eyebrow-dash"
+          >
+            Our Work in {{ town.name }}
+          </p>
+          <h2 class="mb-4 text-2xl font-bold md:!text-3xl">
+            Accessible Parking Done Right in Charleston
+          </h2>
           <p class="mb-6">
             In Charleston, we serve the schools, medical clinics and local businesses that the community relies on every day, plus the properties along Highway 22. For these lots, accessible parking matters most, so we make sure accessible stalls, access aisles, signs and routes to the entrance meet current requirements, and we time school projects for breaks so lots are ready when students return.
           </p>
@@ -86,31 +97,28 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
           </p>
           <QuoteButton size="lg" background="white" />
         </div>
-        <AreaPhoto
-          src="/area-photos/charleston.png"
-          :alt="`Freshly sealcoated parking lot with crisp white stall lines beside a residential neighborhood - parking lot striping in ${town.name}, Arkansas`"
-        />
-        <div
-          class="grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3 lg:col-span-2"
-        >
-          <div>
-            <p class="text-lg font-bold">Precision</p>
-            <p class="text-sm">Dedicated crews with an eye for detail on every line.</p>
-          </div>
-          <div>
-            <p class="text-lg font-bold">Clear Scope &amp; Pricing</p>
-            <p class="text-sm">Know exactly what's included before work begins.</p>
-          </div>
-          <div>
-            <p class="text-lg font-bold">Reply Within 1 Business Day</p>
-            <p class="text-sm">Fast scheduling for Charleston and all of Franklin County.</p>
-          </div>
+      </div>
+
+      <div
+        class="mt-12 grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3"
+      >
+        <div>
+          <p class="text-lg font-bold">Precision</p>
+          <p class="text-sm">Dedicated crews with an eye for detail on every line.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Clear Scope &amp; Pricing</p>
+          <p class="text-sm">Know exactly what's included before work begins.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Reply Within 1 Business Day</p>
+          <p class="text-sm">Fast scheduling for Charleston and all of Franklin County.</p>
         </div>
       </div>
       <hr class="border-primary-300 dark:border-primary-500" />
 
       <div>
-        <ServiceSection plain class="-mx-4 my-20" />
+        <ServiceSection plain class="-mx-4" />
         <hr class="border-primary-300 dark:border-primary-500" />
         <ProcessSection background="white" />
       </div>

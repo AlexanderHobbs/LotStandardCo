@@ -16,7 +16,9 @@
       if (tags.includes(item.tag)) {
         toc.push({
           link: item.props.id,
-          text: item.props.id.toString().replace(/-/g, ' '),
+          // Ids for headings that start with a number get a leading "_" (ids can't
+          // start with a digit), so drop it from the label.
+          text: item.props.id.toString().replace(/^_/, '').replace(/-/g, ' '),
           depth: Number(item.tag.replace(/h/g, '')),
         })
       }

@@ -8,7 +8,7 @@
     aria-label="Contact Lot Standard Co"
     class="h-fit rounded-3xl border border-primary-200 bg-white/80 p-6 shadow-lg dark:border-primary-700 dark:bg-neutral-900/80 lg:sticky lg:top-28"
   >
-    <h2 class="mb-1 font-bold !text-base md:!text-lg lg:!text-xl">Contact Us</h2>
+    <p class="mb-1 font-bold text-base md:text-lg lg:text-xl">Contact Us</p>
     <p class="mb-5 text-sm text-primary-600 dark:text-primary-200">
       Questions about your lot? We're happy to help.
     </p>

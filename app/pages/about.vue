@@ -6,7 +6,7 @@ const { phone, phoneDisplay } = siteMeta.business;
 definePageMeta({
   title: "About Our Fort Smith Striping Company",
   description:
-    "Licensed, insured and locally owned parking lot striping and pavement maintenance company in Fort Smith, AR, serving western and northwest Arkansas.",
+    "Licensed, insured and locally owned parking lot striping and pavement maintenance company in Fort Smith, AR, serving the River Valley & Northwest Arkansas.",
   navOrder: 4,
   type: "secondary",
   icon: "i-mdi-information-outline",
@@ -48,7 +48,7 @@ const values = [
 ];
 
 withDefaults(defineProps<{ to?: string; background?: "default" | "white" }>(), {
-  to: "/contact",
+  to: "/contact/",
   background: "default",
 });
 </script>
@@ -59,7 +59,7 @@ withDefaults(defineProps<{ to?: string; background?: "default" | "white" }>(), {
     <section class="container mx-auto px-4 py-12">
       <div class="mx-auto text-center w-full lg:w-8/12">
         <p
-          class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg"
+          class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg eyebrow-dash"
         >
           About Us
         </p>
@@ -120,7 +120,7 @@ withDefaults(defineProps<{ to?: string; background?: "default" | "white" }>(), {
         </div>
         <div class="mx-auto p-4 w-full lg:w-6/12">
           <p
-            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg"
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg eyebrow-dash"
           >
             The People Behind The Work
           </p>
@@ -168,12 +168,12 @@ withDefaults(defineProps<{ to?: string; background?: "default" | "white" }>(), {
             fit="outside"
             loading="lazy"
             class="aspect-[4/5] w-full rounded-3xl object-cover shadow-xl"
-            alt="Lot Standard Co line striping machine and sealcoating equipment"
+            alt="Lot Standard Co line striping machine with laser guide on a parking lot"
           />
         </div>
         <div class="mx-auto p-4 w-full lg:w-6/12">
           <p
-            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg"
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg eyebrow-dash"
           >
             Our Equipment
           </p>

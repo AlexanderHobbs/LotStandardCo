@@ -1,7 +1,7 @@
 <script setup lang="ts">
   definePageMeta({
     title: "Parking Lot Maintenance Tips & Guides",
-    description: "Parking lot maintenance tips and guides from Lot Standard Co: striping, sealcoating, ADA compliance and floor marking for Arkansas businesses.",
+    description: "Parking lot maintenance tips and guides from Lot Standard Co: sealcoating, crack filling, restriping and ADA compliance for Arkansas businesses.",
     navOrder: 5,
     type: 'secondary',
     icon: 'i-mdi-post-outline',
@@ -17,7 +17,7 @@
       />
       <h1 class="text-3xl sm:text-4xl">Parking Lot Maintenance Tips & Guides</h1>
       <p class="mt-1 text-sm font-medium md:text-base lg:text-lg">
-        Advice on striping, sealcoating and ADA compliance from the Lot Standard Co team.
+        Advice on sealcoating, restriping and ADA compliance from the Lot Standard Co team.
       </p>
     </TheHeader>
     <BlogList />

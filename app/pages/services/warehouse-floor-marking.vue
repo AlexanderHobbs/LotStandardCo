@@ -9,7 +9,7 @@ const service: ServicePage = {
   image: "/images/services/warehouse-floor-marking.jpg",
   seoTitle: "Warehouse Floor Marking in Arkansas",
   metaDescription:
-    "Warehouse and industrial floor marking in Fort Smith, Fayetteville and western Arkansas. Aisles, walkways and safety zones, applied to last. Free quotes.",
+    "Warehouse and industrial floor marking in the River Valley & Northwest Arkansas. Aisles, walkways and safety zones, applied to last. Free quote.",
   keywords:
     "warehouse floor marking, industrial floor striping, aisle marking, safety zone marking, OSHA floor marking, Fort Smith warehouse striping, Northwest Arkansas floor marking",
   eyebrow: "Warehouse & Industrial Floors",
@@ -86,9 +86,12 @@ const service: ServicePage = {
     },
   ],
   related: [
-    { name: "Line Striping", slug: "line-striping" },
-    { name: "ADA Compliance Marking", slug: "ada-compliance-marking" },
-    { name: "Signage Installation", slug: "signage-installation" },
+    { name: "Restriping", slug: "restriping" },
+    { name: "New Layout & ADA Striping", slug: "new-layout-ada-striping" },
+    { name: "Full Package", slug: "full-package" },
+  ],
+  guides: [
+    { title: "Warehouse Floor Marking: Paint or Tape?", slug: "warehouse-floor-marking-guide" },
   ],
 };
 </script>

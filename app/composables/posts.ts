@@ -2,7 +2,7 @@ import { computed } from 'vue'
 
 export interface Post {
   date: Date
-  author: string
+  author?: string
   title: string
   twitter: string
 }

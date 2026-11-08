@@ -4,7 +4,6 @@ description: "When is the best time of year to stripe a parking lot? How weather
 category: Striping
 date: 2025-10-02
 updated: 2026-10-31
-author: Lot Standard Co Team
 ---
 
 Timing your striping project right means a faster job, better-looking results, and paint that lasts. Pick the wrong week and you can end up with lines that peel, haze over or need to be redone far sooner than they should. Here's how to think about timing for a commercial lot, especially in Arkansas and the surrounding region.
@@ -29,11 +28,11 @@ Mid-summer works too, and the paint dries fast, but very hot days can be hard on
 
 Striping is usually the last step in a pavement project, so its timing depends on what happens first:
 
-- **Crack sealing and repairs** come before striping so the paint goes on a sound surface.
-- **Sealcoating** covers old lines completely, so lines should be re-painted after the sealcoat has cured, which typically takes a day or two depending on weather.
+- **[Crack sealing](/services/crack-filling/) and repairs** come before striping so the paint goes on a sound surface.
+- **[Sealcoating](/services/sealcoating/)** covers old lines completely, so lines should be re-painted after the sealcoat has cured, which typically takes a day or two depending on weather.
 - **New asphalt** is often allowed to cure for a period before it's striped, so ask your paving contractor.
 
-Combining sealcoating and striping into one scheduled visit keeps your lot from being disrupted twice and means the fresh black surface isn't left without lines.
+[Combining sealcoating and striping](/services/full-package/) into one scheduled visit keeps your lot from being disrupted twice and means the fresh black surface isn't left without lines.
 
 ## Plan around your business
 
@@ -55,4 +54,4 @@ We work with property managers to schedule striping during low-traffic windows â
 
 If you tell us your busiest weeks and your quietest, we can usually fit a date around them.
 
-Ready to plan your next striping project? [Get in touch](/contact) and we'll help you pick the right timing.
+Ready to plan your next striping project? [Get in touch](/contact/) and we'll help you pick the right timing.

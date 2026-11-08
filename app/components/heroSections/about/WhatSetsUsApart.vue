@@ -14,7 +14,7 @@
       icon: 'i-mdi-shield-star-outline',
       title: 'Brand Presence & Importance',
       description:
-        'Your lot is the first impression of your brand. We treat clean, consistent pavement and signage as part of how your business is seen, at every location.',
+        'Your lot is the first impression of your brand. We treat clean, consistent pavement and striping as part of how your business is seen, at every location.',
     },
     {
       icon: 'i-mdi-laser-pointer',
@@ -34,7 +34,7 @@
   <section class="container mx-auto px-4 py-12">
     <div class="mx-auto mb-10 text-center lg:w-8/12">
       <p
-        class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg"
+        class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg eyebrow-dash"
       >
         Why Lot Standard Co
       </p>
@@ -47,102 +47,82 @@
       </p>
     </div>
 
-    <!-- Mobile: swipeable cards, one point per screen -->
-    <ul
-      class="-mx-4 flex snap-x snap-mandatory gap-4 overflow-x-auto px-4 pb-4 md:hidden [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
-      aria-label="What Lot Standard Co offers that others don't"
-    >
-      <li
-        v-for="item in features"
-        :key="item.title"
-        class="w-[85%] shrink-0 snap-center rounded-3xl p-5 dark:bg-neutral-900/40"
-        :class="onWhite ? 'bg-neutral-50/60' : 'bg-white/40'"
-      >
-        <BaseIcon
-          :name="item.icon"
-          height="32px"
-          class="mb-3 !text-primary-600"
-        />
-        <h3 class="!mb-2 !text-lg font-bold">{{ item.title }}</h3>
-        <p class="mb-4 text-sm">{{ item.description }}</p>
-        <div
-          class="flex gap-6 border-t border-neutral-500/15 pt-3 text-sm font-semibold"
-        >
-          <span class="flex items-center gap-1">
-            <BaseIcon
-              name="i-mdi-check-circle"
-              height="24px"
-              class="!text-green-600"
-            />
-            Lot Standard Co
-          </span>
-          <span class="flex items-center gap-1">
-            <BaseIcon
-              name="i-mdi-close-circle"
-              height="24px"
-              class="!text-red-500"
-            />
-            Others
-          </span>
-        </div>
-      </li>
-    </ul>
-
+    <!-- One list for every screen size, so the text is in the page once:
+         phones get a swipeable row of cards (one point per screen); md and up
+         get a table-like layout (text, then a "Lot Standard Co" and an "Others"
+         column) built with a CSS grid. -->
     <div
-      class="mx-auto hidden overflow-hidden rounded-3xl dark:bg-neutral-900/40 md:block lg:w-10/12"
-      :class="onWhite ? 'bg-neutral-50/60' : 'bg-white/40'"
+      class="mx-auto md:overflow-hidden md:rounded-3xl lg:w-10/12"
+      :class="
+        onWhite
+          ? 'md:bg-neutral-50/60 dark:md:bg-neutral-900/40'
+          : 'md:bg-white/40 dark:md:bg-neutral-900/40'
+      "
     >
-      <table class="w-full border-collapse text-left">
-        <caption class="sr-only">
-          What Lot Standard Co offers that others don't
-        </caption>
-        <thead>
-          <tr class="text-sm font-bold md:text-base">
-            <th scope="col" class="p-4 md:p-6">What We Offer That Others Don't</th>
-            <th scope="col" class="w-20 p-2 text-center md:w-32">
-              Lot Standard Co
-            </th>
-            <th scope="col" class="w-20 p-2 text-center md:w-32">Others</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            v-for="item in features"
-            :key="item.title"
-            class="border-t border-neutral-500/15"
+      <!-- Column labels (desktop only); each row also says which column is which -->
+      <div
+        class="hidden grid-cols-[1fr_8rem_8rem] text-base font-bold md:grid"
+        aria-hidden="true"
+      >
+        <span class="p-6">What We Offer That Others Don't</span>
+        <span class="self-center p-2 text-center">Lot Standard Co</span>
+        <span class="self-center p-2 text-center">Others</span>
+      </div>
+      <ul
+        class="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden max-md:-mx-4 max-md:px-4 md:block md:overflow-visible md:pb-0"
+        aria-label="What Lot Standard Co offers that others don't"
+      >
+        <li
+          v-for="item in features"
+          :key="item.title"
+          class="max-md:w-[85%] max-md:shrink-0 max-md:snap-center max-md:rounded-3xl max-md:p-5 md:grid md:grid-cols-[1fr_8rem_8rem] md:items-center md:border-t md:border-neutral-500/15"
+          :class="
+            onWhite
+              ? 'max-md:bg-neutral-50/60 dark:max-md:bg-neutral-900/40'
+              : 'max-md:bg-white/40 dark:max-md:bg-neutral-900/40'
+          "
+        >
+          <div class="flex flex-col md:flex-row md:gap-4 md:p-6">
+            <BaseIcon
+              :name="item.icon"
+              height="32px"
+              class="mb-3 shrink-0 !text-primary-600 md:mb-0 md:mt-1"
+            />
+            <div>
+              <h3 class="!mb-2 !text-lg font-bold md:!mb-1">{{ item.title }}</h3>
+              <p class="mb-4 text-sm md:mb-0 md:text-base">
+                {{ item.description }}
+              </p>
+            </div>
+          </div>
+          <!-- Phones: a labelled yes/no footer on the card. md and up: the two
+               cells of the "Lot Standard Co" and "Others" columns. -->
+          <div
+            class="flex gap-6 border-t border-neutral-500/15 pt-3 text-sm font-semibold md:contents"
           >
-            <th scope="row" class="p-4 font-normal md:p-6">
-              <div class="flex gap-4">
-                <BaseIcon
-                  :name="item.icon"
-                  height="32px"
-                  class="mt-1 shrink-0 !text-primary-600"
-                />
-                <div>
-                  <h3 class="!mb-1 !text-lg font-bold">{{ item.title }}</h3>
-                  <p class="text-sm md:text-base">{{ item.description }}</p>
-                </div>
-              </div>
-            </th>
-            <td class="p-2 text-center">
+            <span class="flex items-center gap-1 md:justify-center md:p-2">
               <BaseIcon
                 name="i-mdi-check-circle"
-                height="32px"
+                height="28px"
                 class="!text-green-600"
-                aria-label="Yes"
+                aria-hidden="true"
               />
-            </td>
-            <td class="p-2 text-center">
+              <span class="md:sr-only">Lot Standard Co</span>
+              <span class="sr-only">: yes</span>
+            </span>
+            <span class="flex items-center gap-1 md:justify-center md:p-2">
               <BaseIcon
                 name="i-mdi-close-circle"
-                height="32px"
+                height="28px"
                 class="!text-red-500"
-                aria-label="No"
+                aria-hidden="true"
               />
-            </td>
-          </tr>
-        </tbody>
-      </table>
+              <span class="md:sr-only">Others</span>
+              <span class="sr-only">: no</span>
+            </span>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 </template>

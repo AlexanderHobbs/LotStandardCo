@@ -14,7 +14,7 @@
   const pageUrl = `${siteMeta.url}/services/${service.slug}/`
 
   // The contact form preselects this service from the ?service= query.
-  const contactLink = { path: '/contact', query: { service: service.slug } }
+  const contactLink = { path: '/contact/', query: { service: service.slug } }
 
   usePageSeo({
     title: service.seoTitle,
@@ -59,16 +59,16 @@
     class="bg-primary-100 py-12 text-primary-900 dark:bg-primary-700 dark:text-primary-100"
   >
     <div class="container mx-auto px-4">
-      <nav aria-label="Breadcrumb" class="mb-6 text-sm">
-        <NuxtLink to="/" class="underline">Home</NuxtLink>
-        <span class="mx-2">/</span>
-        <NuxtLink to="/services" class="underline">Services</NuxtLink>
-        <span class="mx-2">/</span>
-        <span aria-current="page">{{ service.name }}</span>
-      </nav>
+      <PageBreadcrumb
+        :items="[
+          { name: 'Home', to: '/' },
+          { name: 'Services', to: '/services/' },
+          { name: service.name },
+        ]"
+      />
 
       <header class="mx-auto text-center lg:w-8/12">
-        <p class="mb-2 text-sm font-medium md:text-base lg:text-lg uppercase">{{ service.eyebrow }}</p>
+        <p class="mb-2 text-sm font-medium md:text-base lg:text-lg uppercase eyebrow-dash">{{ service.eyebrow }}</p>
         <h1 class="text-2xl capitalize md:text-3xl lg:text-4xl">
           {{ service.heading }}
         </h1>
@@ -181,25 +181,24 @@
 
       <section class="mt-28 text-center">
         <h2 class="mb-2 text-2xl font-bold">Serving Western & Northwest Arkansas</h2>
-        <p class="mx-auto mb-4 lg:w-8/12">
+        <p class="mx-auto lg:w-8/12">
           We provide {{ service.name.toLowerCase() }} across
           {{ siteMeta.business.areaServed.join(', ') }}.
         </p>
-        <BaseButton to="/areas">View All Service Areas</BaseButton>
       </section>
 
-      <section class="mt-28 text-center">
-        <h2 class="mb-4 text-2xl font-bold">Related Services</h2>
-        <div class="flex flex-wrap justify-center gap-3">
-          <BaseButton
-            v-for="related in service.related"
-            :key="related.slug"
-            :to="`/services/${related.slug}`"
-          >
-            {{ related.name }}
-          </BaseButton>
-          <BaseButton to="/services">All Services</BaseButton>
-        </div>
+      <section v-if="service.guides?.length" class="mt-28 text-center">
+        <h2 class="mb-4 text-2xl font-bold">Related Guides</h2>
+        <ul class="mx-auto grid max-w-3xl gap-3 sm:grid-cols-2">
+          <li v-for="guide in service.guides" :key="guide.slug">
+            <NuxtLink
+              :to="`/blog/${guide.slug}/`"
+              class="block h-full rounded-xl border border-neutral-200 p-4 text-left font-semibold text-primary-600 hover:border-primary-600 dark:border-neutral-800 dark:text-primary-200 dark:hover:border-primary-200"
+            >
+              {{ guide.title }}
+            </NuxtLink>
+          </li>
+        </ul>
       </section>
     </div>
   </div>

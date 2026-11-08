@@ -56,7 +56,7 @@ onMounted(() => {
   <section class="container mx-auto px-4 py-12">
     <div class="mx-auto text-center w-full lg:w-7/12">
       <p
-        class="text-sm md:text-base lg:text-lg font-medium mb-2 text-primary-600 dark:text-primary-200 uppercase"
+        class="text-sm md:text-base lg:text-lg font-medium mb-2 text-primary-600 dark:text-primary-200 uppercase eyebrow-dash"
       >
         Testimonials
       </p>

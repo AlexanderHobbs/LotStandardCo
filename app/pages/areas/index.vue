@@ -30,7 +30,7 @@
       name: 'Charleston',
       countySlug: 'franklin',
       blurb:
-        'Reliable pavement and floor marking for Charleston clinics, schools and small businesses.',
+        'Reliable pavement repair and striping for Charleston clinics, schools and small businesses.',
       focus: ['Medical offices', 'Schools', 'Small businesses'],
     },
     {
@@ -38,15 +38,15 @@
       name: 'Ozark',
       countySlug: 'franklin',
       blurb:
-        'Franklin County seat. Courthouse-square parking, signage and striping done with minimal disruption.',
-      focus: ['Municipal lots', 'Signage', 'Downtown parking'],
+        'Franklin County seat. Courthouse-square parking, crack filling and striping done with minimal disruption.',
+      focus: ['Municipal lots', 'Crack filling', 'Downtown parking'],
     },
     {
       slug: 'greenwood',
       name: 'Greenwood',
       countySlug: 'sebastian',
       blurb:
-        'Line striping and ADA compliance for Greenwood churches, schools and growing retail corridors.',
+        'Restriping and ADA striping for Greenwood churches, schools and growing retail corridors.',
       focus: ['Churches', 'Schools', 'Retail corridors'],
     },
     {
@@ -54,7 +54,7 @@
       name: 'Fort Smith',
       countySlug: 'sebastian',
       blurb:
-        'Our largest western hub. Striping, sealcoating and safety markings for shopping centers, apartments and industrial sites.',
+        'Our largest western hub. Striping, sealcoating and pavement repair for shopping centers, apartments and industrial sites.',
       focus: ['Shopping centers', 'Apartments', 'Industrial sites'],
     },
     {
@@ -70,8 +70,8 @@
       name: 'Alma',
       countySlug: 'crawford',
       blurb:
-        'Heavy-duty striping and signage for Alma warehouses, distribution yards and commercial lots.',
-      focus: ['Warehouses', 'Distribution yards', 'Signage'],
+        'Heavy-duty striping and pavement repair for Alma warehouses, distribution yards and commercial lots.',
+      focus: ['Warehouses', 'Distribution yards', 'Pavement repair'],
     },
     {
       slug: 'fayetteville',
@@ -87,7 +87,7 @@
       countySlug: 'washington',
       blurb:
         'ADA-compliant marking and full lot maintenance for Springdale business parks and industrial properties.',
-      focus: ['Business parks', 'Industrial', 'ADA marking'],
+      focus: ['Business parks', 'Industrial', 'ADA striping'],
     },
     {
       slug: 'rogers',
@@ -127,7 +127,7 @@
   )
 
   definePageMeta({
-    title: 'Areas We Cover',
+    title: 'Parking Lot Service Areas in Arkansas',
     description:
       'Parking lot striping, sealcoating and pavement maintenance from Booneville to Bentonville, Arkansas. See the towns and counties we serve.',
     navOrder: 4,
@@ -144,21 +144,6 @@
   const countyName = (slug: string) =>
     serviceCounties.find((c) => c.slug === slug)?.name ?? ''
 
-  const lotCountByTown: Record<string, number> = {
-    Booneville: 1,
-    Paris: 1,
-    Charleston: 1,
-    Ozark: 1,
-    Greenwood: 1,
-    'Fort Smith': 1,
-    'Van Buren': 1,
-    Alma: 1,
-    Fayetteville: 1,
-    Springdale: 1,
-    Rogers: 1,
-    Bentonville: 1,
-  }
-  const lotCount = (town: string) => lotCountByTown[town] ?? 0
 </script>
 
 <template>
@@ -167,7 +152,7 @@
   >
     <section class="container mx-auto px-4 pt-12 pb-8 text-center">
       <div class="mx-auto lg:w-8/12">
-        <p class="mb-2 text-sm font-medium md:text-base lg:text-lg text-primary-600 uppercase dark:text-primary-200">
+        <p class="mb-2 text-sm font-medium md:text-base lg:text-lg text-primary-600 uppercase dark:text-primary-200 eyebrow-dash">
           Areas We Cover
         </p>
         <h1 class="capitalize text-2xl md:text-3xl lg:text-4xl">
@@ -196,7 +181,7 @@
             class="relative flex w-full cursor-pointer flex-col rounded-3xl bg-white/80 p-6 shadow-xl transition-transform duration-300 ease-in-out hover:z-10 hover:scale-[1.03] dark:bg-neutral-900/80"
           >
             <NuxtLink
-              :to="`/areas/${town.slug}`"
+              :to="`/areas/${town.slug}/`"
               class="absolute inset-0 rounded-3xl"
               tabindex="-1"
               aria-hidden="true"
@@ -207,15 +192,6 @@
               >
                 <BaseIcon name="i-mdi-map-marker-outline" height="14px" />
                 {{ countyName(town.countySlug) }}, AR
-              </span>
-              <span
-                v-if="lotCount(town.name)"
-                class="text-xs text-neutral-500 dark:text-neutral-400"
-              >
-                {{ lotCount(town.name) }} lot{{
-                  lotCount(town.name) > 1 ? 's' : ''
-                }}
-                completed
               </span>
             </div>
 
@@ -238,7 +214,7 @@
               <BaseButton
                 size="lg"
                 color="white"
-                :to="`/areas/${town.slug}`"
+                :to="`/areas/${town.slug}/`"
                 block
               >
                 View {{ town.name }} Page

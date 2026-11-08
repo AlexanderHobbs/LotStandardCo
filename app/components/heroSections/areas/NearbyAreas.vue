@@ -47,7 +47,7 @@ const nearby = computed(() =>
     <ul class="flex flex-wrap justify-center gap-3">
       <li v-for="town in nearby" :key="town.slug">
         <NuxtLink
-          :to="`/areas/${town.slug}`"
+          :to="`/areas/${town.slug}/`"
           class="inline-flex items-center gap-2 rounded-full bg-white/80 px-5 py-3 font-medium shadow-xl ring-1 ring-neutral-200 transition duration-300 ease-in-out hover:bg-white hover:ring-neutral-300 dark:bg-neutral-900/80"
         >
           <BaseIcon name="i-mdi-map-marker-outline" height="18px" />

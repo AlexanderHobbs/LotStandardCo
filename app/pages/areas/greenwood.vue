@@ -12,9 +12,9 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
   }
 
   usePageSeo({
-    title: 'Parking Lot Striping in Greenwood',
+    title: 'Parking Lot Striping in Greenwood, AR',
     description:
-      "Parking lot striping in Greenwood, AR. Line striping, sealcoating and ADA markings for Sebastian County schools, churches and Highway 71 retail properties.",
+      "Parking lot striping in Greenwood, AR. Restriping, sealcoating and ADA striping for Sebastian County schools, churches and Highway 71 retail properties.",
     keywords:
       "Greenwood AR parking lot striping, Greenwood sealcoating, Greenwood church parking lot striping, Greenwood school parking lot, Sebastian County line striping, Highway 71 retail striping Greenwood",
   })
@@ -38,13 +38,6 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         },
       },
     },
-    defineBreadcrumb({
-      itemListElement: [
-        { name: 'Home', item: '/' },
-        { name: 'Areas We Cover', item: '/areas/' },
-        { name: 'Greenwood' },
-      ],
-    }),
   ])
 </script>
 
@@ -60,12 +53,11 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         <TrustBar />
       </div>
 
-      <div
-        class="grid items-center gap-8 pt-20 pb-0 lg:grid-cols-2 lg:gap-12"
-      >
+      <!-- First half of the copy beside the quote form -->
+      <div class="grid items-start gap-8 pt-20 lg:grid-cols-2 lg:gap-12">
         <div>
           <p
-            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base"
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base eyebrow-dash"
           >
             Sebastian County pavement solutions
           </p>
@@ -73,11 +65,30 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
             Your Trusted Pavement Expert in {{ town.name }}
           </h2>
           <p class="mb-6">
-            We serve Greenwood and Sebastian County schools, churches and retail properties with <NuxtLink to="/services/line-striping" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">line striping</NuxtLink> planned around your calendar. We refresh pickup lanes, crosswalks and event parking, and renew <NuxtLink to="/services/ada-compliance-marking" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">ADA stalls and routes</NuxtLink> so every visitor can get in safely.
+            We serve Greenwood and Sebastian County schools, churches and retail properties with <NuxtLink to="/services/restriping/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">restriping</NuxtLink> planned around your calendar. We refresh pickup lanes, crosswalks and event parking, and renew <NuxtLink to="/services/new-layout-ada-striping/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">ADA stalls and routes</NuxtLink> so every visitor can get in safely.
           </p>
-          <p class="mb-6">
-            To make the work last, we add <NuxtLink to="/services/sealcoating" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">sealcoating</NuxtLink> and crack sealing, plus <NuxtLink to="/services/safety-markings" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">safety markings</NuxtLink> like speed bumps and curbs and <NuxtLink to="/services/signage-installation" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">signage</NuxtLink>. We keep you informed from the first quote to the final walkthrough.
+          <p class="mb-0">
+            To make the work last, we add <NuxtLink to="/services/sealcoating/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">sealcoating</NuxtLink> and <NuxtLink to="/services/crack-filling/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">crack filling</NuxtLink>, plus <NuxtLink to="/services/patching-potholes/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">patching and pothole repair</NuxtLink> for worn areas, or a <NuxtLink to="/services/full-package/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">full repair-seal-stripe package</NuxtLink> that does it all in one project. We keep you informed from the first quote to the final walkthrough.
           </p>
+        </div>
+        <QuoteForm />
+      </div>
+
+      <!-- Second half of the copy beside the photo -->
+      <div class="grid items-center gap-8 pt-20 lg:grid-cols-2 lg:gap-12">
+        <AreaPhoto
+          src="/area-photos/greenwood.jpg"
+          :alt="`Parking lot with new white stall lines and a tree-lined edge - parking lot striping in ${town.name}, Arkansas`"
+        />
+        <div>
+          <p
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base eyebrow-dash"
+          >
+            Our Work in {{ town.name }}
+          </p>
+          <h2 class="mb-4 text-2xl font-bold md:!text-3xl">
+            Parking Lots That Keep Greenwood Moving
+          </h2>
           <p class="mb-6">
             In Greenwood, we serve the schools, churches and retail centers that keep the town busy, from weekday drop-off lines to packed Sunday parking. As Greenwood grows, many older lots weren't striped for the traffic they see now, so we review how cars and people move through your property before we paint, then mark pickup lanes, crosswalks and accessible routes that keep families moving safely at the busiest times of the week.
           </p>
@@ -86,31 +97,28 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
           </p>
           <QuoteButton size="lg" background="white" />
         </div>
-        <AreaPhoto
-          src="/area-photos/greenwood.png"
-          :alt="`Parking lot with new white stall lines and a tree-lined edge - parking lot striping in ${town.name}, Arkansas`"
-        />
-        <div
-          class="grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3 lg:col-span-2"
-        >
-          <div>
-            <p class="text-lg font-bold">Precision</p>
-            <p class="text-sm">Dedicated crews with an eye for detail on every line.</p>
-          </div>
-          <div>
-            <p class="text-lg font-bold">Clear Scope &amp; Pricing</p>
-            <p class="text-sm">Know exactly what's included before work begins.</p>
-          </div>
-          <div>
-            <p class="text-lg font-bold">Reply Within 1 Business Day</p>
-            <p class="text-sm">Fast scheduling for Greenwood and the rest of Sebastian County.</p>
-          </div>
+      </div>
+
+      <div
+        class="mt-12 grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3"
+      >
+        <div>
+          <p class="text-lg font-bold">Precision</p>
+          <p class="text-sm">Dedicated crews with an eye for detail on every line.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Clear Scope &amp; Pricing</p>
+          <p class="text-sm">Know exactly what's included before work begins.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Reply Within 1 Business Day</p>
+          <p class="text-sm">Fast scheduling for Greenwood and the rest of Sebastian County.</p>
         </div>
       </div>
       <hr class="border-primary-300 dark:border-primary-500" />
 
       <div>
-        <ServiceSection plain class="-mx-4 my-20" />
+        <ServiceSection plain class="-mx-4" />
         <hr class="border-primary-300 dark:border-primary-500" />
         <ProcessSection background="white" />
       </div>

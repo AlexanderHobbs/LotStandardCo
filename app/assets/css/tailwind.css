@@ -3,12 +3,29 @@
 @tailwind utilities;
 
 @layer components {
+  /* Section subheaders ("eyebrows"): a short dash in the text colour before the
+     label. Inline, so it follows the text alignment (left or centred). */
+  .eyebrow-dash::before {
+    content: '';
+    display: inline-block;
+    width: 2.5rem;
+    height: 2px;
+    margin-right: 0.75rem;
+    vertical-align: middle;
+    background-color: currentColor;
+  }
   .btn-blue {
     @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
   }
 }
 
 @layer base {
+  /* No rubber-band overscroll at the top of the page, so the content can never
+     pull away from the fixed navbar and show the backdrop behind it. */
+  html,
+  body {
+    overscroll-behavior-y: none;
+  }
   h1 {
     @apply text-4xl font-bold md:text-5xl lg:text-6xl  tracking-tight;
   }

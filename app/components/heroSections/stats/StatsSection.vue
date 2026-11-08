@@ -1,56 +1,35 @@
 <script setup lang="ts">
   const stats = [
+    { value: '1', label: 'Standard For Every Lot' },
     { value: '1', label: 'Point Of Contact' },
-    { value: '100%', label: 'Partner Focus' },
-    { value: '24hr', label: 'Quote Turnaround' },
-    { value: 'All', label: 'Employees in Uniform' },
+    { value: '1 Day', label: 'Quote Turnaround' },
+    { value: 'Aerial', label: 'Assessments & Digital Quotes' },
     { value: '100%', label: 'Projects Photo-Documented' },
-    { value: 'Off-Hours', label: 'Flexible Scheduling' },
+    { value: 'Guaranteed', label: 'Satisfaction & Written Warranty' },
     { value: '100%', label: 'Licensed & Insured' },
-    { value: 'Guaranteed', label: 'Satisfaction From Our Work' },
+    { value: 'Off-Hours', label: 'Flexible Scheduling' },
   ]
 </script>
 <template>
   <section class="relative isolate overflow-hidden bg-primary-950 text-white">
     <!-- Photo fills the whole section -->
     <NuxtImg
-      src="/images/brand-palette-background.png"
-      width="1368"
-      height="2688"
+      src="/images/seal-coating-action-photo.png"
+      width="1600"
+      height="900"
+      densities="x1"
       format="webp"
-      sizes="100vw"
       loading="lazy"
-      class="absolute inset-0 -z-30 h-full w-full object-fill"
+      class="absolute inset-0 -z-20 h-full w-full object-cover object-center"
       alt=""
       aria-hidden="true"
     />
-    <!-- Dark wash so the text always reads, heavier on the text side -->
-    <div
-      class="absolute inset-0 -z-20 bg-gradient-to-r from-primary-950/30 via-primary-950/15 to-transparent"
-      aria-hidden="true"
-    />
-    <!-- Tints the bright bottom-right corner of the image back to the brand colour -->
-    <div
-      class="absolute inset-0 -z-20 bg-gradient-to-tl from-primary-600/50 via-primary-600/15 to-transparent"
-      aria-hidden="true"
-    />
-    <!-- Diagonal streaks behind the text, like painted stall lines -->
-    <div class="absolute inset-0 -z-10" aria-hidden="true">
-      <div
-        class="absolute -left-24 top-0 h-full w-40 -skew-x-12 bg-gradient-to-b from-primary-400/50 to-primary-400/0 md:w-56"
-      />
-      <div
-        class="absolute left-32 top-0 h-full w-6 -skew-x-12 bg-white/15 md:left-52"
-      />
-      <div
-        class="absolute left-44 top-0 h-full w-2 -skew-x-12 bg-white/25 md:left-64"
-      />
-    </div>
-
+    <!-- Dark overlay so the text and stat cards always read over the photo -->
+    <div class="absolute inset-0 -z-10 bg-primary-950/75" aria-hidden="true" />
     <div class="container mx-auto px-4 py-16 md:py-24">
       <div class="max-w-2xl">
         <p
-          class="mb-2 text-sm font-bold uppercase text-primary-200 md:text-base lg:text-lg"
+          class="mb-2 text-sm font-bold uppercase text-primary-200 md:text-base lg:text-lg eyebrow-dash"
         >
           Our promise to every property owner
         </p>
@@ -68,7 +47,7 @@
           <div
             v-for="stat in stats"
             :key="stat.label"
-            class="stat-card rounded-2xl border border-white/15 bg-primary-950/40 p-4 backdrop-blur-md md:p-5"
+            class="stat-card rounded-2xl border border-white/30 bg-white/20 p-4 backdrop-blur-md md:p-5"
           >
             <p
               class="mb-1 break-words text-2xl font-bold text-white md:text-2xl lg:text-3xl"

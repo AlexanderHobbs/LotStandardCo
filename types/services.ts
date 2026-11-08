@@ -36,4 +36,6 @@ export type ServicePage = {
   priceNote?: string
   faqs: { question: string; answer: string }[]
   related: { name: string; slug: string }[]
+  // Blog posts linked in a "Related Guides" block (slug = file name in content/blog)
+  guides?: { title: string; slug: string }[]
 }

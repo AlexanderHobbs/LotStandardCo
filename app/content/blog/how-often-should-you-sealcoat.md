@@ -5,7 +5,6 @@ description: "Most commercial parking lots need sealcoating every 2-3 years. Lea
 category: Sealcoating
 date: 2026-02-10
 updated: 2026-10-31
-author: Lot Standard Co Team
 ---
 
 Sealcoating is one of the most cost-effective ways to protect your pavement investment, but timing matters. Apply it too early and you risk wasting money on a surface that doesn't need it yet; wait too long and you lose the protection you paid for. Here's how to decide when your lot is due.
@@ -25,7 +24,7 @@ New asphalt is usually left to cure for a period before its first seal coat, so 
 - **Climate.** Heat, heavy rain and freeze-thaw cycles all work on a surface, and moisture that seeps into small cracks can expand when it freezes.
 - **Oil and fuel drips.** Parking stalls and drive-through lanes take more chemical punishment than other parts of the lot.
 - **Drainage.** Areas where water stands wear out faster than areas that drain well.
-- **Previous maintenance.** A lot that's had cracks filled and potholes fixed on time holds a seal coat longer.
+- **Previous maintenance.** A lot that's had [cracks filled](/services/crack-filling/) and [potholes fixed](/services/patching-potholes/) on time holds a seal coat longer.
 
 ## Signs your lot needs sealcoating
 
@@ -58,6 +57,6 @@ More isn't always better. Sealing every year builds up thick layers that can cra
 
 ## How to know for sure
 
-The best way to answer "is my lot due?" is to have someone look at it. We'll check the surface, the cracks and the drainage, and tell you honestly whether your lot needs sealcoating now, next year or not yet.
+The best way to answer "is my lot due?" is to have someone look at it. We'll check the surface, the cracks and the drainage, and tell you honestly whether your lot [needs sealcoating now](/services/sealcoating/), next year or not yet.
 
-If it's been a while since your lot was last sealed, [get in touch](/contact) and we'll take a look.
+If it's been a while since your lot was last sealed, [get in touch](/contact/) and we'll take a look.

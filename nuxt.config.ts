@@ -1,4 +1,5 @@
-import { readdirSync, readFileSync } from "node:fs";
+import { existsSync, readdirSync, readFileSync } from "node:fs";
+import { copyFile, rm } from "node:fs/promises";
 import { resolve } from "pathe";
 import presetIcons from "@unocss/preset-icons";
 import { bundledLanguages } from "shiki";
@@ -45,18 +46,51 @@ export default defineNuxtConfig({
     payloadExtraction: false,
   },
 
+  hooks: {
+    "nitro:init"(nitro) {
+      // Replace the empty 404.html app shell with the rendered /not-found page,
+      // then delete that page's own folder so it isn't published as a URL.
+      nitro.hooks.hook("prerender:done", async () => {
+        const dir = nitro.options.output.publicDir;
+        const page = resolve(dir, "not-found", "index.html");
+        if (!existsSync(page)) return;
+        await copyFile(page, resolve(dir, "404.html"));
+        await rm(resolve(dir, "not-found"), { recursive: true, force: true });
+        // ...and the share-card image generated for it
+        await rm(resolve(dir, "__og-image__", "image", "not-found"), {
+          recursive: true,
+          force: true,
+        });
+      });
+    },
+  },
+
   nitro: {
     preset: "netlify-static",
     prerender: {
       crawlLinks: true,
-      routes: [
-        "/services",
+      // Old service URLs only 301 (routeRules below); without this Nitro also
+      // writes a meta-refresh stub file at each path, and Netlify serves a real
+      // file in preference to the redirect.
+      ignore: [
         "/services/line-striping",
-        "/services/sealcoating",
         "/services/ada-compliance-marking",
-        "/services/warehouse-floor-marking",
         "/services/safety-markings",
         "/services/signage-installation",
+      ],
+      routes: [
+        // Rendered only so the prerender:done hook below can copy it to
+        // 404.html (Nuxt always writes 404.html as an empty app shell).
+        "/not-found",
+        "/services",
+        "/services/sealcoating",
+        "/services/crack-filling",
+        "/services/patching-potholes",
+        "/services/restriping",
+        "/services/new-layout-ada-striping",
+        "/services/full-package",
+        "/services/residential-driveway",
+        "/services/warehouse-floor-marking",
         "/areas/booneville",
         "/areas/paris",
         "/areas/charleston",
@@ -194,6 +228,20 @@ export default defineNuxtConfig({
 
   routeRules: {
     "/hidden": { robots: false },
+    // Old service pages: send visitors and search engines to the closest
+    // current service (301) instead of a 404.
+    "/services/line-striping": {
+      redirect: { to: "/services/restriping/", statusCode: 301 },
+    },
+    "/services/ada-compliance-marking": {
+      redirect: { to: "/services/new-layout-ada-striping/", statusCode: 301 },
+    },
+    "/services/safety-markings": {
+      redirect: { to: "/services/restriping/", statusCode: 301 },
+    },
+    "/services/signage-installation": {
+      redirect: { to: "/services/", statusCode: 301 },
+    },
   },
 
   // Used by all modules in the @nuxtjs/seo collection
@@ -215,10 +263,11 @@ export default defineNuxtConfig({
     // Auto-discovery wrote an escaped, resized /_ipx URL (and empty entries);
     // list the home page image explicitly instead.
     discoverImages: false,
-    exclude: ["/franchise", "/franchise/"],
-    // Give crawlers freshness/priority hints (build time = last deploy).
+    exclude: ["/franchise", "/franchise/", "/not-found", "/not-found/"],
+    // Priority hints for crawlers. No default lastmod: a build-time date on
+    // every URL changes on each deploy and teaches Google to ignore lastmod.
+    // Blog posts add their real dates through blogSitemapUrls.
     defaults: {
-      lastmod: new Date().toISOString(),
       changefreq: "monthly",
       priority: 0.7,
     },

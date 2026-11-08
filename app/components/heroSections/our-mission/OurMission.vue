@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import LogoBullet from "@/components/LogoBullet.vue";
-
 // Both columns start slightly offset and slide into place when scrolled into view
 const root = ref<HTMLElement | null>(null);
 const mounted = ref(false);
@@ -17,110 +15,70 @@ onMounted(() => {
   if (root.value) observer.observe(root.value);
   onBeforeUnmount(() => observer.disconnect());
 });
+// The four 2x2 cards; the wide dark card below them is written out in the template
 const points = [
-  "Free, no-obligation quotes with a reply within one business day",
-  "Licensed and insured crews on every job",
-  "Every project documented, so you always know what was done",
-  "Flexible scheduling, including off-hours, to keep your business open",
+  {
+    icon: "i-mdi-clipboard-text-outline",
+    title: "Quick ranges, free quotes",
+    detail:
+      "Get a free price range on your first call, then a clear written quote within one business day. No hidden fees, no pressure.",
+  },
+  {
+    icon: "i-mdi-drone",
+    title: "Aerial assessments, digital quotes",
+    detail:
+      "We survey your lot from above and send a digital quote, so you know the scope and price before work starts.",
+  },
+  {
+    icon: "i-mdi-book-open-page-variant-outline",
+    title: "The Lot Standard Playbook",
+    detail:
+      "One team follows the same written steps on every job, scheduled around your business hours.",
+  },
+  {
+    icon: "i-mdi-camera-outline",
+    title: "Clear communication, every project documented",
+    detail:
+      "Stay informed from first quote to final walkthrough, with a record of the work, materials and results.",
+  },
 ];
-
-// Before/after toggle: the two photos are stacked and cross-fade with a slight zoom
-const before = ref(true);
-const beforeLayer = ref<HTMLElement | null>(null);
-const afterLayer = ref<HTMLElement | null>(null);
-const fade = { type: "keyframes", duration: 600, ease: "easeInOut" } as const;
-const layerVariants = {
-  shown: { opacity: 1, scale: 1, transition: fade },
-  hidden: { opacity: 0, scale: 1.05, transition: fade },
-};
-// Each layer needs an explicit starting variant, otherwise the first apply() has
-// no known state to animate from and the first click snaps instead of fading.
-const beforeMotion = useMotion(beforeLayer, {
-  ...layerVariants,
-  initial: { opacity: 1, scale: 1 },
-});
-const afterMotion = useMotion(afterLayer, {
-  ...layerVariants,
-  initial: { opacity: 0, scale: 1.05 },
-});
-watch(before, (isBefore) => {
-  beforeMotion.apply(isBefore ? "shown" : "hidden");
-  afterMotion.apply(isBefore ? "hidden" : "shown");
-});
-
-const toggle = () => {
-  before.value = !before.value;
-};
 </script>
 <template>
   <div
     id="mission_text"
     ref="root"
-    class="container mx-auto px-4 pt-12 pb-12 relative"
+    class="container mx-auto px-4 pt-16 pb-16 md:pt-24 md:pb-24 relative"
   >
-    <div class="-mx-4 flex flex-wrap items-center">
+    <div class="-mx-4 flex flex-wrap items-start">
       <div
-        class="mr-auto py-4 pl-4 w-full lg:w-[53%] transition duration-700 ease-out"
+        class="mr-auto py-4 px-4 w-full lg:w-[45%] lg:pr-8 transition duration-700 ease-out"
         :class="
           mounted ? 'translate-x-0 opacity-100' : '-translate-x-8 opacity-0'
         "
       >
         <p
-          class="text-sm md:text-base lg:text-lg font-medium mb-2 mb-2 text-primary-600 dark:text-primary-200 uppercase"
+          class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base lg:text-lg eyebrow-dash"
         >
           Why Choose Lot Standard Co
         </p>
-        <h2 class="capitalize mb-2 !text-2xl md:!text-3xl lg:!text-4xl">
+        <h2 class="capitalize mb-4 !text-2xl md:!text-3xl lg:!text-4xl">
           One standard. Every lot. Every time.
         </h2>
         <p class="mb-6">
-          At Lot Standard Co we deliver
-          <NuxtLink
-            to="/services"
-            class="font-semibold text-primary-600 underline hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-100"
-            >quality exterior maintenance</NuxtLink
-          >
-          through a proven process, dependable scheduling, and full
-          documentation on every project. Whether it's a
-          <NuxtLink
-            to="/services/line-striping"
-            class="font-semibold text-primary-600 underline hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-100"
-            >re-stripe</NuxtLink
-          >
-          or a fresh
-          <NuxtLink
-            to="/services/sealcoating"
-            class="font-semibold text-primary-600 underline hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-100"
-            >sealcoat</NuxtLink
-          >, your properties get the same high standard no matter where they
-          are. <br><br>
-          We serve everyone from single-location local businesses to
-          multi-property franchises. Our
-          <NuxtLink
-            to="/about"
-            class="font-semibold text-primary-600 underline hover:text-primary-800 dark:text-primary-200 dark:hover:text-primary-100"
-            >team-based approach</NuxtLink
-          >
-          and reliable
-          framework mean clear communication and quality work completed on time,
-          every time. We’re licensed and insured. <br><br>
-          Cutting-edge technology keeps us efficient, and the Lot Standard
-          Playbook turns our process into a repeatable system, so you get more
-          value on every project. It’s quality work you can count on.
+          You shouldn’t have to wonder how your lot will turn out. With Lot
+          Standard Co, you know the plan, the price and the process before any
+          work begins. You’ll see your lot from above with an aerial assessment,
+          get a clear digital quote, and stay in the loop from first contact to
+          the final walkthrough.
         </p>
-        <!-- Hovering a point highlights it and fades the others -->
-        <ul
-          class="group/list mb-8 space-y-1 text-neutral-700 dark:text-neutral-200"
-        >
-          <li
-            v-for="point in points"
-            :key="point"
-            class="cursor-default rounded-xl px-3 py-2 transition duration-300 ease-out group-hover/list:opacity-40 hover:!opacity-100 hover:translate-x-2 hover:bg-primary-100 hover:shadow-md dark:hover:bg-primary-700"
-          >
-            <LogoBullet>{{ point }}</LogoBullet>
-          </li>
-        </ul>
-        <BaseButton size="lg" to="/about">
+        <p class="mb-8">
+          Every project comes with a detailed record of what was done, plus a
+          satisfaction guarantee and a written warranty, so you’re covered after
+          the work is finished. Your time matters too. Quotes come back quickly,
+          and the work is scheduled around your business, so your customers keep
+          coming through the door.
+        </p>
+        <BaseButton size="lg" to="/about/">
           <span>Learn More</span>
           <BaseIcon
             name="i-mdi-arrow-right"
@@ -130,62 +88,50 @@ const toggle = () => {
         </BaseButton>
       </div>
       <div
-        class="w-full px-4 py-4 lg:w-[42%] transition duration-700 ease-out"
+        class="w-full px-4 py-4 lg:w-[55%] transition duration-700 ease-out"
         :class="
           mounted ? 'translate-x-0 opacity-100' : 'translate-x-8 opacity-0'
         "
       >
-        <div class="relative aspect-square overflow-hidden rounded-3xl">
-          <div ref="beforeLayer" class="absolute inset-0">
-            <NuxtImg
-              src="/before.png"
-              width="800"
-              height="800"
-              format="webp"
-              fit="outside"
-              loading="lazy"
-              class="h-full w-full object-cover"
-              alt="Commercial parking lot before sealcoating and striping, with faded and worn pavement"
-            />
-          </div>
-          <div ref="afterLayer" class="absolute inset-0 opacity-0">
-            <NuxtImg
-              src="/After.png"
-              width="800"
-              height="800"
-              format="webp"
-              fit="outside"
-              loading="lazy"
-              class="h-full w-full object-cover"
-              alt="Aerial view of a freshly sealcoated and striped commercial parking lot with crisp white stall lines"
-            />
-          </div>
+        <div class="grid gap-3 sm:grid-cols-2">
           <div
-            class="absolute bottom-4 left-1/2 z-10 flex -translate-x-1/2 gap-1 rounded-full bg-white/80 p-1 shadow-md backdrop-blur-md dark:bg-neutral-900/80"
-            role="group"
-            aria-label="Toggle between before and after photos"
+            v-for="point in points"
+            :key="point.title"
+            class="rounded-2xl bg-white p-4 shadow-md ring-1 ring-neutral-200 transition duration-300 ease-out hover:-translate-y-1 hover:shadow-lg dark:bg-neutral-900 dark:ring-neutral-800"
           >
-            <button
-              v-for="option in [
-                { label: 'Before', value: true },
-                { label: 'After', value: false },
-              ]"
-              :key="option.label"
-              v-motion
-              :hovered="{ scale: 1.05 }"
-              :tapped="{ scale: 0.95 }"
-              type="button"
-              class="rounded-full px-5 py-2 text-sm font-semibold transition-colors duration-300"
-              :class="
-                before === option.value
-                  ? 'bg-primary-600 text-white'
-                  : 'text-neutral-700 hover:bg-white dark:text-neutral-200 dark:hover:bg-neutral-800'
-              "
-              :aria-pressed="before === option.value"
-              @click="before = option.value"
+            <span
+              class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-primary-100 text-primary-600 dark:bg-primary-700 dark:text-primary-100"
+              aria-hidden="true"
             >
-              {{ option.label }}
-            </button>
+              <BaseIcon :name="point.icon" height="20px" />
+            </span>
+            <h3 class="!mb-1 !text-lg font-bold">{{ point.title }}</h3>
+            <p class="text-sm text-neutral-700 dark:text-neutral-300">
+              {{ point.detail }}
+            </p>
+          </div>
+          <!-- Wide brand-colour card spanning both columns -->
+          <div
+            class="flex items-start gap-3 rounded-2xl bg-primary-600 p-4 text-white shadow-md dark:bg-primary-200 dark:text-primary-800 sm:col-span-2"
+          >
+            <span
+              class="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/15 text-white dark:bg-primary-800/15 dark:text-primary-800"
+              aria-hidden="true"
+            >
+              <BaseIcon name="i-mdi-certificate-outline" height="20px" />
+            </span>
+            <div>
+              <h3
+                class="!mb-1 !text-lg font-bold !text-white dark:!text-primary-800"
+              >
+                Written warranty, licensed and insured
+              </h3>
+              <p class="text-sm text-white/90 dark:text-primary-800">
+                Licensed, insured crews and a written warranty with a
+                satisfaction guarantee protect your property and your
+                investment.
+              </p>
+            </div>
           </div>
         </div>
       </div>

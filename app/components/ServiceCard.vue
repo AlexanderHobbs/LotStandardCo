@@ -7,8 +7,8 @@
 </script>
 <template>
   <NuxtLink
-    class="group flex w-full md:w-6/12 lg:w-4/12 focus-visible:outline-none"
-    :to="`/services/${slug}`"
+    class="group flex w-full md:w-6/12 lg:w-3/12 focus-visible:outline-none"
+    :to="`/services/${slug}/`"
   >
     <!-- Image fills the whole card. Only the title shows until the card is
          hovered or focused; the text stays in the DOM (opacity, not display)
@@ -16,7 +16,7 @@
          on devices that can really hover, so touch screens keep the base view
          and a tap goes straight to the service page (no sticky-hover double tap). -->
     <div
-      class="relative m-3 aspect-[4/5] w-full overflow-hidden rounded-3xl bg-neutral-900 text-center text-white shadow-xl group-focus-visible:ring-4 group-focus-visible:ring-secondary-400"
+      class="relative m-3 lg:m-2 aspect-[4/5] w-full overflow-hidden rounded-3xl bg-neutral-900 text-center text-white shadow-xl group-focus-visible:ring-4 group-focus-visible:ring-secondary-400"
     >
       <NuxtImg
         class="absolute inset-0 h-full w-full object-cover transition-transform duration-500 [@media(hover:hover)]:group-hover:scale-105"
@@ -32,7 +32,7 @@
       <div
         class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/10 to-transparent transition-colors duration-300 [@media(hover:hover)]:group-hover:bg-black/80 group-focus-visible:bg-black/80"
       />
-      <div class="absolute inset-0 flex flex-col items-center justify-end p-6">
+      <div class="absolute inset-0 flex flex-col items-center justify-end p-4 xl:p-6">
         <BaseIcon
           v-if="icon"
           :name="icon"

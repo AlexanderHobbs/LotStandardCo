@@ -9,7 +9,7 @@ const service: ServicePage = {
   image: "/images/services/sealcoating.jpg",
   seoTitle: "Parking Lot Sealcoating in Arkansas",
   metaDescription:
-    "Commercial parking lot sealcoating in Fort Smith, Fayetteville and western Arkansas. Protect asphalt and extend pavement life. Free quotes.",
+    "Commercial parking lot sealcoating in the River Valley & Northwest Arkansas. Shields asphalt from sun and water, phased so your lot stays open. Free quote.",
   keywords:
     "sealcoating, asphalt sealcoating, parking lot sealcoating, pavement protection, commercial sealcoating, Fort Smith sealcoating, Northwest Arkansas sealcoating",
   eyebrow: "Parking Lot Sealcoating",
@@ -86,9 +86,13 @@ const service: ServicePage = {
     },
   ],
   related: [
-    { name: "Line Striping", slug: "line-striping" },
-    { name: "Warehouse Floor Marking", slug: "warehouse-floor-marking" },
-    { name: "Safety Markings", slug: "safety-markings" },
+    { name: "Crack Filling", slug: "crack-filling" },
+    { name: "Restriping", slug: "restriping" },
+    { name: "Full Package", slug: "full-package" },
+  ],
+  guides: [
+    { title: "How Often Should You Sealcoat Your Parking Lot?", slug: "how-often-should-you-sealcoat" },
+    { title: "Best Time of Year for Line Striping", slug: "best-time-of-year-for-striping" },
   ],
 };
 </script>

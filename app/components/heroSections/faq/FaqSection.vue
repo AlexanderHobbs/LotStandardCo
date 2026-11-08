@@ -1,6 +1,11 @@
 <script setup lang="ts">
   const faqs = [
     {
+      question: 'What services do you offer?',
+      answer:
+        'We offer sealcoating, crack filling, patching and pothole repair, restriping, new layouts and ADA striping, a full package that repairs, seals and stripes your lot in one project, and residential driveway sealing and repair.',
+    },
+    {
       question: 'How much does parking lot striping cost?',
       answer:
         'Pricing depends on lot size, layout complexity, and the number of stalls. Most jobs are priced per linear foot or per stall. Contact us for a free, no-obligation quote based on your specific property.',
@@ -28,7 +33,7 @@
     {
       question: 'What areas do you service?',
       answer:
-        'We serve commercial properties across Fort Smith, Van Buren, Alma, Fayetteville, Springdale, Rogers, Bentonville and the surrounding counties of western and northwest Arkansas. Contact us to confirm coverage for your location.',
+        'We serve commercial properties across Fort Smith, Van Buren, Alma, Fayetteville, Springdale, Rogers, Bentonville and the surrounding counties of the River Valley and Northwest Arkansas. Contact us to confirm coverage for your location.',
     },
   ]
 
@@ -49,7 +54,7 @@
 <template>
   <section class="container mx-auto px-4 py-12">
     <div class="mx-auto text-center w-full lg:w-7/12">
-      <p class="text-sm md:text-base lg:text-lg font-medium mb-2 text-primary-600 dark:text-primary-200 uppercase">
+      <p class="text-sm md:text-base lg:text-lg font-medium mb-2 text-primary-600 dark:text-primary-200 uppercase eyebrow-dash">
         Frequently Asked Questions
       </p>
       <h2 class="capitalize mt-3 !text-2xl md:!text-3xl lg:!text-4xl">Common Questions About Our Services</h2>

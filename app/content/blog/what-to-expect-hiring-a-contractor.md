@@ -5,7 +5,6 @@ description: "Hiring a parking lot striping contractor for the first time? What 
 category: Guides
 date: 2025-09-14
 updated: 2026-10-31
-author: Lot Standard Co Team
 ---
 
 If you've never had a lot professionally striped before, it helps to know what the process looks like from quote to completion. A good contractor makes it straightforward, and knowing the steps makes it easier to compare quotes and spot problems. Here's how a typical project goes.
@@ -14,7 +13,7 @@ If you've never had a lot professionally striped before, it helps to know what t
 
 ## 1. Site visit & quote
 
-We start with a walk-through of your property to measure the lot, note any ADA or fire-lane requirements, and understand your traffic patterns. We'll ask about what's bothering you, whether it's faded stalls, a changed layout, a new tenant or a compliance concern. You'll get a written quote with no surprise add-ons.
+We start with a walk-through of your property to measure the lot, note any [ADA or fire-lane requirements](/blog/ada-compliant-parking-guide/), and understand your traffic patterns. We'll ask about what's bothering you, whether it's [faded stalls](/services/restriping/), a changed layout, a new tenant or a compliance concern. You'll get a written quote with no surprise add-ons.
 
 A good quote should spell out:
 
@@ -40,7 +39,7 @@ Preparation is the part customers don't see, and it's one of the biggest factors
 
 ## 4. Layout & striping
 
-We lay out stalls, fire lanes, arrows, and ADA-compliant accessible spaces according to code, then apply fast-drying traffic paint. Measuring the layout first keeps stalls straight and consistent, and lets us check that accessible spaces, access aisles and fire lanes meet the dimensions they should.
+We lay out stalls, fire lanes, arrows, and [ADA-compliant accessible spaces](/services/new-layout-ada-striping/) according to code, then apply fast-drying traffic paint. Measuring the layout first keeps stalls straight and consistent, and lets us check that accessible spaces, access aisles and fire lanes meet the dimensions they should.
 
 ## 5. Cure time & walkthrough
 
@@ -67,4 +66,4 @@ Most paint is dry to the touch within an hour, with full cure happening over the
 
 Most commercial lots take a day or less, depending on size, layout complexity and the amount of prep needed. A small lot can often be finished in a few hours; a large retail or apartment lot may be done in phases.
 
-Curious what a project at your property would look like? [Request a free quote](/contact).
+Curious what a project at your property would look like? [Request a free quote](/contact/).

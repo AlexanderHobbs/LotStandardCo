@@ -57,7 +57,7 @@ defineProps<{ plain?: boolean }>()
             class="pb-4 text-center w-full"
           >
             <p
-              class="text-sm md:text-base lg:text-lg font-medium mb-2 uppercase"
+              class="text-sm md:text-base lg:text-lg font-medium mb-2 uppercase eyebrow-dash"
               :class="plain ? 'text-primary-600 dark:text-primary-200' : 'text-primary-100'"
             >
               Our Services
@@ -69,8 +69,9 @@ defineProps<{ plain?: boolean }>()
               Everything Your Lot Needs. One Trusted Crew
             </h2>
             <p class="mb-4" :class="!plain && 'text-white'">
-              From fresh line striping to sealcoating and ADA compliance, we
-              keep your parking lot safe, sharp, and code-compliant.
+              From crack filling and sealcoating to fresh restriping and
+              ADA-compliant layouts, we keep your parking lot safe, sharp, and
+              code-compliant.
             </p>
           </div>
         </div>
@@ -81,7 +82,7 @@ defineProps<{ plain?: boolean }>()
           :visible-once="{ opacity: 1, y: 0, transition: { duration: 600, delay: 300, ease: 'easeOut' } }"
           class="mt-8 flex justify-center"
         >
-          <BaseButton size="xl" to="/services"
+          <BaseButton size="xl" to="/services/"
             ><span>View All Services</span>
             <BaseIcon
               name="i-mdi-arrow-right"

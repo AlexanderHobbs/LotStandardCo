@@ -2,6 +2,9 @@
 // Just the list of service cards. Service data lives in one place:
 // app/data/services.json (via useServices). The section title, backdrop and
 // "View All Services" button live in ServiceSection.vue.
+// headingTag: h3 where the cards sit under a section h2 (home page); the
+// /services/ page has no h2 above them, so it passes h2.
+defineProps<{ headingTag?: 'h2' | 'h3' }>()
 const { allServices: services } = useServices()
 </script>
 <template>
@@ -16,6 +19,7 @@ const { allServices: services } = useServices()
       v-for="(service, index) in services"
       :key="index"
       v-bind="service"
+      :heading-tag="headingTag"
       class="max-md:w-[80%] max-md:shrink-0 max-md:snap-center"
     />
   </div>

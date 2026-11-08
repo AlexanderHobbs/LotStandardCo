@@ -7,7 +7,7 @@ const google = {
 const USP = [
   { name: "Annual Lot Care Plan" },
   { name: "Multi-property coverage and single invoice" },
-  { name: "Automatic reminders and scheduling" },
+  { name: "Written Warranty" },
   { name: "Direct Owner Communication" },
 ];
 

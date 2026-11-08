@@ -12,9 +12,9 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
   }
 
   usePageSeo({
-    title: 'Parking Lot Striping in Rogers',
+    title: 'Parking Lot Striping in Rogers, AR',
     description:
-      "Parking lot striping in Rogers, AR. Line striping, ADA markings and sealcoating for Benton County medical plazas and multi-tenant retail centers.",
+      "Parking lot striping in Rogers, AR. Restriping, ADA striping and sealcoating for Benton County medical plazas and multi-tenant retail centers.",
     keywords:
       "Rogers AR parking lot striping, Rogers Arkansas sealcoating, Benton County line striping, medical plaza parking lot striping Rogers, multi-tenant parking lot striping Rogers AR, Pinnacle Hills striping",
   })
@@ -38,13 +38,6 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         },
       },
     },
-    defineBreadcrumb({
-      itemListElement: [
-        { name: 'Home', item: '/' },
-        { name: 'Areas We Cover', item: '/areas/' },
-        { name: 'Rogers' },
-      ],
-    }),
   ])
 </script>
 
@@ -60,12 +53,11 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         <TrustBar />
       </div>
 
-      <div
-        class="grid items-center gap-8 pt-20 pb-0 lg:grid-cols-2 lg:gap-12"
-      >
+      <!-- First half of the copy beside the quote form -->
+      <div class="grid items-start gap-8 pt-20 lg:grid-cols-2 lg:gap-12">
         <div>
           <p
-            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base"
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base eyebrow-dash"
           >
             Benton County pavement solutions
           </p>
@@ -73,11 +65,30 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
             Your Trusted Pavement Expert in {{ town.name }}
           </h2>
           <p class="mb-6">
-            We serve Rogers and Benton County medical plazas, shopping centers and multi-tenant properties with <NuxtLink to="/services/line-striping" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">line striping</NuxtLink> planned around patients, tenants and deliveries. We keep <NuxtLink to="/services/ada-compliance-marking" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">ADA parking</NuxtLink> current and mark reserved and drop-off stalls clearly.
+            We serve Rogers and Benton County medical plazas, shopping centers and multi-tenant properties with <NuxtLink to="/services/restriping/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">restriping</NuxtLink> planned around patients, tenants and deliveries. We keep <NuxtLink to="/services/new-layout-ada-striping/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">ADA parking</NuxtLink> current and mark reserved and drop-off stalls clearly.
           </p>
-          <p class="mb-6">
-            We protect the surface with <NuxtLink to="/services/sealcoating" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">sealcoating</NuxtLink> and crack sealing on a maintenance schedule, and add <NuxtLink to="/services/safety-markings" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">fire lane and directional markings</NuxtLink> and <NuxtLink to="/services/signage-installation" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">signage</NuxtLink>, so every tenant's customers see a well-kept lot.
+          <p class="mb-0">
+            We protect the surface with <NuxtLink to="/services/sealcoating/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">sealcoating</NuxtLink> and <NuxtLink to="/services/crack-filling/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">crack filling</NuxtLink> on a maintenance schedule, and offer a <NuxtLink to="/services/full-package/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">full repair-seal-stripe package</NuxtLink> that repairs, seals and stripes in one visit, so every tenant's customers see a well-kept lot.
           </p>
+        </div>
+        <QuoteForm />
+      </div>
+
+      <!-- Second half of the copy beside the photo -->
+      <div class="grid items-center gap-8 pt-20 lg:grid-cols-2 lg:gap-12">
+        <AreaPhoto
+          src="/area-photos/rogers.jpg"
+          :alt="`Parking lot with fresh white striping, a hatched aisle, concrete wheel stops and yellow curb markings - parking lot striping in ${town.name}, Arkansas`"
+        />
+        <div>
+          <p
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base eyebrow-dash"
+          >
+            Our Work in {{ town.name }}
+          </p>
+          <h2 class="mb-4 text-2xl font-bold md:!text-3xl">
+            Lots That Work for Patients and Tenants in Rogers
+          </h2>
           <p class="mb-6">
             In Rogers, we serve the medical offices and clinics around Mercy Hospital, the shopping and office properties in Pinnacle Hills, and multi-tenant plazas along the I-49 corridor. These lots have to work for patients, employees and deliveries at the same time, so we pay close attention to accessible parking near entrances, drop-off zones and reserved tenant stalls, and keep fire lanes and directional arrows sharp so visitors find their way.
           </p>
@@ -86,31 +97,28 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
           </p>
           <QuoteButton size="lg" background="white" />
         </div>
-        <AreaPhoto
-          src="/area-photos/rogers.png"
-          :alt="`Parking lot with fresh white striping, a hatched aisle, concrete wheel stops and yellow curb markings - parking lot striping in ${town.name}, Arkansas`"
-        />
-        <div
-          class="grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3 lg:col-span-2"
-        >
-          <div>
-            <p class="text-lg font-bold">Precision</p>
-            <p class="text-sm">Dedicated crews with an eye for detail on every line.</p>
-          </div>
-          <div>
-            <p class="text-lg font-bold">Clear Scope &amp; Pricing</p>
-            <p class="text-sm">Know exactly what's included before work begins.</p>
-          </div>
-          <div>
-            <p class="text-lg font-bold">Reply Within 1 Business Day</p>
-            <p class="text-sm">Fast scheduling for Rogers and all of Benton County.</p>
-          </div>
+      </div>
+
+      <div
+        class="mt-12 grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3"
+      >
+        <div>
+          <p class="text-lg font-bold">Precision</p>
+          <p class="text-sm">Dedicated crews with an eye for detail on every line.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Clear Scope &amp; Pricing</p>
+          <p class="text-sm">Know exactly what's included before work begins.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Reply Within 1 Business Day</p>
+          <p class="text-sm">Fast scheduling for Rogers and all of Benton County.</p>
         </div>
       </div>
       <hr class="border-primary-300 dark:border-primary-500" />
 
       <div>
-        <ServiceSection plain class="-mx-4 my-20" />
+        <ServiceSection plain class="-mx-4" />
         <hr class="border-primary-300 dark:border-primary-500" />
         <ProcessSection background="white" />
       </div>

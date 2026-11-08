@@ -5,7 +5,6 @@ description: "How many accessible parking spaces you need, what compliant ADA ma
 category: Compliance
 date: 2026-01-22
 updated: 2026-10-31
-author: Lot Standard Co Team
 ---
 
 Accessible parking isn't optional, and getting it wrong can mean fines, complaints, or worse — a visitor who can't safely reach your building. For property managers, the tricky part is that ADA parking rules are specific: a number of spaces, exact dimensions, particular signs, and an accessible route. Here's what to know, and how to tell whether your lot is in good shape.
@@ -37,7 +36,7 @@ Accessible spaces should be on the shortest accessible route to an accessible en
 
 ## A common mistake
 
-Faded or incorrectly placed accessible markings are one of the most common compliance gaps we see. Often the original layout was correct, but repeated re-striping over the years slowly drifted from code as lines were repainted freehand, access aisles shrank, and symbols got touched up without being measured. Sealcoating that covers the old markings, followed by a rushed re-stripe, is another common way a compliant lot ends up non-compliant.
+Faded or incorrectly placed accessible markings are one of the most common compliance gaps we see. Often the original layout was correct, but repeated re-striping over the years slowly drifted from code as lines were repainted freehand, access aisles shrank, and symbols got touched up without being measured. [Sealcoating that covers the old markings](/services/sealcoating/), followed by a rushed re-stripe, is another common way a compliant lot ends up non-compliant.
 
 ## A quick self-check for your property
 
@@ -54,6 +53,6 @@ Anything that fails is worth fixing before it becomes a complaint or a demand le
 
 ## How we handle it
 
-We handle ADA-compliant layout and marking as part of every re-striping job. We measure instead of eyeballing, restore symbols and access aisles to the correct dimensions, and flag anything that needs more than paint — such as missing signs, a settled surface or a blocked route — so you can decide how to deal with it.
+We handle [ADA-compliant layout and marking](/services/new-layout-ada-striping/) as part of every [re-striping job](/services/restriping/). We measure instead of eyeballing, restore symbols and access aisles to the correct dimensions, and flag anything that needs more than paint — such as missing signs, a settled surface or a blocked route — so you can decide how to deal with it.
 
-Not sure your lot is up to code? [Reach out for a free assessment](/contact) and we'll walk through it with you. This guide is general information, not legal advice; for a binding determination, consult your local code official or an accessibility specialist.
+Not sure your lot is up to code? [Reach out for a free assessment](/contact/) and we'll walk through it with you. This guide is general information, not legal advice; for a binding determination, consult your local code official or an accessibility specialist.

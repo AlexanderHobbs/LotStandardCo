@@ -23,35 +23,30 @@ useHead({
       class="relative my-3 flex flex-1 items-center overflow-hidden rounded-3xl"
     >
       <div
-        class="absolute inset-0 bg-gradient-to-r from-tertiary-900/[.83] via-secondary-900/[.68] to-tertiary-900/[.83]"
+        class="absolute inset-0 bg-gradient-to-r from-tertiary-900/[.9] via-tertiary-900/[.7] to-secondary-900/[.5]"
       />
-      <div class="relative z-10 w-full pb-12">
-        <div class="lg:px-12 px-6 relative rounded-3xl">
-          <div
-            class="-mx-4 flex flex-wrap items-center justify-center space-y-6 lg:space-y-0"
+      <div class="relative z-10 w-full px-6 py-12 lg:px-12 lg:py-16">
+        <div class="mx-auto max-w-4xl text-center">
+          <p
+            class="mx-auto mb-6 flex w-fit items-center gap-3 rounded-full bg-white/10 px-5 py-2.5 font-bold font-serif text-sm tracking-widest text-gray-200 uppercase ring-1 ring-inset ring-white/25 backdrop-blur-sm md:text-base"
           >
-            <div class="mx-auto px-4 w-full text-center md:w-11/12 xl:w-9/12">
-              <p
-                class="font-bold font-serif mb-1 !text-base md:!text-lg lg:!text-xl text-gray-300 uppercase"
-              >
-                Setting the standard for Arkansas
-              </p>
-              <h1
-                class="capitalize leading-tight mb-10 !text-3xl md:!text-4xl lg:!text-5xl text-white"
-              >
-              Premier Parking Lot Striping & Pavement Maintenance In Western Arkansas
-              </h1>
-              <div class="flex flex-wrap items-center justify-center gap-4">
-                <QuoteButton size="xl" class="![--h:4rem]" />
-                <NuxtLink
-                  :to="`tel:${phone}`"
-                  class="inline-flex items-center gap-2 h-16 rounded-full px-6 text-lg font-medium text-white ring-2 ring-inset ring-white/70 transition-colors hover:bg-white/10"
-                >
-                  <BaseIcon name="i-mdi-phone-outline" height="22px" />
-                  {{ phoneDisplay }}
-                </NuxtLink>
-              </div>
-            </div>
+            Setting the standard for Arkansas
+          </p>
+          <h1
+            class="capitalize leading-tight mb-8 !text-3xl md:!text-4xl lg:!text-5xl text-white"
+          >
+            Parking Lot Striping &amp; Maintenance in the River Valley &amp; Northwest Arkansas
+          </h1>
+          <!-- zoom: both buttons 5% smaller, padding and text included -->
+          <div class="flex flex-wrap items-center justify-center gap-4 [zoom:0.95]">
+            <QuoteButton size="xl" class="![--h:4rem]" />
+            <NuxtLink
+              :to="`tel:${phone}`"
+              class="inline-flex items-center gap-2 h-16 rounded-full bg-white/10 px-6 text-lg font-medium text-white ring-2 ring-inset ring-white/70 backdrop-blur-sm transition-colors hover:bg-white/20"
+            >
+              <BaseIcon name="i-mdi-phone-outline" height="22px" />
+              {{ phoneDisplay }}
+            </NuxtLink>
           </div>
         </div>
       </div>

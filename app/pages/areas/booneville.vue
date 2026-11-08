@@ -12,9 +12,9 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
   }
 
   usePageSeo({
-    title: 'Parking Lot Striping in Booneville',
+    title: 'Parking Lot Striping in Booneville, AR',
     description:
-      "Parking lot striping in Booneville, AR. Line striping, sealcoating and ADA markings for Logan County retail plazas, churches and municipal lots.",
+      "Parking lot striping in Booneville, AR. Restriping, sealcoating, crack filling and ADA striping for Logan County retail plazas and churches. Free quote.",
     keywords:
       "Booneville AR parking lot striping, Booneville sealcoating, Logan County line striping, Booneville church parking lot, municipal parking lot striping Logan County, Booneville ADA parking",
   })
@@ -38,13 +38,6 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         },
       },
     },
-    defineBreadcrumb({
-      itemListElement: [
-        { name: 'Home', item: '/' },
-        { name: 'Areas We Cover', item: '/areas/' },
-        { name: 'Booneville' },
-      ],
-    }),
   ])
 </script>
 
@@ -60,12 +53,11 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
         <TrustBar />
       </div>
 
-      <div
-        class="grid items-center gap-8 pt-20 pb-0 lg:grid-cols-2 lg:gap-12"
-      >
+      <!-- First half of the copy beside the quote form -->
+      <div class="grid items-start gap-8 pt-20 lg:grid-cols-2 lg:gap-12">
         <div>
           <p
-            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base"
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base eyebrow-dash"
           >
             Logan County pavement solutions
           </p>
@@ -73,11 +65,30 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
             Your Trusted Pavement Expert in {{ town.name }}
           </h2>
           <p class="mb-6">
-            We serve Booneville and Logan County with straightforward, honest pavement work. We begin with an assessment, then recommend only what your lot needs, whether that's fresh <NuxtLink to="/services/line-striping" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">line striping</NuxtLink>, <NuxtLink to="/services/sealcoating" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">sealcoating</NuxtLink> and crack repair, or updated <NuxtLink to="/services/ada-compliance-marking" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">ADA markings</NuxtLink>.
+            We serve Booneville and Logan County with straightforward, honest pavement work. We begin with an assessment, then recommend only what your lot needs, whether that's fresh <NuxtLink to="/services/restriping/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">restriping</NuxtLink>, <NuxtLink to="/services/sealcoating/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">sealcoating</NuxtLink> and <NuxtLink to="/services/crack-filling/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">crack filling</NuxtLink>, or updated <NuxtLink to="/services/new-layout-ada-striping/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">ADA striping</NuxtLink>.
           </p>
-          <p class="mb-6">
-            Municipal, church and retail customers get clear itemized quotes, and we add <NuxtLink to="/services/safety-markings" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">fire lane and curb markings</NuxtLink> and <NuxtLink to="/services/signage-installation" class="font-medium underline underline-offset-2 hover:text-primary-600 dark:hover:text-primary-200">signage</NuxtLink> in the same visit so the whole lot is finished at once.
+          <p class="mb-0">
+            Municipal, church and retail customers get clear itemized quotes, and we can handle <NuxtLink to="/services/patching-potholes/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">pothole repair</NuxtLink> and a <NuxtLink to="/services/full-package/" class="font-medium hover:text-primary-600 dark:hover:text-primary-200">full repair-seal-stripe package</NuxtLink> in the same visit so the whole lot is finished at once.
           </p>
+        </div>
+        <QuoteForm />
+      </div>
+
+      <!-- Second half of the copy beside the photo -->
+      <div class="grid items-center gap-8 pt-20 lg:grid-cols-2 lg:gap-12">
+        <AreaPhoto
+          src="/area-photos/booneville.jpg"
+          :alt="`Freshly painted white parking stalls in front of a shopping center - parking lot striping in ${town.name}, Arkansas`"
+        />
+        <div>
+          <p
+            class="mb-2 text-sm font-medium uppercase text-primary-600 dark:text-primary-200 md:text-base eyebrow-dash"
+          >
+            Our Work in {{ town.name }}
+          </p>
+          <h2 class="mb-4 text-2xl font-bold md:!text-3xl">
+            Honest Pavement Work in Booneville
+          </h2>
           <p class="mb-6">
             In Booneville, we serve the churches, municipal buildings, schools and local shops that the whole surrounding area depends on. These lots are well used and often go years between projects, so during the assessment we look for cracks and drainage problems as well as faded lines, and recommend crack sealing and sealcoating wherever it will add years to the pavement.
           </p>
@@ -86,31 +97,28 @@ import TrustBar from "~/components/heroSections/trust/TrustBar.vue";
           </p>
           <QuoteButton size="lg" background="white" />
         </div>
-        <AreaPhoto
-          src="/area-photos/booneville.png"
-          :alt="`Freshly painted white parking stalls in front of a shopping center - parking lot striping in ${town.name}, Arkansas`"
-        />
-        <div
-          class="grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3 lg:col-span-2"
-        >
-          <div>
-            <p class="text-lg font-bold">Precision</p>
-            <p class="text-sm">Dedicated crews with an eye for detail on every line.</p>
-          </div>
-          <div>
-            <p class="text-lg font-bold">Clear Scope &amp; Pricing</p>
-            <p class="text-sm">Know exactly what's included before work begins.</p>
-          </div>
-          <div>
-            <p class="text-lg font-bold">Reply Within 1 Business Day</p>
-            <p class="text-sm">Fast scheduling for Booneville and all of Logan County.</p>
-          </div>
+      </div>
+
+      <div
+        class="mt-12 grid gap-4 border-t border-primary-200 py-8 text-center dark:border-primary-600 sm:grid-cols-3"
+      >
+        <div>
+          <p class="text-lg font-bold">Precision</p>
+          <p class="text-sm">Dedicated crews with an eye for detail on every line.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Clear Scope &amp; Pricing</p>
+          <p class="text-sm">Know exactly what's included before work begins.</p>
+        </div>
+        <div>
+          <p class="text-lg font-bold">Reply Within 1 Business Day</p>
+          <p class="text-sm">Fast scheduling for Booneville and all of Logan County.</p>
         </div>
       </div>
       <hr class="border-primary-300 dark:border-primary-500" />
 
       <div>
-        <ServiceSection plain class="-mx-4 my-20" />
+        <ServiceSection plain class="-mx-4" />
         <hr class="border-primary-300 dark:border-primary-500" />
         <ProcessSection background="white" />
       </div>

@@ -3,7 +3,7 @@
   // tab) at its small size, so it matches the "Request a Quote" CTAs.
   withDefaults(
     defineProps<{ to?: string; background?: 'default' | 'white' }>(),
-    { to: '/contact', background: 'default' },
+    { to: '/contact/', background: 'default' },
   )
 </script>
 <template>

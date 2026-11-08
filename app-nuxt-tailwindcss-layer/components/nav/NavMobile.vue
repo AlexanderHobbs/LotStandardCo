@@ -115,7 +115,7 @@
         </li>
       </ul>
       <BaseButton
-        to="/contact"
+        to="/contact/"
         color="cta"
         size="xl"
         class="mt-6 w-full justify-center"

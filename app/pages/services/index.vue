@@ -2,19 +2,20 @@
 import ServiceListLite from "~/components/heroSections/services/ServiceListLite.vue";
 
 definePageMeta({
-  title: "Parking Lot Striping Services in Arkansas",
+  title: "Parking Lot Services in Arkansas",
   description:
-    "Professional line striping, sealcoating, ADA-compliant marking, warehouse floor marking, safety markings, and signage for commercial parking lots.",
+    "Sealcoating, crack filling, pothole repair, restriping, new layouts and ADA striping, and full repair-seal-stripe packages for lots and driveways.",
   navOrder: 2,
   type: "primary",
   icon: "i-mdi-road-variant",
   tags: [
-    "line striping",
     "sealcoating",
-    "ADA compliance marking",
-    "warehouse floor marking",
-    "safety markings",
-    "signage installation",
+    "crack filling",
+    "patching and potholes",
+    "restriping",
+    "new layout and ADA striping",
+    "full package",
+    "residential driveway",
   ],
 });
 </script>
@@ -25,19 +26,19 @@ definePageMeta({
   >
     <div class="flex flex-col items-center">
       <div class="w-full px-4 text-center lg:w-8/12">
-        <p class="mb-2 text-sm font-medium md:text-base lg:text-lg uppercase">
+        <p class="mb-3 text-sm font-medium md:text-base lg:text-lg uppercase eyebrow-dash">
           Our Services
         </p>
-        <h1 class="text-2xl capitalize md:text-3xl lg:text-4xl">
-          Professional Pavement Marking & Maintenance
+        <h1 class="mb-6 text-2xl capitalize md:text-3xl lg:text-4xl">
+          Parking Lot Services in Arkansas
         </h1>
-        <p class="mb-4">
-          From fresh line striping to sealcoating, ADA compliance, and warehouse
-          floor marking, we keep commercial parking lots safe, sharp, and
-          code-compliant. Every job is completed by licensed, insured crews
-          using durable, fast-drying materials built to withstand daily traffic.
-          Browse our full range of services below, or
-          <NuxtLink to="/contact" class="underline"
+        <p class="mx-auto mb-8 max-w-3xl leading-relaxed">
+          From crack filling and pothole repair to sealcoating, restriping, and
+          ADA-compliant layouts, we keep parking lots safe, sharp, and
+          code-compliant, and we handle residential driveways too. Every job is
+          completed by licensed, insured crews using durable materials built to
+          withstand daily traffic. Browse our full range of services below, or
+          <NuxtLink to="/contact/"
             >request a free quote</NuxtLink
           >
           for your property.
@@ -46,8 +47,8 @@ definePageMeta({
       </div>
     </div>
 
-    <div class="container mx-auto px-4 pt-8">
-      <ServiceListLite />
+    <div class="container mx-auto px-4 pt-14">
+      <ServiceListLite heading-tag="h2" />
     </div>
   </div>
 </template>

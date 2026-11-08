@@ -16,8 +16,8 @@ const { socials } = siteMeta;
         >
           <TheLogo />
           <p class="mt-2 text-center w-full lg:text-left">
-            Professional line striping, sealcoating, and parking lot maintenance
-            you can count on.
+            Professional sealcoating, crack filling, restriping, and parking lot
+            maintenance you can count on.
           </p>
           <ul class="mt-6 mb-2 flex gap-3">
             <li v-for="social in socials" :key="social.name">
@@ -54,14 +54,14 @@ const { socials } = siteMeta;
             </li>
             <li class="mb-4">
               <NuxtLink
-                to="/services"
+                to="/services/"
                 class="hover:text-primary-600 dark:text-primary-200"
                 >Services</NuxtLink
               >
             </li>
             <li class="mb-4">
               <NuxtLink
-                to="/about"
+                to="/about/"
                 class="hover:text-primary-600 dark:text-primary-200"
                 >About</NuxtLink
               >
@@ -77,28 +77,28 @@ const { socials } = siteMeta;
           <ul class="text-center lg:mt-2 lg:text-left">
             <li class="mb-4">
               <NuxtLink
-                to="/blog"
+                to="/blog/"
                 class="hover:text-primary-600 dark:text-primary-200"
                 >Blog</NuxtLink
               >
             </li>
             <li class="mb-4">
               <NuxtLink
-                to="/areas"
+                to="/areas/"
                 class="hover:text-primary-600 dark:text-primary-200"
                 >Areas We Cover</NuxtLink
               >
             </li>
             <li class="mb-4">
               <NuxtLink
-                to="/contact"
+                to="/contact/"
                 class="hover:text-primary-600 dark:text-primary-200"
                 >Contact Us</NuxtLink
               >
             </li>
             <li class="mb-4">
               <NuxtLink
-                to="/contact"
+                to="/contact/"
                 class="hover:text-primary-600 dark:text-primary-200"
                 >Get A Free Quote</NuxtLink
               >

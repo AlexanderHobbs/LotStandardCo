@@ -17,3 +17,7 @@ components.d.ts
 composables.d.ts
 ## rollup visualizer
 stats.html
+## Markdown notes (SEO audit files and the like) are not part of the site.
+## The blog posts in app/content are the site content, so they stay tracked.
+*.md
+!app/content/**/*.md

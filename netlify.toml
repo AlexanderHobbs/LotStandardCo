@@ -19,6 +19,35 @@ NODE_VERSION = "20.14.0"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
 
+# Optimised images (/_ipx/*) are WebP data saved under .jpg/.png names, so
+# label them as WebP. The cache is 7 days rather than a year because the file
+# name stays the same when a photo is replaced.
+[[headers]]
+  for = "/_ipx/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+    Content-Type = "image/webp"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/area-photos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/logo.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/logo-icon-mark.png"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
 [[headers]]
   for = "/*"
   [headers.values]

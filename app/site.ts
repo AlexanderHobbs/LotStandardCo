@@ -4,10 +4,17 @@
 export default {
   title: "Lot Standard Co",
   description:
-    "Professional parking lot line striping, sealcoating, ADA-compliant marking, and pavement maintenance for commercial properties in Fort Smith and surrounding areas.",
+    "Professional parking lot sealcoating, crack filling, patching, restriping, ADA-compliant striping, and pavement maintenance for commercial properties in the River Valley & Northwest Arkansas.",
   // Path from the public/ folder (public/logo.png), not a path on this computer.
   logo: "/logo.png",
   author: "Lot Standard Co",
+  // Person shown in the "Written by" card on blog posts and used as the author
+  // in the BlogPosting structured data, so the two always match.
+  postAuthor: {
+    name: "Alexander Hobbs",
+    title: "Owner | General Manager",
+    path: "/about/",
+  },
   url: "https://lotstandard.com",
   defaultLocale: "en",
   // Business details used for schema.org LocalBusiness markup and the visible
@@ -34,19 +41,26 @@ export default {
           addressCountry: string;
         }
       | undefined,
-    addressDisplay: "Fort Smith and surrounding areas",
+    addressDisplay: "River Valley & Northwest Arkansas",
     // Must match the Google Business Profile exactly.
-    hoursDisplay: "Mon–Fri, 5am–7pm",
+    hoursDisplay: "Mon–Sat, 5am–9pm",
     openingHours: {
-      dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      dayOfWeek: [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
       opens: "05:00",
-      closes: "19:00",
+      closes: "21:00",
     },
     // Profile links (Google Business Profile, etc.) for schema.org `sameAs`.
     sameAs: [
       "https://share.google/BHiVMEgkuF6DXLslt",
       "https://instagram.com/lotstandardco",
-      "https://www.youtube.com/@LotStandardCo",  
+      "https://www.youtube.com/@LotStandardCo",
     ] as string[],
     areaServed: [
       "Logan County, AR",
@@ -83,47 +97,46 @@ export default {
       {
         title: "Services",
         icon: "i-mdi-road-variant",
-        to: "/services",
+        to: "/services/",
         // Dropdown menu. Any nav item can get a dropdown by adding a `children` array.
         children: [
-          { title: "Line Striping", to: "/services/line-striping" },
-          { title: "Sealcoating", to: "/services/sealcoating" },
+          { title: "Restriping", to: "/services/restriping/" },
           {
-            title: "ADA Compliance Marking",
-            to: "/services/ada-compliance-marking",
+            title: "New Layout & ADA Striping",
+            to: "/services/new-layout-ada-striping/",
           },
+          { title: "Sealcoating", to: "/services/sealcoating/" },
+          { title: "Crack Filling", to: "/services/crack-filling/" },
+          { title: "Patching & Potholes", to: "/services/patching-potholes/" },
+          {
+            title: "Residential Driveway",
+            to: "/services/residential-driveway/",
+          },
+          { title: "Full Package", to: "/services/full-package/" },
           {
             title: "Warehouse Floor Marking",
-            to: "/services/warehouse-floor-marking",
-          },
-          {
-            title: "Safety Markings",
-            to: "/services/safety-markings",
-          },
-          {
-            title: "Signage Installation",
-            to: "/services/signage-installation",
+            to: "/services/warehouse-floor-marking/",
           },
         ],
       },
       {
         title: "Areas We Serve",
         icon: "i-mdi-map-marker-radius-outline",
-        to: "/areas",
+        to: "/areas/",
         // Each town links to its own page; the dropdown adds "View all areas".
         children: [
-          { title: "Fort Smith", to: "/areas/fort-smith" },
-          { title: "Fayetteville", to: "/areas/fayetteville" },
-          { title: "Bentonville", to: "/areas/bentonville" },
-          { title: "Rogers", to: "/areas/rogers" },
-          { title: "Springdale", to: "/areas/springdale" },
-          { title: "Van Buren", to: "/areas/van-buren" },
-          { title: "Alma", to: "/areas/alma" },
-          { title: "Booneville", to: "/areas/booneville" },
-          { title: "Charleston", to: "/areas/charleston" },
-          { title: "Greenwood", to: "/areas/greenwood" },
-          { title: "Ozark", to: "/areas/ozark" },
-          { title: "Paris", to: "/areas/paris" },
+          { title: "Fort Smith", to: "/areas/fort-smith/" },
+          { title: "Fayetteville", to: "/areas/fayetteville/" },
+          { title: "Bentonville", to: "/areas/bentonville/" },
+          { title: "Rogers", to: "/areas/rogers/" },
+          { title: "Springdale", to: "/areas/springdale/" },
+          { title: "Van Buren", to: "/areas/van-buren/" },
+          { title: "Alma", to: "/areas/alma/" },
+          { title: "Booneville", to: "/areas/booneville/" },
+          { title: "Charleston", to: "/areas/charleston/" },
+          { title: "Greenwood", to: "/areas/greenwood/" },
+          { title: "Ozark", to: "/areas/ozark/" },
+          { title: "Paris", to: "/areas/paris/" },
         ],
       },
     ],
@@ -131,17 +144,17 @@ export default {
       {
         title: "About",
         icon: "i-mdi-information-outline",
-        to: "/about",
+        to: "/about/",
       },
       {
         title: "Blog",
         icon: "i-mdi-post-outline",
-        to: "/blog",
+        to: "/blog/",
       },
       {
         title: "Franchise",
         icon: "i-mdi-store-outline",
-        to: "/franchise",
+        to: "/franchise/",
       },
     ],
   },
