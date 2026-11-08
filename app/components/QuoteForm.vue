@@ -1,6 +1,13 @@
 <script setup lang="ts">
   // Three-step "Get A Free Quote" form: Project -> Details -> Contact.
-  // Posts to Netlify Forms under the name "contact".
+  // Submissions go to Web3Forms, which emails them to the address the access
+  // key was created for (set in the Web3Forms dashboard, not in this code).
+  import siteMeta from '@/site'
+
+  // Web3Forms access keys are meant to be public, so it is safe in client code.
+  const WEB3FORMS_ENDPOINT = 'https://api.web3forms.com/submit'
+  const WEB3FORMS_ACCESS_KEY = '68f1cbc8-8801-47b2-a5fa-21cfb913cd22'
+
   const { allServices: services } = useServices()
   const serviceOptions = services.map((service) => service.name)
 
@@ -55,6 +62,7 @@
   const direction = ref<'forward' | 'back'>('forward')
   const submitted = ref(false)
   const submitting = ref(false)
+  const submitError = ref(false)
   const showErrors = ref(false)
 
   const form = reactive({
@@ -117,32 +125,44 @@
   const err = (field: keyof typeof errors.value) => (showErrors.value ? errors.value[field] : '')
 
   const submit = async () => {
-    submitting.value = true
-    const data = new FormData()
-    data.append('form-name', 'contact')
-    data.append('bot-field', form.botField)
-    data.append('first-name', form.firstName)
-    data.append('last-name', form.lastName)
-    data.append('name', `${form.firstName.trim()} ${form.lastName.trim()}`)
-    data.append('email', form.email)
-    data.append('phone', form.phone)
-    data.append('consent', form.consent ? 'Agreed to terms & policies' : '')
-    data.append('address', form.address)
-    data.append('city', form.city)
-    data.append('state', form.state)
-    data.append('zip', form.zip)
-    data.append('start', form.start)
-    data.append('referral', form.referral)
-    data.append('message', form.message)
-    // Netlify Forms reads repeated entries as one multi-value field.
-    form.services.forEach((service) => data.append('service', service))
-    try {
-      await $fetch('/', { method: 'POST', body: data })
-    } catch {
-      // Netlify Forms only succeeds once deployed; ignore errors in local dev.
+    // A human never fills the hidden field; pretend it worked so bots get no signal.
+    if (form.botField) {
+      submitted.value = true
+      return
     }
-    submitting.value = false
-    submitted.value = true
+    submitting.value = true
+    submitError.value = false
+    const name = `${form.firstName.trim()} ${form.lastName.trim()}`
+    try {
+      const result = await $fetch<{ success: boolean }>(WEB3FORMS_ENDPOINT, {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: {
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `New quote request from ${name}`,
+          from_name: 'Lot Standard Co website',
+          // Web3Forms uses "email" as the Reply-To, so replying goes to the customer.
+          name,
+          email: form.email,
+          phone: form.phone,
+          services: form.services.join(', '),
+          start: form.start,
+          address: form.address,
+          city: form.city,
+          state: form.state,
+          zip: form.zip,
+          referral: form.referral,
+          message: form.message,
+          consent: form.consent ? 'Agreed to terms & policies' : '',
+        },
+      })
+      if (!result.success) throw new Error('Web3Forms rejected the submission')
+      submitted.value = true
+    } catch {
+      submitError.value = true
+    } finally {
+      submitting.value = false
+    }
   }
 
   const next = () => {
@@ -188,25 +208,6 @@
 </script>
 <template>
   <div class="quote-form w-full rounded-3xl bg-white p-6 text-left text-tertiary-900 shadow-2xl md:p-8">
-    <!-- Static stub so Netlify detects the form and every field at build time. -->
-    <form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
-      <input name="bot-field" >
-      <input name="first-name" >
-      <input name="last-name" >
-      <input name="name" >
-      <input name="email" >
-      <input name="phone" >
-      <input name="consent" >
-      <input name="address" >
-      <input name="city" >
-      <input name="state" >
-      <input name="zip" >
-      <input name="start" >
-      <input name="referral" >
-      <input name="service" >
-      <textarea name="message" />
-    </form>
-
     <div v-if="submitted" class="py-6 text-center" role="status">
       <span class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-[#fcc419]">
         <BaseIcon name="i-mdi-check" height="30px" />
@@ -434,6 +435,10 @@
           <BaseIcon name="i-mdi-arrow-right" height="20px" class="continue-arrow" />
         </button>
       </div>
+      <p v-if="submitError" class="mt-3 text-sm text-error-600" role="alert">
+        Sorry, we couldn't send your request. Please try again or call us at
+        <a :href="`tel:${siteMeta.business.phone}`" class="font-semibold underline">{{ siteMeta.business.phoneDisplay }}</a>.
+      </p>
     </form>
   </div>
 </template>
